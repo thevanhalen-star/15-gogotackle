@@ -103,7 +103,6 @@ const byCatTopic = by((p) => p.cat + '|' + p.topic);
 const catUrl = (s) => `/archive/c-${s}-1`, groupUrl = (s) => `/archive/g-${s}-1`, topicUrl = (s) => `/archive/t-${s}-1`, genreUrl = (s) => `/archive/f-${s}-1`;
 
 // ---------- 공통 조각 ----------
-const mins = (p) => Math.max(2, Math.round(p.chars / 500));
 const num = (n) => n.toLocaleString('ko-KR');
 const cnt = (c) => (byCat[c] || []).length;
 
@@ -158,7 +157,7 @@ ${body}
 }
 
 const chip = (href, name, n, on) => `<a class="g chip${on ? ' on' : ''}" href="${href}">${esc(name)}${n !== undefined ? ` ${num(n)}` : ''}</a>`;
-const row = (p, ex) => `<a href="${url(p)}" class="g row"><div class="row-b"><div class="mono">${esc(catBy[p.cat].name)} · ${mins(p)}분</div><h3>${esc(p.title)}</h3>${ex ? `<p>${esc(p.excerpt)}</p>` : ''}</div><span class="arr" aria-hidden="true">→</span></a>`;
+const row = (p, ex) => `<a href="${url(p)}" class="g row"><div class="row-b"><div class="mono">${esc(catBy[p.cat].name)}</div><h3>${esc(p.title)}</h3>${ex ? `<p>${esc(p.excerpt)}</p>` : ''}</div><span class="arr" aria-hidden="true">→</span></a>`;
 const sechead = (n, label, title, right = '') => `<div class="sech"><div><div class="mono">${n ? n + ' // ' : ''}${label}</div><h2>${title}</h2></div>${right}</div>`;
 
 function pager(base, n, total) {
@@ -283,7 +282,7 @@ function postPage(p, i) {
 <article class="g art">
   <div class="mono crumb"><a href="/">Home</a> / <a href="${groupUrl(p.group.slug)}">${esc(p.group.name)}</a> / <a href="${catUrl(p.cat)}">${esc(catBy[p.cat].name)}</a></div>
   <h1>${esc(p.title)}</h1>
-  <div class="byline"><a class="g" href="${topicUrl(p.topic)}">${esc(topicBy[p.topic].name)}</a><a class="g" href="${genreUrl(p.genre)}">${esc(genreBy[p.genre].name)}</a><span class="mono">읽기 ${mins(p)}분</span></div>
+  <div class="byline"><a class="g" href="${topicUrl(p.topic)}">${esc(topicBy[p.topic].name)}</a><a class="g" href="${genreUrl(p.genre)}">${esc(genreBy[p.genre].name)}</a></div>
   <p class="disc">이 페이지에는 <b>광고</b>(제휴 링크 포함)가 있을 수 있으며, 광고 링크를 통해 구매하면 운영자가 수수료를 받을 수 있습니다.</p>
   ${AD('detail-top')}
   ${bodyHtml}
