@@ -4,10 +4,103 @@
   "updatedBy": "",
   "enabled": true,
   "slots": [
-    { "id": "detail-top", "label": "상세 · 본문 시작 전", "enabled": true },
-    { "id": "detail-mid-1", "label": "상세 · 본문 앞쪽", "enabled": true },
-    { "id": "detail-mid-2", "label": "상세 · 본문 뒤쪽", "enabled": true },
-    { "id": "detail-end", "label": "상세 · 글 맨 끝", "enabled": true }
+    {
+      "id": "detail-top",
+      "label": "상세 · 첫 사진 아래",
+      "enabled": true
+    },
+    {
+      "id": "detail-mid-1",
+      "label": "상세 · 본문 앞쪽",
+      "enabled": true
+    },
+    {
+      "id": "detail-mid-2",
+      "label": "상세 · 본문 뒤쪽",
+      "enabled": true
+    },
+    {
+      "id": "detail-end",
+      "label": "상세 · 글 맨 끝",
+      "enabled": true
+    }
   ],
-  "ads": []
+  "ads": [
+    {
+      "id": "ad-1",
+      "name": "네이버 쇼핑 제휴 1",
+      "slot": "detail-top",
+      "link": "https://mkt.shopping.naver.com/link/68831b4c815d200271efd26a",
+      "images": [
+        "/ad_image/001/001.jpg",
+        "/ad_image/001/002.jpg",
+        "/ad_image/001/003.jpg",
+        "/ad_image/001/004.jpg",
+        "/ad_image/001/005.jpg",
+        "/ad_image/001/006.jpg",
+        "/ad_image/001/007.jpg",
+        "/ad_image/001/008.jpg",
+        "/ad_image/001/009.jpg",
+        "/ad_image/001/010.jpg",
+        "/ad_image/001/011.jpg"
+      ],
+      "enabled": true,
+      "weight": 1,
+      "start": "",
+      "end": ""
+    },
+    {
+      "id": "ad-2",
+      "name": "네이버 쇼핑 제휴 2",
+      "slot": "detail-mid-1",
+      "link": "https://mkt.shopping.naver.com/link/69c387ff01c5cd3461ab40a0",
+      "images": [
+        "/ad_image/002/001.jpg",
+        "/ad_image/002/002.jpg",
+        "/ad_image/002/003.jpg",
+        "/ad_image/002/004.jpg",
+        "/ad_image/002/005.jpg",
+        "/ad_image/002/006.jpg",
+        "/ad_image/002/007.jpg"
+      ],
+      "enabled": true,
+      "weight": 1,
+      "start": "",
+      "end": ""
+    },
+    {
+      "id": "ad-3",
+      "name": "네이버 쇼핑 제휴 3",
+      "slot": "detail-mid-2",
+      "link": "https://mkt.shopping.naver.com/link/69c387fffc2fa72357614b8c",
+      "images": [
+        "/ad_image/003/001.jpg",
+        "/ad_image/003/002.jpg",
+        "/ad_image/003/003.jpg",
+        "/ad_image/003/004.jpg",
+        "/ad_image/003/005.jpg",
+        "/ad_image/003/006.jpg",
+        "/ad_image/003/007.jpg"
+      ],
+      "enabled": true,
+      "weight": 1,
+      "start": "",
+      "end": ""
+    },
+    {
+      "id": "ad-4",
+      "name": "fish-gear 자체 쇼핑몰",
+      "slot": "detail-end",
+      "link": "https://www.fish-gear.com",
+      "images": [
+        "/ad_image/004/001.jpg",
+        "/ad_image/004/002.jpg",
+        "/ad_image/004/003.jpg"
+      ],
+      "enabled": true,
+      "weight": 1,
+      "start": "",
+      "end": ""
+    }
+  ]
 }
