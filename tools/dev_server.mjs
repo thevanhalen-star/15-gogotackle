@@ -10,6 +10,10 @@ const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 
 
 http.createServer((req, res) => {
   let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+  if (p.startsWith('/_preview/')) { // 로컬 전용 시안 미리보기 (배포되지 않음)
+    const pf = path.join(ROOT, 'design-preview', p.slice('/_preview/'.length));
+    if (pf.startsWith(path.join(ROOT, 'design-preview')) && fs.existsSync(pf) && fs.statSync(pf).isFile()) { res.writeHead(200, { 'Content-Type': TYPES[path.extname(pf)] || 'application/octet-stream' }); return fs.createReadStream(pf).pipe(res); }
+  }
   const tries = [p, p + '.html', path.posix.join(p, 'index.html')];
   for (const t of tries) {
     const f = path.join(ROOT, 'public', t);

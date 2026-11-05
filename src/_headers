@@ -25,6 +25,9 @@
 /assets/favicon.svg
   Cache-Control: public, max-age=86400
 
+/assets/og-image.png
+  Cache-Control: public, max-age=86400
+
 /posts/*
   Cache-Control: public, max-age=3600
 

@@ -19,7 +19,7 @@ const UPDATED = '2026-11-06';
 // Google AdSense 게시자 ID (예: 'pub-1234567890123456'). 승인 신청/승인 후 입력하면 head 코드와 ads.txt 가 자동 생성됨.
 const ADSENSE_PUB = '';
 const ver = (f) => crypto.createHash('md5').update(fs.readFileSync(path.join(SRC, 'assets', f))).digest('hex').slice(0, 8);
-const V = { css: ver('theme.css'), js: ver('site.js'), ads: ver('ads.js') };
+const V = { css: ver('theme.css'), js: ver('site.js'), ads: ver('ads.js'), og: ver('og-image.png') };
 
 // 상단 메뉴 묶음 (categories.json 의 카테고리 slug 를 묶어서 보여 줌)
 const GROUPS = [
@@ -128,7 +128,8 @@ function layout({ title, desc, path: p, body, nav = '', type = 'website', ld = [
 <link rel="alternate" type="application/rss+xml" title="${NAME} RSS" href="/rss.xml">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <meta property="og:type" content="${type}"><meta property="og:site_name" content="${NAME}"><meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}">
+<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}"><meta property="og:image" content="${SITE}/assets/og-image.png?v=${V.og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="고고태클 GOGO TACKLE - 낚시 장비 리뷰 & 선택 가이드">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${SITE}/assets/og-image.png?v=${V.og}">
 ${ADSENSE_PUB ? `<meta name="google-adsense-account" content="ca-${ADSENSE_PUB}">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${ADSENSE_PUB}" crossorigin="anonymous"></script>
 ` : ''}<link rel="preload" href="/assets/fonts/NanumBarunGothic-400.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/NanumBarunGothic-700.woff2" as="font" type="font/woff2" crossorigin>
