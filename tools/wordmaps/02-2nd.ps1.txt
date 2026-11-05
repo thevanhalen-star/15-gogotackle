@@ -1,0 +1,130 @@
+$replaceMap = [ordered]@{
+    "농어로득" = "농어로드"
+    "돌밭바" = "돌밭"
+    "슬로우우" = "슬로우"
+    "밑줄(밑줄)" = "하권사(밑줄)"
+    "보일링(보일링)" = "보일링"
+    "연결 부품는" = "연결 부품은"
+    "농어 로드(농어 로드)" = "농어 로드"
+    "손 탄(손 탄)" = "손 탄"
+    "뒷바람(뒷바람)" = "뒷바람"
+    "쇼어지깅란" = "쇼어지깅이란"
+    "강제 집행로" = "강제 집행으로"
+    "경질는" = "경질은"
+    "경질를" = "경질을"
+    "드랙는" = "드랙은"
+    "드랙로" = "드랙으로"
+    "드랙를" = "드랙을"
+    "드랙와" = "드랙과"
+    "목줄를" = "목줄을"
+    "방어류은" = "방어류는"
+    "방어류을" = "방어류를"
+    "수심층가" = "수심층이"
+    "수심층(수심층)" = "수심층"
+    "수심층나" = "수심층이나"
+    "수심층란" = "수심층이란"
+    "수심층를" = "수심층을"
+    "수심층와" = "수심층과"
+    "연질는" = "연질은"
+    "태클란" = "태클이란"
+    "흐린물와" = "흐린물과"
+    "드랙가" = "드랙이"
+    "라인란" = "라인이란"
+    "보일링야" = "나부라야"
+    "워킹다" = "도보다"
+    "워킹다는" = "도보다는"
+    "카고즌" = "비시즌"
+    "카드채비비키" = "사비키비키"
+    "평균가" = "평균이"
+    "흐린물가" = "흐린물이"
+    "공략 수심층(공략 수심)" = "공략 수심층"
+    "버트(버트)" = "버트"
+    "훅(훅)" = "훅"
+    "훅를" = "훅을"
+    "포말대(포말대)" = "포말대"
+    "균일 리트리브(균일 리트리브)" = "균일 리트리브"
+    "공략수심(공략 수심)" = "공략수심"
+    "카드채비(카드채비 채비)" = "카드채비"
+    "좁쌀봉돌는" = "좁쌀봉돌은"
+    "좁쌀봉돌를" = "좁쌀봉돌을"
+    "잔고패질를" = "잔고패질을"
+    "나공략 수심" = "나타나"
+    "나공략 수심는" = "나타나는"
+    "공략수심토루" = "타나토루"
+    "슷테이" = "스테이"
+    "털림가" = "털림이"
+    "털림로" = "털림으로"
+
+
+
+}
+
+$totalChangedFiles = 0
+$totalRealChanges = 0
+
+function Get-LiteralMatchCount {
+    param(
+        [string]$Text,
+        [string]$OldValue
+    )
+
+    if ([string]::IsNullOrEmpty($OldValue)) { return 0 }
+
+    $escaped = [regex]::Escape($OldValue)
+    return ([regex]::Matches($Text, $escaped)).Count
+}
+
+$sortedKeys = $replaceMap.Keys | Sort-Object Length -Descending
+
+Get-ChildItem -Path . -Recurse -File |
+Where-Object { $_.Extension.ToLower() -in ".txt", ".html" } |
+ForEach-Object {
+    $path = $_.FullName
+
+    try {
+        $original = [System.IO.File]::ReadAllText($path)
+        $working = $original
+        $fileChangeCount = 0
+
+        $placeholderMap = [ordered]@{}
+        $index = 0
+
+        foreach ($old in $sortedKeys) {
+            $new = $replaceMap[$old]
+
+            $count = Get-LiteralMatchCount -Text $working -OldValue $old
+
+            if ($count -gt 0) {
+                $placeholder = "__OAI_PLACEHOLDER_$index" + "__"
+
+                while ($working.Contains($placeholder) -or $original.Contains($placeholder)) {
+                    $index++
+                    $placeholder = "__OAI_PLACEHOLDER_$index" + "__"
+                }
+
+                $working = $working.Replace($old, $placeholder)
+                $placeholderMap[$placeholder] = $new
+                $fileChangeCount += $count
+                $index++
+            }
+        }
+
+        foreach ($ph in $placeholderMap.Keys) {
+            $working = $working.Replace($ph, $placeholderMap[$ph])
+        }
+
+        if ($working -ne $original) {
+            [System.IO.File]::WriteAllText($path, $working)
+            $totalChangedFiles++
+            $totalRealChanges += $fileChangeCount
+            Write-Host "$path : 실제 변경 $fileChangeCount 개"
+        }
+    }
+    catch {
+        Write-Host "오류: $path"
+    }
+}
+
+Write-Host "==============================="
+Write-Host "실제 변경된 파일 수 : $totalChangedFiles"
+Write-Host "실제 변경 개수 : $totalRealChanges"

@@ -74,7 +74,7 @@ function parseRaw(html) {
     }
     sections.push({ h, ps });
   }
-  return { tags, sections, heads };
+  return { title: lines.find((l) => !l.startsWith('#')) || '', tags, sections, heads };
 }
 
 const posts = [];
@@ -87,7 +87,7 @@ for (const p of tax.posts) {
   const r = parseRaw(fs.readFileSync(f, 'utf8'));
   const firstP = r.sections.flatMap((s) => s.ps)[0] || '';
   posts.push({
-    n, id: 'G' + String(n).padStart(5, '0'), title: p.title, cat: p.category, topic: p.topic, genre: p.genre,
+    n, id: 'G' + String(n).padStart(5, '0'), title: r.title || p.title, cat: p.category, topic: p.topic, genre: p.genre,
     group: groupOfCat[p.category], tags: r.tags, sections: r.sections, heads: r.heads,
     excerpt: clip(textOf(firstP), 120), desc: clip(textOf(firstP), 150),
     chars: r.sections.reduce((a, s) => a + s.ps.join('').length, 0),
