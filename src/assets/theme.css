@@ -4,6 +4,7 @@
 @font-face{font-family:'GG';font-weight:800;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumSquareNeo-800.woff2) format('woff2')}
 @font-face{font-family:'GG';font-weight:900;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumSquareNeo-900.woff2) format('woff2')}
 
+/* rev 2 */
 /* 고고태클 매거진 — 다크 네온 (design-reference.html) */
 :root{
   --bg:#05070F; --ink:#E8EEF8; --muted:#A9B7CD; --dim:#7F8DA5; --cy:#3DF2E0; --vi:#8B5CF6; --lav:#C9A8FF;
