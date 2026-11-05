@@ -24,8 +24,8 @@
     var PER = 50;
     var params = new URLSearchParams(location.search);
     var q = params.get('q') || '';
-    var input = document.querySelector('main .search input[name=q]') || document.querySelector('.search input[name=q]');
-    if (input) input.value = q;
+    var input = document.querySelector('.sform input[name=q]');
+    if (input) { input.value = q; if (params.get('focus')) { try { input.focus({ preventScroll: true }); } catch (e) {} } }
     fetch('/posts.json').then(function (r) { return r.json(); }).then(function (data) {
       // 항목: [id, 제목, 카테고리, 주제, 장르, 해시태그] — 번호가 클수록 최신
       var posts = data.posts, sort = 'new', page = 1;

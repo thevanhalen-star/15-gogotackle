@@ -103,7 +103,13 @@ const byCatTopic = by((p) => p.cat + '|' + p.topic);
 const catUrl = (s) => `/archive/c-${s}-1`, groupUrl = (s) => `/archive/g-${s}-1`, topicUrl = (s) => `/archive/t-${s}-1`, genreUrl = (s) => `/archive/f-${s}-1`;
 
 // ---------- 공통 조각 ----------
-const logo = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F4B400" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11a4 4 0 1 1-8 0"/><circle cx="12" cy="3" r="1"/><path d="M4 14l-2-2M4 14l2-2"/></svg>`;
+const IMGS = { hero: 'hero-combo.jpg', step: 'step-balance-reels-row.jpg', rod: 'cat-rod-combo.jpg', bait: 'cat-bait-dark.jpg', spin: 'cat-spinning-lineup.jpg', bfs: 'cat-bfs-sunrise.jpg', field: 'cat-field-boat.jpg', banner: 'banner-rocks.jpg', shore: 'thumb-shore.jpg', lure: 'thumb-lure.jpg' };
+const img = (k) => `/assets/img/${IMGS[k]}`;
+const POOL = ['step', 'rod', 'bait', 'spin', 'bfs', 'field', 'shore', 'lure']; // 글 썸네일용 (hero·banner 제외)
+const thumbOf = (p) => img(POOL[p.n % POOL.length]);
+const mins = (p) => Math.max(2, Math.round(p.chars / 500));
+const num = (n) => n.toLocaleString('ko-KR');
+const cnt = (c) => (byCat[c] || []).length;
 
 function layout({ title, desc, path: p, body, nav = '', type = 'website', ld = [], robots = 'index,follow', scripts = '' }) {
   const canon = SITE + p;
@@ -117,55 +123,60 @@ function layout({ title, desc, path: p, body, nav = '', type = 'website', ld = [
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="robots" content="${robots}">
-<meta name="theme-color" content="#12332A">
+<meta name="theme-color" content="#05070F">
 <link rel="canonical" href="${canon}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="${NAME} RSS" href="/rss.xml">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <meta property="og:type" content="${type}"><meta property="og:site_name" content="${NAME}"><meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}">
+<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}"><meta property="og:image" content="${SITE}${img('hero')}">
 <link rel="preload" href="/assets/fonts/NanumBarunGothic-400.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/NanumBarunGothic-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/theme.css?v=${V.css}">
 ${ldJson}
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
-<header class="hd"><div class="wrap hd-in">
-  <a class="brand" href="/" aria-label="${NAME} 홈"><span class="brand-mark">${logo}</span><span><b>${NAME}</b><small>GOGO TACKLE</small></span></a>
-  <nav class="nav" aria-label="주요 카테고리">${navItems.map(([n, h]) => `<a href="${h}"${nav === n ? ' class="on" aria-current="page"' : ''}>${n}</a>`).join('')}</nav>
-  <form class="search" action="/all-posts" role="search"><input type="search" name="q" placeholder="릴, 합사, 시마노…" aria-label="검색어"><button type="submit">검색</button></form>
-</div></header>
+<div class="bg"><i class="glow v" aria-hidden="true"></i><i class="glow c" aria-hidden="true"></i>
+<div class="wrap">
+<header class="hd">
+  <a class="brand" href="/" aria-label="${NAME} 홈"><span class="brand-mark" aria-hidden="true">G</span><span class="brand-t"><b>${NAME}</b><small>GOGO TACKLE</small></span></a>
+  <nav class="nav g" aria-label="주요 카테고리">${navItems.map(([n, h]) => `<a href="${h}"${nav === n ? ' class="on" aria-current="page"' : ''}>${n}</a>`).join('')}</nav>
+  <a class="g sbtn" href="/all-posts?focus=1">검색</a>
+</header>
 <main id="main">
 ${body}
 </main>
-<footer class="ft"><div class="wrap ft-in">
-  <div><b>${NAME}</b><p>${TAGLINE}. 장비를 고르는 기준을 현장 감각으로 정리하는 개인 운영 정보 사이트입니다.</p></div>
-  <nav aria-label="사이트 정보"><a href="/all-posts">전체 글 목록</a><a href="/about">사이트 소개</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a><a href="/legal">운영 및 법적 고지</a><a href="/contact">문의</a></nav>
-  <div class="copy">© 2026 ${NAME} · ${TAGLINE} · gogotackle.com</div>
-</div></footer>
-<button class="up" id="up" type="button" aria-label="맨 위로">↑</button>
+<footer class="ft">
+  <div class="ft-a"><div class="ft-n">${NAME}</div><div class="ft-e">GOGO TACKLE</div><p>낚시 장비 선택 기준을 현장의 관점에서 정리하는 개인 프로젝트입니다.</p></div>
+  <nav class="ft-c" aria-label="섹션"><div class="mono">Sections</div>${GROUPS.map((g) => `<a href="${groupUrl(g.slug)}">${g.name}</a>`).join('')}</nav>
+  <nav class="ft-c" aria-label="사이트 정보"><div class="mono">About</div><a href="/all-posts">전체 글 목록</a><a href="/about">사이트 소개</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a><a href="/legal">운영 및 법적 고지</a><a href="/contact">문의</a></nav>
+  <div class="ft-z">© 2026 GOGO TACKLE. All rights reserved.</div>
+</footer>
+</div></div>
+<button class="up g" id="up" type="button" aria-label="맨 위로">↑</button>
 <script src="/assets/site.js?v=${V.js}" defer></script>${scripts}
 </body>
 </html>
 `;
 }
 
-const card = (p) => `<article class="pc"><span class="label">${esc(catBy[p.cat].name)}</span><h3><a href="${url(p)}">${esc(p.title)}</a></h3><p>${esc(p.excerpt)}</p><div class="meta"><span>${esc(topicBy[p.topic].name)}</span><span>읽기 ${Math.max(2, Math.round(p.chars / 500))}분</span></div></article>`;
-const chip = (href, name, n, on) => `<a class="chip${on ? ' on' : ''}" href="${href}">${esc(name)} <i>${n}</i></a>`;
+const chip = (href, name, n, on) => `<a class="g chip${on ? ' on' : ''}" href="${href}">${esc(name)}${n !== undefined ? ` ${num(n)}` : ''}</a>`;
+const row = (p, ex) => `<a href="${url(p)}" class="g row"><img src="${thumbOf(p)}" alt="" width="200" height="120" loading="lazy"><div class="row-b"><div class="mono">${esc(catBy[p.cat].name)} · ${mins(p)}분</div><h3>${esc(p.title)}</h3>${ex ? `<p>${esc(p.excerpt)}</p>` : ''}</div><span class="arr" aria-hidden="true">→</span></a>`;
+const sechead = (n, label, title, right = '') => `<div class="sech"><div><div class="mono">${n ? n + ' // ' : ''}${label}</div><h2>${title}</h2></div>${right}</div>`;
 
 function pager(base, n, total) {
   if (total < 2) return '';
   const set = new Set([1, total, n - 2, n - 1, n, n + 1, n + 2].filter((x) => x >= 1 && x <= total));
   const arr = [...set].sort((a, b) => a - b);
   let html = '', prev = 0;
-  if (n > 1) html += `<a href="${base(n - 1)}" rel="prev" aria-label="이전">‹</a>`;
+  if (n > 1) html += `<a class="g" href="${base(n - 1)}" rel="prev" aria-label="이전">‹</a>`;
   for (const i of arr) {
     if (i - prev > 1) html += '<span class="gap">…</span>';
-    html += i === n ? `<span class="cur" aria-current="page">${i}</span>` : `<a href="${base(i)}">${i}</a>`;
+    html += i === n ? `<span class="cur" aria-current="page">${i}</span>` : `<a class="g" href="${base(i)}">${i}</a>`;
     prev = i;
   }
-  if (n < total) html += `<a href="${base(n + 1)}" rel="next" aria-label="다음">›</a>`;
+  if (n < total) html += `<a class="g" href="${base(n + 1)}" rel="next" aria-label="다음">›</a>`;
   return `<nav class="pager" aria-label="페이지">${html}</nav>`;
 }
 
@@ -175,8 +186,8 @@ function listPages({ key, title, desc, crumb, chips = '', list, nav }) {
   const base = (n) => `/archive/${key}-${n}`;
   for (let n = 1; n <= total; n++) {
     const slice = list.slice((n - 1) * PER, n * PER);
-    const body = `<div class="wrap"><div class="ph"><div class="crumb"><a href="/">홈</a> › ${crumb}</div><h1>${esc(title)}</h1><p>${esc(desc)} <span class="cnt">총 ${list.length}개</span></p>${chips}</div>
-<section class="sec"><div class="grid">${slice.map(card).join('')}</div>${pager(base, n, total)}</section></div>`;
+    const body = `<div class="ph"><div class="mono"><a href="/">Home</a> / ${crumb}</div><h1>${esc(title)}</h1><p>${esc(desc)} <span class="cnt">총 ${num(list.length)}개</span></p>${chips}</div>
+<section class="sec"><div class="rows">${slice.map((p) => row(p, true)).join('')}</div>${pager(base, n, total)}</section>`;
     write(`archive/${key}-${n}.html`, layout({ title: `${title}${n > 1 ? ` (${n}페이지)` : ''} - ${NAME}`, desc, path: base(n), body, nav }));
     archiveUrls.push(base(n));
   }
@@ -184,42 +195,59 @@ function listPages({ key, title, desc, crumb, chips = '', list, nav }) {
 
 // ---------- 홈 ----------
 function home() {
-  const body = `<div class="wrap">
+  const total = posts.length;
+  const stat = (href, n, label) => `<a href="${href}" class="g stat"><div class="big">${num(n)}</div><div class="mono">${label}</div></a>`;
+  const gcount = (s) => (byGroup[s] || []).length;
+  const gname = (s) => GROUPS.find((g) => g.slug === s).name;
+  const steps = [['낚시 장르 정하기', '배스·연안·지깅·라이트게임…'], ['로드·릴·라인 맞추기', '적정 루어 무게와 권사량'], ['규격표로 후보 줄이기', '자중·드랙·기어비'], ['세팅·정비로 오래 쓰기', '브레이크·드랙·관리']];
+  const ccard = (c, ratio, cls, label, size) => `<a href="${catUrl(c)}" class="g ccard ${cls}"><img src="${img(c)}" alt="" loading="lazy" style="aspect-ratio:${ratio}"><div class="cc-b"><div class="mono">${label} · ${num(cnt(c))}</div><div class="cc-t" style="font-size:${size}px">${esc(catBy[c].name)}</div></div></a>`;
+  const body = `
 <section class="hero">
-  <div>
-    <p class="eyebrow">GEAR REVIEW &amp; BUYING GUIDE</p>
-    <h1>살 때 후회하지 않게,<br><mark>장비 고르는 기준</mark>부터</h1>
-    <p class="lead">릴·로드·라인·루어를 고르는 기준과 세팅, 비교, 실사용 후기를 ${posts.length.toLocaleString('ko-KR')}개의 글로 정리했습니다. 규격표 읽는 법과 현장에서 체감되는 차이를 먼저 봅니다.</p>
-    <form class="search" action="/all-posts" role="search"><input type="search" name="q" placeholder="예: 시마노 스피닝릴" aria-label="검색어"><button type="submit">검색</button></form>
+  <div class="hero-t">
+    <div class="mono">Gear Review &amp; Buying Guide</div>
+    <h1>살 때 후회하지 않게,<br><span class="hl">장비 고르는 기준</span>부터</h1>
+    <p class="lead">릴·로드·라인·루어를 고르는 기준과 세팅, 비교, 실사용 후기를 ${num(total)}개의 글로 정리했습니다. 규격표 읽는 법과 현장에서 체감되는 차이를 먼저 봅니다.</p>
+    <div class="btns"><a class="btn" href="#howto">고르는 법 보기</a><a class="g btn2" href="/all-posts">전체 글 ${num(total)}개 →</a></div>
   </div>
-  <aside class="tag-card" aria-label="고르는 순서">
-    <h2>HOW TO PICK</h2>
-    <ol>
-      <li><div>낚시 장르 정하기<span>배스·연안·지깅·라이트게임…</span></div></li>
-      <li><div>로드·릴·라인 맞추기<span>적정 루어 무게와 권사량</span></div></li>
-      <li><div>규격표로 후보 줄이기<span>자중·드랙·기어비</span></div></li>
-      <li><div>세팅·정비로 오래 쓰기<span>브레이크·드랙·관리</span></div></li>
-    </ol>
-  </aside>
+  <figure class="hero-f"><div class="g hero-i"><img src="${img('hero')}" alt="나란히 놓인 로드와 베이트릴 콤보" width="1600" height="1200"></div><div class="g cover"><div class="mono">Cover</div><div>로드 + 릴 콤보</div></div></figure>
 </section>
 
-<section class="sec" aria-labelledby="h-cat">
-  <div class="sec-h"><h2 id="h-cat">카테고리</h2><a href="/all-posts">전체 글 ${posts.length.toLocaleString('ko-KR')}개 →</a></div>
-  <div class="cats">${GROUPS.map((g, i) => `<div class="cat"><span class="label">0${i + 1}</span><h3><a href="${groupUrl(g.slug)}">${esc(g.name)}</a></h3><span class="n">${(byGroup[g.slug] || []).length.toLocaleString('ko-KR')} POSTS</span><div class="chips">${g.cats.map((c) => chip(catUrl(c), catBy[c].name, (byCat[c] || []).length)).join('')}</div></div>`).join('')}</div>
+<section class="stats" aria-label="글 수">
+  ${stat('/all-posts', total, '전체 글')}${['reel', 'rod', 'lure', 'line', 'etc'].map((s) => stat(groupUrl(s), gcount(s), gname(s))).join('')}
 </section>
 
-<section class="sec" aria-labelledby="h-topic">
-  <div class="sec-h"><h2 id="h-topic">주제로 찾기</h2></div>
-  <div class="chips big">${TOPICS.map((t) => chip(topicUrl(t.slug), t.name, (byTopic[t.slug] || []).length)).join('')}</div>
-  <div class="sec-h sub"><h2 id="h-genre">낚시 장르로 찾기</h2></div>
-  <div class="chips big">${GENRES.map((t) => chip(genreUrl(t.slug), t.name, (byGenre[t.slug] || []).length)).join('')}</div>
+<section id="howto" class="sec">
+  ${sechead('01', 'How to pick', '장비 고르는 네 단계')}
+  <div class="how">
+    <div class="steps">${steps.map(([t, d], i) => `<div class="g hv step"><div class="sn">0${i + 1}</div><h3>${t}</h3><p>${d}</p></div>`).join('')}</div>
+    <div class="g how-i"><img src="${img('step')}" alt="줄지어 놓인 로드와 베이트릴" loading="lazy"><div class="mono tag">Step 02 — Balance</div></div>
+  </div>
 </section>
 
-<section class="sec" aria-labelledby="h-new">
-  <div class="sec-h"><h2 id="h-new">최신 글</h2><a href="/all-posts">더 보기 →</a></div>
-  <div class="grid">${posts.slice(0, 12).map(card).join('')}</div>
+<section id="combos" class="sec">
+  <div class="sech"><div><div class="mono">02 // Categories</div><h2>카테고리</h2></div><div class="chips">${GROUPS[0].cats.map((c) => chip(catUrl(c), c === 'reel2' ? '기타 릴' : catBy[c].name, cnt(c))).join('')}</div></div>
+  <div class="cgrid1">${ccard('rod', '16/10', 'wide', 'Rods', 20)}${ccard('bait', '4/3', '', 'Bait', 20)}</div>
+  <div class="cgrid2">${ccard('spin', '4/3', '', 'Spinning', 18)}${ccard('bfs', '4/3', '', 'BFS', 18)}<a href="${groupUrl('etc')}" class="g ccard"><img src="${img('field')}" alt="" loading="lazy" style="aspect-ratio:4/3"><div class="cc-b"><div class="mono">Field · ${num(gcount('etc'))}</div><div class="cc-t" style="font-size:18px">장비·현장</div></div></a></div>
 </section>
-</div>`;
+
+<section class="sec note">
+  <div class="g note-i"><img src="${img('banner')}" alt="바위 사이에 기대 세운 낚싯대들" loading="lazy"><div class="note-t"><div class="mono">Editor's note</div><blockquote>장비는 스펙이 아니라<br>쓰임새로 고릅니다.</blockquote><p>규격표 읽는 법과 현장에서 체감되는 차이를 먼저 봅니다.</p></div></div>
+</section>
+
+<section class="sec">
+  ${sechead('03', 'Latest', '최신 글', '<a class="more" href="/all-posts">더 보기 →</a>')}
+  <div class="rows">${posts.slice(0, 6).map((p) => row(p, false)).join('')}</div>
+</section>
+
+<section class="sec">
+  ${sechead('04', 'Browse by topic', '주제로 찾기')}
+  <div class="tiles">${TOPICS.map((t) => `<a href="${topicUrl(t.slug)}" class="g tile"><div class="mono lav">${num((byTopic[t.slug] || []).length)}</div><div class="tt">${esc(t.name)}</div></a>`).join('')}</div>
+</section>
+
+<section class="sec">
+  ${sechead('05', 'Browse by genre', '낚시 장르로 찾기')}
+  <div class="tiles">${GENRES.map((t) => `<a href="${genreUrl(t.slug)}" class="g tile"><div class="mono lav">${num((byGenre[t.slug] || []).length)}</div><div class="tt">${esc(t.name)}</div></a>`).join('')}</div>
+</section>`;
   write('index.html', layout({
     title: `${NAME} - ${TAGLINE}`,
     desc: '릴·로드·라인·루어 등 낚시 장비를 고르는 기준과 세팅, 비교, 실사용 후기를 정리한 장비 리뷰 사이트입니다.',
@@ -257,22 +285,23 @@ function postPage(p, i) {
   const secs = p.sections;
   const midA = Math.max(1, Math.floor(secs.length / 3)), midB = Math.max(midA + 1, Math.floor((secs.length * 2) / 3));
   const bodyHtml = secs.map((s, k) => `${k === midA ? AD('detail-mid-1') : ''}${k === midB ? AD('detail-mid-2') : ''}<section>${s.h ? `<h2 id="${s.h.id}"${s.h.end ? ' class="end"' : ''}>${esc(s.h.text)}</h2>` : ''}${s.ps.map((t) => `<p>${t}</p>`).join('')}</section>`).join('\n');
-  const body = `<div class="wrap"><div class="post">
-<article class="art">
-  <div class="crumb"><a href="/">홈</a> › <a href="${groupUrl(p.group.slug)}">${esc(p.group.name)}</a> › <a href="${catUrl(p.cat)}">${esc(catBy[p.cat].name)}</a></div>
+  const body = `<div class="post">
+<article class="g art">
+  <div class="mono crumb"><a href="/">Home</a> / <a href="${groupUrl(p.group.slug)}">${esc(p.group.name)}</a> / <a href="${catUrl(p.cat)}">${esc(catBy[p.cat].name)}</a></div>
   <h1>${esc(p.title)}</h1>
-  <div class="byline"><a href="${topicUrl(p.topic)}">${esc(topicBy[p.topic].name)}</a><a href="${genreUrl(p.genre)}">${esc(genreBy[p.genre].name)}</a><span>읽기 ${Math.max(2, Math.round(p.chars / 500))}분</span></div>
+  <div class="byline"><a class="g" href="${topicUrl(p.topic)}">${esc(topicBy[p.topic].name)}</a><a class="g" href="${genreUrl(p.genre)}">${esc(genreBy[p.genre].name)}</a><span class="mono">읽기 ${mins(p)}분</span></div>
+  <img class="art-i" src="${thumbOf(p)}" alt="" width="1600" height="686">
   <p class="disc">이 페이지에는 <b>광고</b>(제휴 링크 포함)가 있을 수 있으며, 광고 링크를 통해 구매하면 운영자가 수수료를 받을 수 있습니다.</p>
   ${AD('detail-top')}
   ${bodyHtml}
   ${AD('detail-end')}
   <div class="safe"><b>낚시 전 확인하세요</b><ul><li>구명조끼를 착용하고, 날씨·물때·현장 안내판을 먼저 확인하세요.</li><li>금어기·포획금지체장 등 규정을 지키고 쓰레기는 되가져오세요.</li></ul></div>
   <p class="fine">이 글은 참고 정보이며 제품·현장 상황과 다를 수 있습니다. 잘못된 내용은 <a href="/contact">문의</a>로 알려 주세요.</p>
-  <div class="tags">${p.tags.map((t) => `<a href="/all-posts?q=${encodeURIComponent(t)}">#${esc(t)}</a>`).join('')}</div>
+  <div class="tags">${p.tags.map((t) => `<a class="g" href="/all-posts?q=${encodeURIComponent(t)}">#${esc(t)}</a>`).join('')}</div>
 </article>
-<aside class="toc" aria-label="목차"><h2>CONTENTS</h2><ol>${p.heads.map((h) => `<li><a href="#${h.id}">${esc(h.text)}</a></li>`).join('')}</ol></aside>
+<aside class="toc g" aria-label="목차"><div class="mono">Contents</div><ol>${p.heads.map((h) => `<li><a href="#${h.id}">${esc(h.text)}</a></li>`).join('')}</ol></aside>
 </div>
-<section class="rel"><h2>같은 주제의 다른 글</h2><div class="grid">${related.map(card).join('')}</div></section></div>`;
+<section class="sec rel">${sechead('', 'Related', '같은 주제의 다른 글')}<div class="rows">${related.map((x) => row(x, false)).join('')}</div></section>`;
   write(`posts/${p.id}/001.html`, layout({
     title: `${p.title} - ${NAME}`, desc: p.desc, path: url(p), body, nav: p.group.name, type: 'article', scripts: `\n<script src="/assets/ads.js?v=${V.ads}" defer></script>`,
     ld: [
@@ -286,19 +315,21 @@ function postPage(p, i) {
 const ALL_PER = 50;
 function allPosts() {
   const first = posts.slice(0, ALL_PER);
-  const body = `<div class="wrap"><div class="ph"><div class="crumb"><a href="/">홈</a> › 전체 글</div><h1>전체 글 목록</h1><p id="all-count">총 ${posts.length.toLocaleString('ko-KR')}개</p></div>
-<section class="sec"><div class="sortbar" role="group" aria-label="정렬"><button type="button" data-sort="new" class="on">최신순</button><button type="button" data-sort="old">오래된순</button><button type="button" data-sort="title">제목순</button></div>
-<ul class="list" id="all-list">${first.map((p) => `<li><span class="label">${esc(catBy[p.cat].name)}</span><a href="${url(p)}">${esc(p.title)}</a></li>`).join('')}</ul>
+  const body = `<div class="ph"><div class="mono"><a href="/">Home</a> / All posts</div><h1>전체 글 목록</h1><p id="all-count">총 ${num(posts.length)}개</p>
+<form class="sform" action="/all-posts" role="search"><input class="g" type="search" name="q" placeholder="예: 시마노 스피닝릴" aria-label="검색어"><button class="btn" type="submit">검색</button></form></div>
+<section class="sec"><div class="sortbar" role="group" aria-label="정렬"><button type="button" class="g on" data-sort="new">최신순</button><button type="button" class="g" data-sort="old">오래된순</button><button type="button" class="g" data-sort="title">제목순</button></div>
+<ul class="g list" id="all-list">${first.map((p) => `<li><span class="label">${esc(catBy[p.cat].name)}</span><a href="${url(p)}">${esc(p.title)}</a></li>`).join('')}</ul>
 <p class="empty" id="all-empty" hidden>검색 결과가 없습니다. 다른 검색어를 입력해 보세요.</p>
 <div class="pager" id="all-pager"></div>
-<noscript><p class="fine">전체 목록은 <a href="${groupUrl('reel')}">카테고리 페이지</a>에서도 볼 수 있습니다.</p></noscript></section></div>`;
+<noscript><p class="fine">전체 목록은 <a href="${groupUrl('reel')}">카테고리 페이지</a>에서도 볼 수 있습니다.</p></noscript></section>`;
   write('all-posts.html', layout({ title: `전체 글 목록 - ${NAME}`, desc: `${NAME}의 모든 글을 검색하고 최신순·제목순으로 찾아볼 수 있습니다.`, path: '/all-posts', body }));
 }
 
 function staticPage(file, title, desc, html) {
-  const body = `<div class="wrap"><div class="ph"><div class="crumb"><a href="/">홈</a> › ${esc(title)}</div><h1>${esc(title)}</h1></div><div class="doc">${html}</div></div>`;
+  const body = `<div class="ph"><div class="mono"><a href="/">Home</a> / ${esc(title)}</div><h1>${esc(title)}</h1></div><div class="g doc">${html}</div>`;
   write(`${file}.html`, layout({ title: `${title} - ${NAME}`, desc, path: '/' + file, body }));
 }
+
 function statics() {
   const N = posts.length.toLocaleString('ko-KR');
   staticPage('about', '사이트 소개', `${NAME}은 낚시 장비를 고르는 기준을 정리하는 무료 정보 사이트입니다.`, `
@@ -359,7 +390,7 @@ function meta() {
   write('rss.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>${NAME}</title><link>${SITE}/</link><description>${TAGLINE}</description><language>ko-KR</language>\n${posts.slice(0, 50).map((p) => `<item><title>${esc(p.title)}</title><link>${SITE}${url(p)}</link><guid>${SITE}${url(p)}</guid><pubDate>${day}</pubDate><description>${esc(p.desc)}</description></item>`).join('\n')}\n</channel></rss>\n`);
   // 검색용: [id, 제목, 카테고리, 주제, 장르, 해시태그]
   write('posts.json', JSON.stringify({ posts: posts.map((p) => [p.id, p.title, catBy[p.cat].name, topicBy[p.topic].name, genreBy[p.genre].name, p.tags.join(' ')]) }));
-  write('manifest.webmanifest', JSON.stringify({ name: `${NAME} - ${TAGLINE}`, short_name: NAME, description: '낚시 장비를 고르는 기준과 세팅·비교·후기', id: '/', start_url: '/?source=pwa', scope: '/', display: 'standalone', background_color: '#F5F2EA', theme_color: '#12332A', lang: 'ko', icons: [{ src: '/assets/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }] }, null, 2));
+  write('manifest.webmanifest', JSON.stringify({ name: `${NAME} - ${TAGLINE}`, short_name: NAME, description: '낚시 장비를 고르는 기준과 세팅·비교·후기', id: '/', start_url: '/?source=pwa', scope: '/', display: 'standalone', background_color: '#05070F', theme_color: '#05070F', lang: 'ko', icons: [{ src: '/assets/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }] }, null, 2));
 }
 
 home(); archives(); posts.forEach(postPage); allPosts(); statics(); meta();
