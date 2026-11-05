@@ -275,7 +275,7 @@ function postPage(p, i) {
 </div>
 <section class="rel"><h2>같은 주제의 다른 글</h2><div class="grid">${related.map(card).join('')}</div></section></div>`;
   write(`posts/${p.id}/001.html`, layout({
-    title: `${p.title} - ${NAME}`, desc: p.desc, path: url(p), body, nav: p.group.name, type: 'article', scripts: '\n<script src="/assets/ads.js?v=${V.ads}" defer></script>',
+    title: `${p.title} - ${NAME}`, desc: p.desc, path: url(p), body, nav: p.group.name, type: 'article', scripts: `\n<script src="/assets/ads.js?v=${V.ads}" defer></script>`,
     ld: [
       { '@context': 'https://schema.org', '@type': 'Article', headline: p.title, description: p.desc, inLanguage: 'ko-KR', articleSection: `${p.group.name} › ${catBy[p.cat].name}`, keywords: p.tags.join(', '), mainEntityOfPage: SITE + url(p), isAccessibleForFree: true, author: { '@type': 'Organization', name: NAME, url: SITE + '/' }, publisher: { '@type': 'Organization', name: NAME, url: SITE + '/' } },
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [[NAME, '/'], [p.group.name, groupUrl(p.group.slug)], [catBy[p.cat].name, catUrl(p.cat)], [p.title, url(p)]].map(([name, u], k) => ({ '@type': 'ListItem', position: k + 1, name, item: SITE + u })) },
