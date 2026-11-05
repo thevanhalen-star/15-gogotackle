@@ -1,0 +1,177 @@
+<!--
+타튤라 100에 얕은 스풀이 안 들어갈 때, 베어링 여러 개 중 하나만 맞았다
+#얕은스풀
+#BFS스풀
+#스풀호환
+#베어링교체
+#베이트릴
+얕은 스풀 안 들어갈 때
+베어링 공차부터 확인
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 5번 실수·교훈 / 타겟: 베이트릴에 얕은 BFS 스풀을 따로 구해 끼워 보려는 낚시인 / 자료: 내수면·벵골어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+스풀 판매 페이지에 릴 모델명이 적혀 있으면<br>
+그대로 끼워진다고 믿는 분들이 많습니다.<br>
+그런데 얕은 BFS 스풀은 베어링과 사이드 플레이트 사이에서 어긋나기 쉽습니다.<br>
+한 번 어긋나면 백러쉬 때마다 줄이 틈에 끼어 스풀을 빼야 합니다.<br>
+확인 순서를 미리 알아 두면 시간을 크게 아낄 수 있습니다.<br><br>
+이 글은 얕은 스풀의 장착 문제와 확인 순서를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 판매 페이지의 연식을<br>
+그대로 믿으면 어긋납니다</h2>
+
+<br>
+
+<p>
+다이와(Daiwa) 타튤라(Tatula) 100 2019년형용이라는 문구가<br>
+제목, 설명, 대표 사진에 모두 있었습니다.<br>
+그런데 판매자는 이 스풀이 2019년형용이 아니라고 답했습니다.<br>
+모델 번호를 보내라는 요구가 이어졌고<br>
+다른 연식의 릴로 판정하는 일까지 벌어졌습니다.<br><br>
+구매 전에 릴 본체의 모델 번호와 스풀 규격을 따로 확인하세요.<br>
+상품 페이지는 캡처로 남겨 두는 편이 낫습니다.<br>
+판매자가 스풀 지름을 캘리퍼로 재서 보내라고 하는 일도 있으니<br>
+캘리퍼가 있으면 말이 빨리 통합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 스풀이 끝까지 안 들어가면<br>
+베어링부터 의심합니다</h2>
+
+<br>
+
+<p>
+처음 끼워 보면 스풀이 사이드 플레이트 안에 끝까지 들어가지 않습니다.<br>
+빼려고 하면 베어링에 걸려서 상당한 힘이 듭니다.<br>
+몇 번 끼웠다 빼기를 되풀이하면 처음보다 수월해집니다.<br>
+베어링이 스풀 샤프트 위에 제대로 앉지 못한 상태입니다.<br><br>
+스풀을 카메라 중앙에 놓고 보면 차이가 드러납니다.<br>
+한쪽은 틈이 많이 보이고 반대쪽은 거의 닿아 있습니다.<br>
+같은 스풀을 문제없이 돌렸다는 사람도 있고<br>
+조금 걸린다는 사람도 있습니다.<br>
+사람마다 결과가 갈린다면 부품 공차 쪽을 먼저 보는 편이 맞습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 백러쉬 때마다 스풀을 빼야 하는<br>
+이유</h2>
+
+<br>
+
+<p>
+틈이 벌어지면 백러쉬가 날 때 줄이 그 안으로 파고듭니다.<br>
+스풀이 사이드 플레이트에 붙어 버려서<br>
+매번 스풀을 빼고 플레이트를 열어 엉킨 줄을 풀어야 합니다.<br><br>
+틈은 지름 0.03인치(약 0.8mm) 철사로 가늠할 수 있습니다.<br>
+한쪽에서는 철사가 들어가는데 반대쪽에서는 걸립니다.<br>
+이 틈이 줄이 파고드는 길이 됩니다.<br>
+줄은 한쪽 틈으로만 들어가고 반대쪽으로는 넘어가지 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 같은 규격 베어링도<br>
+한 개만 매끄럽게 들어갔습니다</h2>
+
+<br>
+
+<p>
+10×4 규격 베어링을 여러 회사 제품으로 모아 같은 스풀에 끼워 봤습니다.<br>
+세라믹 하이브리드도 있었습니다.<br>
+그런데 병에 들어 있던 베어링 가운데 문제없이 끝까지 들어간 것은 하나뿐이었습니다.<br><br>
+불량이라고 단정하기는 어렵고 공차 범위에서 어긋났을 가능성이 큽니다.<br>
+반복해서 끼웠다 빼다 보면 점점 쉽게 빠집니다.<br>
+같은 베어링을 힘으로 밀어 넣지는 마세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 순정 베어링을 빼낼 때는<br>
+스프링부터 엄지로 덮습니다</h2>
+
+<br>
+
+<p>
+순정 베어링을 빼낼 때는 스프링 리테이너가 튀어 나가기 쉽습니다.<br>
+엄지나 다른 손가락으로 스프링을 덮고 가볍게 두드려 올리세요.<br>
+잃어버리면 스풀을 쓰지 못합니다.<br><br>
+교체한 뒤에는 베어링이 안팎으로 막힘없이 돌아갑니다.<br>
+스풀을 끼우면 틈이 줄고 중앙에도 한결 가깝게 앉습니다.<br>
+브레이크를 0에 두고 돌려 보면 어디에도 스치는 소리가 나지 않습니다.<br>
+다만 릴 안쪽에도 베어링이 있어서 본체를 열어야 마무리됩니다.<br><br>
+타튤라는 옆 텐션 노브를 돌리기도 만만치 않습니다.<br>
+손가락이 가는 사람은 조금 더 신경 써서 맞춰야 합니다.<br>
+이 스풀의 무게는 6.7g으로, 5g을 조금 넘는 구형보다 무겁습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 안 맞는 스풀의 환불은<br>
+증거 싸움이 됩니다</h2>
+
+<br>
+
+<p>
+해외 쇼핑몰에 환불 분쟁을 접수했지만 며칠 만에 종료됐습니다.<br>
+이후 판매자와 직접 이야기하라는 안내가 전부였습니다.<br><br>
+판매자는 환불은 해 줄 수 있어도 교환은 어렵다고 했습니다.<br>
+다시 보내도 릴에 맞는지 알 수 없다는 이유였습니다.<br>
+반품 배송비를 누가 내느냐도 다툼거리가 됩니다.<br>
+제목과 설명, 사진에 적힌 문구와 모델 번호 사진을 모아 두세요.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">틈을 확인하지 않고 던지면<br>
+백러쉬마다 분해해야 합니다</h2>
+
+<p>
+스풀을 처음 끼우면 곧바로 던지고 싶어집니다.<br>
+하지만 사이드 플레이트에 끝까지 들어가는지부터 보세요.<br>
+틈을 철사로 확인하고 순정 베어링을 갈아 보는 순서로 이어 가세요.<br><br>
+그래도 맞지 않으면 사진과 상품 페이지를 보관해 두세요.<br>
+스풀이 휘었는지, 옆에서 스치는 소리가 나는지도 함께 기록해 두면 협의에 도움이 됩니다.<br>
+해외 직구 스풀은 반품과 환불 협의에 시간이 걸립니다.<br>
+국내에서 BFS 스풀을 구한다면 모델 번호부터 맞춰 보세요.
+</p>
+</div>
+
+</div>
+</body>
+</html>

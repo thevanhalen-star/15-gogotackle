@@ -1,0 +1,157 @@
+<!--
+BFS 베이트릴로 0.9g 루어를 던질 땐 브레이크를 절반 가까이 올립니다
+#BFS릴
+#베이트피네스
+#초경량루어
+#브레이크세팅
+#백러쉬
+BFS 릴 0.9g 루어
+브레이크 올리자 해결
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 베이트릴로 1g 안팎 초경량 루어를 던지려는 배스 낚시인 / 자료: 내수면·외국어 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+초경량 루어를 베이트릴로 던질 때 브레이크를 낮게 풀어 두는 분들이 많습니다.<br>
+그런데 1g도 안 되는 루어는 오히려 브레이크를 올려야 백러쉬 없이 날아갑니다.<br>
+이 글이 BFS 릴 브레이크를 루어 무게별로 잡는 기준을 제시합니다.<br>
+바람이 부는 소형 저수지나 계류에서는 같은 루어도 브레이크 값이 달라집니다.<br>
+이 글은 BFS 베이트릴의 루어 무게별 브레이크 세팅과 비거리를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">브레이크 3~3.5에서는<br>
+0.9g 지그도 백러쉬가 납니다</h2>
+
+<br>
+
+<p>
+브레이크 다이얼을 3에서 3.5쯤에 두고 0.9g 님프형 지그를 던졌습니다.<br>
+첫 캐스팅부터 살짝 백러쉬가 났고 두 번째도 마찬가지였습니다.<br>
+릴이 1g까지 던질 수 있다고 해도 막상 던져 보면 스풀이 조금 무겁게 느껴졌습니다.<br><br>
+브레이크를 올려 보니 결과가 달라졌습니다.<br>
+50~60퍼센트쯤에서 0.9g 지그가 백러쉬 없이 날아갔습니다.<br>
+핸들을 14바퀴 반 감아야 돌아오는 거리였습니다.<br>
+앞바람이 조금 불었는데도 줄이 곧게 나갔습니다.<br><br>
+BFS 릴은 쉽게 말해 베이트릴로 가벼운 루어를 던지도록 맞춘 릴입니다.<br>
+이런 릴일수록 브레이크를 낮춘다고 편해지지는 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">브레이크가 약한 릴은<br>
+높게 걸어야 일관됩니다</h2>
+
+<br>
+
+<p>
+이 릴은 브레이크가 약한 쪽에 속합니다.<br>
+약하다는 것이 나쁘다는 뜻은 아닙니다.<br>
+다만 가벼운 루어에서는 낮은 브레이크로 쉽게 한계가 옵니다.<br><br>
+브레이크를 너무 낮게만 쓰면 릴이 들쭉날쭉하다는 인상을 받기 쉽습니다.<br>
+다른 BFS 릴이 일관되지 않았다고 느꼈다면 브레이크를 더 올려 쓰지 않았는지 되짚어 보세요.<br>
+무거운 루어를 던질 때는 다이내믹 브레이크가 큰 도움이 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">1인치 스윔베이트는<br>
+브레이크 5에서 바람을 이깁니다</h2>
+
+<br>
+
+<p>
+1/32온스(약 0.9g) 지그헤드에 1인치 스윔베이트를 달면 합계가 1.45g쯤 됩니다.<br>
+BFS를 쓰는 낚시인이 가장 던지고 싶어 하는 무게입니다.<br><br>
+브레이크를 50퍼센트에 두면 가끔 백러쉬가 나지만 거리와 정확도는 좋았습니다.<br>
+핸들 19바퀴쯤 감는 거리입니다.<br>
+4로 내리면 백러쉬가 났고 바람이 있으면 더 심했습니다.<br>
+5로 올리니 안정됐습니다.<br>
+바람 속에서 몇 번을 던져도 5에서는 백러쉬가 덜했습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">루어가 무거워지면<br>
+브레이크를 낮출수록 거리가 붙습니다</h2>
+
+<br>
+
+<p>
+1/16온스(약 1.75g) 지그헤드에 2인치 스윔베이트를 달아 보세요.<br>
+브레이크 50퍼센트에서 23바퀴 거리가 나옵니다.<br>
+브레이크를 조금 낮추면 28바퀴 반까지 늘어납니다.<br>
+더 낮췄을 때는 다시 23바퀴로 줄었습니다.<br>
+낮출수록 무조건 멀리 가는 것은 아닙니다.<br><br>
+2.9g쯤 되는 루어는 브레이크를 절반보다 조금 낮추고 써밍으로 눌러 30바퀴를 던졌습니다.<br>
+5.5cm급 싱킹 미노우처럼 더 무거운 루어는 32바퀴 반까지 나옵니다.<br>
+오버헤드 캐스팅 말고 플립 캐스트나 스파이럴 캐스트도 가능합니다.<br>
+로드가 조금 더 부드러웠다면 더 편했을 것입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">미니 챗터베이트는<br>
+블레이드가 바람을 타고 돕니다</h2>
+
+<br>
+
+<p>
+1/16온스 미니 챗터베이트는 블레이드가 달려 공기 저항이 큽니다.<br>
+공중에서 빙글 돌며 날아가서 브레이크를 절반보다 조금 낮춰도 26바퀴를 던질 수 있습니다.<br><br>
+착수한 뒤에는 천천히 감기만 하면 됩니다.<br>
+챗터링이 손에 느껴질 때도 있고 아닐 때도 있습니다.<br>
+느껴지면 한 번 당기고 다시 감아 보세요.<br>
+스트럭처 옆에 가라앉혀 위아래로 움직이면 배스와 송어 모두 반응합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">소형 저수지와 계류 위쪽에서는<br>
+바람과 흐름이 브레이크를 바꿉니다</h2>
+
+<p>
+소형 저수지나 계류 위쪽의 느린 물에서는 이 정도 거리면 충분합니다.<br>
+브레이크는 50퍼센트 안팎에서 시작하고 바람이 서면 올려 보세요.<br>
+0.9g 같은 가벼운 루어는 바람이 줄을 옆으로 밀어 겨냥한 자리가 어긋납니다.<br>
+낮은 궤도로 던지면 바람 영향이 줄어듭니다.<br><br>
+로드는 울트라라이트로 던졌고, 루어가 무거워질수록 더 부드러운 로드가 편합니다.<br>
+처음 던질 때는 브레이크를 높게 두고 한 칸씩 내려 보세요.<br>
+둥근 릴이라 손바닥으로 감싸 쥐거나 권총 그립으로 쥐는 방식 모두 가능합니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

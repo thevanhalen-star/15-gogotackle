@@ -1,0 +1,222 @@
+<!--
+스풀 13g과 5g으로 던지는 루어가 갈리는 BFS 베이트릴 비교
+#베이트릴
+#베이트피네스
+#경량스풀
+#배스루어
+#드랙관리
+BFS 베이트릴 스풀
+13g과 5g의 차이
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 7번 비교 분석 / 타겟: 베이트 릴로 가벼운 루어와 작은 봉돌 채비를 던지려는 배스 낚시인 / 자료: 내수면·영어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+같은 BFS 베이트릴이어도 스풀이 13g인 릴과<br>
+5g인 릴은 던지는 루어가 다릅니다.<br>
+차이를 만드는 건 무게 숫자 하나가 아니라<br>
+스풀의 깊이와 구조까지 합친 모양입니다.<br>
+작은 스풀은 1g짜리 루어까지 보내고,<br>
+큰 스풀은 3.5~5g쯤 되는 봉돌 채비를 정확히 보냅니다.<br>
+그래서 이 두 계열을 기준으로 놓고 비교해 봅니다.<br><br>
+이 글은 세 대의 스풀과 드랙을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 스풀 13g짜리 릴은<br>
+굵은 줄을 감는 파워 BFS 쪽입니다</h2>
+
+<br>
+
+<p>
+BFS는 베이트 피네스를 줄여 부르는 말로,<br>
+베이트 릴로 가벼운 루어를 던지는 낚시를 말합니다.<br><br>
+다이와(Daiwa) 살라만드라(Salamandura)<br>
+SV TW 1000S의 스풀은<br>
+무게가 13g쯤 됩니다.<br>
+가장 가벼운 스풀은 아니고, 높이가 있는 큰 스풀입니다.<br>
+눈으로 보기에 지름이 32mm쯤 되어 보입니다.<br><br>
+나일론이나 플루오로 라인은<br>
+8lb(약 3.6kg)가 100m 들어갑니다.<br>
+4.5kg급은 80m, 5.4kg급은 70m입니다.<br>
+이만큼 굵은 줄이 들어가는 스풀이라<br>
+파워 BFS에 맞춘 릴입니다.<br><br>
+1호에서 1.5호쯤 되는 PE를 감아 보세요.<br>
+15lb(약 6.8kg) 플루오로 리더를 달면<br>
+텍사스 리그용으로 잘 맞습니다.<br>
+3.5~5g짜리 총알 봉돌에 작은 미끼를 달아 피칭해도<br>
+흔들림 없이 날아갑니다.<br>
+끝이 부드러운 로드를 쓰면 로드가 휘면서 미끼를 실어 보내서<br>
+7cm쯤 되는 스윔베이트도 시원하게 나갑니다.<br>
+브레이크 눈금을 10에 놓고 던져도 줄이 엉킨 적이 없습니다.<br><br>
+스풀이 크고 높은 베이트 릴은 가벼운 루어보다<br>
+3.5~5g급 봉돌 채비를 정확히 던지는 쪽에서 힘을 냅니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 1g 루어는 5g짜리 스풀의<br>
+작은 릴이 던집니다</h2>
+
+<br>
+
+<p>
+반대쪽에는 스풀이 4.92g, 거의 5g인 릴이 있습니다.<br>
+DMK 실버 페더(Silver Feather)<br>
+엘리트 XG입니다.<br>
+스풀에는 큰 베어링이 달려 있는데,<br>
+구리스가 많지 않다면<br>
+베어링을 빼고 쟀을 때 4g 아래로 내려갑니다.<br>
+1g짜리 루어를 보내는 릴은 스풀이 5g 안팎으로 가볍습니다.<br><br>
+기어비는 XG 8.5 대 1이고<br>
+핸들 한 바퀴에 74cm가 감깁니다.<br>
+베어링은 12개, 최대 드랙은 5kg입니다.<br>
+BFS 릴에는 이만한 드랙이 없어도 되지만,<br>
+있다고 해서 불편할 일은 없습니다.<br><br>
+썸바를 눌러 보면 유격이 없고 곧바로 맞물립니다.<br>
+맞물리는 소리와 풀리는 소리가 모두 또렷합니다.<br>
+릴 몸체에 기어비가 작게 새겨져 있어서<br>
+어떤 기어비인지 바로 알아볼 수 있는 점도 편합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 스풀 무게만 보고 비교하면<br>
+어긋나는 이유</h2>
+
+<br>
+
+<p>
+스풀 무게는 구조가 같은 릴끼리<br>
+비교할 때 믿을 만한 숫자입니다.<br>
+다이와 릴은 로터 방식 브레이크 구조가<br>
+스풀 쪽에 붙어 있습니다.<br>
+마그넷을 스풀 안쪽에 넣는 릴과는<br>
+같은 잣대로 재기 어렵습니다.<br><br>
+숫자가 비슷해도 던져 보면 느낌이 달라집니다.<br>
+스풀이 5g인 릴이 13g인 릴보다<br>
+1g 루어를 훨씬 잘 보내기도 합니다.<br>
+무게 숫자는 출발점이고,<br>
+스풀의 깊이와 지름을 같이 봐야 합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 드랙이 잠긴 채 온 릴은<br>
+디스크부터 지칩니다</h2>
+
+<br>
+
+<p>
+스타 드랙은 별 모양 노브를 돌려<br>
+드랙 힘을 조이고 푸는 방식을 말합니다.<br><br>
+새 릴 중에는 이 노브가<br>
+끝까지 조여진 채로 오는 릴이 있습니다.<br>
+그대로 두면 드랙 디스크가 계속 눌려서<br>
+일찍 지치기 쉽습니다.<br>
+처음 얼마 동안은 잘 듣다가 어느 날 드랙이 죽어서<br>
+릴을 새로 사거나 드랙 스택을 갈게 됩니다.<br><br>
+새 릴을 받으면 노브부터 풀어서 압력을 빼 두세요.<br><br>
+살라만드라는 별 모양 노브와 클리커 소리가 모두 큰 편입니다.<br>
+노브를 돌려 보면 감촉은 괜찮지만<br>
+고급 릴에 쓰는 노브처럼 단단한 느낌은 아닙니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 타튤라 150은 번수가 같아도<br>
+스풀이 더 깊어졌습니다</h2>
+
+<br>
+
+<p>
+타튤라(Tatula) 150HS는 기어비가 7.3 대 1입니다.<br>
+베어링은 7개이고<br>
+최대 드랙은 13.2lb(약 6kg)입니다.<br>
+브레이크는 마그포스 Z(Mag Force Z)입니다.<br>
+스풀 장력 노브는 옛 타튤라처럼<br>
+작고 동그란 모양으로 돌아왔습니다.<br>
+클리커는 없습니다.<br><br>
+옛 150과 나란히 놓고 보면 이 릴은 스풀이 훨씬 깊습니다.<br>
+번수 이름이 같아도 크기가 같지 않다는 뜻입니다.<br>
+번수가 같은 150이라도 스풀이 깊어졌다면<br>
+같은 크기의 릴로 보지 않는 편이 낫습니다.<br><br>
+긴 핸들이 달려 있어서 스윔베이트처럼 큰 루어를 감는 일에<br>
+맞춘 구성으로 보입니다.<br>
+몸체 나사를 빼면 베이트 키퍼를 달 자리도 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 175g 릴과 140g 릴은<br>
+로드 위에서 느낌이 갈립니다</h2>
+
+<br>
+
+<p>
+살라만드라의 무게는 175g(6.2온스)이고,<br>
+카본 핸들이 달려 있습니다.<br>
+실버 페더 엘리트 XG는 약 140g이고 알루미늄 핸들입니다.<br><br>
+가벼운 쪽은 손에 들어도 거의 느껴지지 않습니다.<br>
+그런데 로드에 얹어 보면 이야기가 조금 달라집니다.<br>
+조금 무거운 쪽이 앞뒤 균형을 잡아 줘서<br>
+오히려 손에 편하게 느껴질 때가 있습니다.<br><br>
+릴풋이 큰 릴은 릴 시트에 끝까지 조여지지 않기도 하니<br>
+미리 얹어서 확인해 보세요.<br><br>
+가벼운 릴은 손에서 존재감이 없습니다.<br>
+175g짜리는 로드 뒤쪽을 잡아 줍니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">스풀이 가벼울수록 좋은 게 아니라<br>
+던질 루어에 맞는 스풀이 좋습니다</h2>
+
+<p>
+1g짜리 루어까지 던지려면<br>
+5g 안팎의 가벼운 스풀 쪽으로 갑니다.<br>
+3.5~5g짜리 봉돌에 굵은 줄을 쓰려면<br>
+13g 스풀 쪽으로 갑니다.<br>
+한 대로 모두 맡기려 하면 어느 한쪽이 아쉬워집니다.<br><br>
+국내 저수지나 댐 연안에서<br>
+작은 미끼를 바닥에 붙여 던지는 낚시라면<br>
+던지는 루어의 무게부터 정해 보세요.<br>
+가장 자주 던지는 무게가 스풀을 고르는 출발점입니다.<br>
+그 무게에 맞춰 스풀을 고르고,<br>
+새 릴은 드랙 노브부터 풀어 두세요.
+</p>
+</div>
+
+</div>
+</body>
+</html>

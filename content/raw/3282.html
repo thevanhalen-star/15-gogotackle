@@ -1,0 +1,167 @@
+<!--
+베놈 에어 118 BFS 릴, 표기보다 느리게 감기는 기어비가 실측에서 드러났다
+#BFS릴
+#베이트피네스
+#릴기어비
+#마그네틱브레이크
+#경량릴
+BFS 릴 기어비 실측
+표기보다 느리게 감김
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 가벼운 루어용 BFS 릴을 사양표 대신 실측으로 가려 보는 낚시인 / 자료: 내수면·포르투갈어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+BFS 릴을 고를 때 사양표의 기어비와 무게를 그대로 믿는 분이 많습니다.<br>
+그러면 실제로 감을 때 느린 릴을 사고, 브레이크 자석이 어긋난 줄도 모르고 쓰게 됩니다.<br>
+상자를 열자마자 실측하고 직접 만져 본 값을 기준으로 보면 사양표의 빈틈이 보입니다.<br>
+소형 베이트릴 베놈 에어 118(Venom Air 118)을 놓고 하나씩 짚어 봅니다.<br><br>
+이 글은 외관과 마감, 무게, 기어비, 브레이크, 크기를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 상자는 큼직하지만<br>
+내용물은 단순하고 포장은 튼튼합니다</h2>
+
+<br>
+
+<p>
+상자는 같은 급 릴 상자와 나란히 놓으면 눈에 띄게 큽니다.<br>
+종이는 흔한 종이인데도 단단하고 인쇄가 깔끔합니다.<br><br>
+안에는 다른 릴에도 들어가는 일반 설명서가 한 장 들어 있습니다.<br>
+드랙, 마그네틱 브레이크, 원심 브레이크를 다 담은 범용 설명서라서 이 릴 전용 내용은 거의 없습니다.<br><br>
+릴은 완충 포장 속에 단단히 들어 있어서 훨씬 비싼 릴에서 보던 포장 같습니다.<br>
+상자 값이 얼마나 드는지는 모르지만 파손을 막는 데는 확실히 도움이 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 핸들과 별 모양 드랙은<br>
+손에 닿는 부분이 달라졌습니다</h2>
+
+<br>
+
+<p>
+색은 아주 짙은 파랑이고 핸들은 카본입니다.<br>
+핸들 길이는 꽤 짧고, 노브는 이전 모델보다 단단해 보이지만 고무 노브만큼 손에 감기지는 않습니다.<br>
+그래서 노브가 좋아졌어도 고무 노브 쪽을 더 선호하는 낚시인이 있습니다.<br><br>
+드랙 스타와 미세 조절 노브는 한 칸씩 걸리며 움직입니다.<br>
+BFS 릴에서 미세 조절이 한 칸씩 걸리는 것은 드문 일이라 반가운 부분입니다.<br>
+드랙 스타가 조금 비스듬해서, 더 곧은 스타를 좋아하는 낚시인에게는 아쉽습니다.<br><br>
+라인 가이드는 삼각형 모양이 부드럽게 굴곡진 원뿔형입니다.<br>
+이 구조가 요즘 많이 쓰이는 이유가 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 실측 118.6g이면<br>
+표기 무게는 정확합니다</h2>
+
+<br>
+
+<p>
+저울에 올리면 118.6g이 나와 표기 무게 118g과 맞습니다.<br>
+스풀은 5.4g이라 아주 가볍지는 않아도 BFS 릴치고는 가벼운 편입니다.<br><br>
+스풀 지름은 30mm입니다.<br>
+BFS 릴 대부분이 28mm인 것과 비교하면 조금 큽니다.<br>
+스풀 축 굵기는 3mm이고, 이 축 규격은 BFS 릴에서 거의 정해진 값입니다.<br><br>
+스풀과 몸통 사이에는 틈이 없었습니다.<br>
+BFS는 매우 가는 라인을 쓰기 때문에 틈으로 라인이 끼는 일이 많은데, 이 릴은 가는 라인으로 시험해도 틈이 보이지 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 표기 7.0:1이지만<br>
+실측 기어비는 6.8:1입니다</h2>
+
+<br>
+
+<p>
+핸들을 돌려 스풀이 몇 바퀴 도는지는 쉽게 확인할 수 있습니다.<br>
+핸들 암과 미세 조절 노브를 한 줄로 맞추고, 스풀에 테이프를 붙여 한 바퀴씩 세면 됩니다.<br><br>
+표기는 7.0:1인데 두 번 세어도 6.8바퀴쯤으로 나옵니다.<br>
+표기보다 감기는 속도가 느린 릴이라는 뜻입니다.<br><br>
+그래도 천천히 감아야 하는 가벼운 루어에는 오히려 잘 맞을 수 있습니다.<br>
+느린 감기가 맞는 소형 루어를 쓴다면 선택지가 되는 릴입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 브레이크는 30단계지만<br>
+자석이 어긋나 있습니다</h2>
+
+<br>
+
+<p>
+마그네틱 브레이크는 눈금이 0에서 10까지 적혀 있지만 클릭을 세어 보면 30단계입니다.<br>
+단계가 이만큼 촘촘한 것은 장점입니다.<br><br>
+브레이크는 네모난 자석 판을 쓰는 수동식입니다.<br>
+이 방식은 상황에 따라 힘이 변하지 않고 딱딱하게 걸리는 구조입니다.<br><br>
+뚜껑을 열어 보면 자석이 눈에 띄게 어긋나 바깥쪽으로 튀어나온 경우가 있습니다.<br>
+이럴 때는 자석을 떼어 다시 붙여야 릴이 제 역할을 합니다.<br>
+안쪽에 철판이 붙어 있어서 내부 베어링을 빼기가 어렵다는 점도 단점입니다.<br><br>
+브레이크 이름이 유명 브랜드 BFS 릴의 브레이크 이름과 같아서 혼동을 줍니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 높이 37mm는<br>
+스풀 30mm 때문에 올라갔습니다</h2>
+
+<br>
+
+<p>
+릴 높이를 가장 높은 곡면 기준으로 재면 같은 계열의 비슷한 릴은 35mm와 33mm입니다.<br>
+이 릴은 37mm라서 2~4mm 더 높습니다.<br><br>
+길이는 71mm로 비슷한 릴 72mm보다 조금 짧지만 폭이 약간 더 통통합니다.<br>
+스풀이 30mm인 데다 릴 풋이 몸통에 파묻히지 않고 바깥으로 나와 있어서 높아졌습니다.<br>
+스풀을 28mm로 줄이면 2mm쯤 낮아질 수 있습니다.<br><br>
+모서리가 날카롭지 않아서 가는 라인을 상하게 할 걱정은 없습니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">사양표 숫자보다<br>
+손으로 확인한 값이 먼저입니다</h2>
+
+<p>
+BFS 릴을 고를 때는 기어비를 직접 세어 보고, 스풀과 몸통 사이 틈을 확인하세요.<br>
+브레이크 자석이 제자리에 붙어 있는지도 뚜껑을 열어 한 번 보면 됩니다.<br><br>
+표기와 실측이 다르더라도 느린 감기가 맞는 낚시라면 선택할 수 있습니다.<br>
+국내 민물에서 가는 라인으로 가벼운 루어를 던질 때도 이 순서가 맞습니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

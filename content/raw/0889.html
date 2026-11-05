@@ -1,0 +1,178 @@
+<!--
+알데바란 BFS 릴 스풀이 5.87g까지 가벼워졌지만 브레이크 다이얼은 아쉽다
+#BFS릴
+#베이트피네스
+#경량스풀
+#브레이크다이얼
+#배스루어낚시
+BFS 릴 스풀 무게
+5.87g까지 줄었다
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 가벼운 루어를 던지려고 BFS 릴을 비교하는 배스 낚시인 / 자료: 내수면·영어(장비 소개) / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+BFS 릴은 가벼운 릴일수록 멀리 던진다고 생각하는 분이 많습니다.<br>
+하지만 스풀이 가벼워져도 크기가 줄면 루어 무게에 따라 결과가 갈립니다.<br>
+손에 쥐는 느낌까지 같이 달라지기 때문입니다.<br><br>
+2022년에 나온 시마노(Shimano) 알데바란(Aldebaran) BFS를 이 기준으로 봅니다.<br>
+이 글은 스풀 무게, 브레이크 구조, 핸들과 다이얼 느낌을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">스풀은 지름 29mm에 폭 19mm로<br>
+구형보다 한 체급 작아졌습니다</h2>
+
+<br>
+
+<p>
+이 릴의 스풀은 MGL3라는 이름의 설계입니다.<br>
+구형 스풀이 32mm에 22mm였던 것과 비교하면 지름과 폭이 모두 줄었습니다.<br><br>
+BFS 스풀은 보통 구멍을 많이 뚫어 가볍게 만듭니다.<br>
+그런데 이 스풀에는 구멍이 여섯 개뿐입니다.<br>
+스풀 축은 길고 스틸로 보이며, 끝에 오링이 끼워져 있습니다.<br><br>
+베어링은 구형의 아주 작은 마이크로 베어링보다 커졌습니다.<br>
+그래도 일반 릴 베어링에 비하면 훨씬 작은 편입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">스풀 무게는 5.87g,<br>
+구형은 7.79g이었습니다</h2>
+
+<br>
+
+<p>
+BFS 릴은 쉽게 말해 1g 안팎의 가벼운 루어를 베이트릴로 던지려고 만든 릴입니다.<br>
+그래서 가장 먼저 스풀 무게를 재 봤습니다.<br>
+스펙표의 스풀 무게가 베어링을 뺀 값인지부터 확인해 보세요.<br><br>
+구형 스풀은 베어링을 끼운 채 7.79g이었습니다.<br>
+2022년형은 같은 조건에서 6.61g이었고, 베어링을 빼니 5.87g이었습니다.<br>
+구형 스풀은 베어링을 빼면 7.2g쯤이니 1.3g 넘게 줄어든 셈입니다.<br>
+줄어도 0.3~0.4g쯤이겠거니 했던 예상이 빗나갔습니다.<br><br>
+경쟁 릴의 스풀과도 나란히 달아 봤습니다.<br>
+다이와(Daiwa) 알파스 에어 TW는 베어링을 빼고 6.19g, 지름은 28mm입니다.<br>
+0.3g 차이지만 BFS에서는 적지 않은 수치입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">작은 스풀은 무거운 루어에서 불리했습니다</h2>
+
+<br>
+
+<p>
+스풀이 작아지면 걱정되는 점이 있습니다.<br>
+1/16온스(약 1.8g) 이상의 루어에서는 구형 알데바란이 알파스 에어 TW를 앞섰습니다.<br>
+스풀이 무거운데도 그랬습니다.<br>
+알파스의 스풀이 작아서 같은 거리를 던지려면 더 많이 돌아야 했기 때문입니다.<br><br>
+2022년형 스풀은 구형보다 알파스 쪽에 가깝습니다.<br>
+무거운 루어에서 같은 처지가 될 수 있다는 뜻입니다.<br>
+스풀이 가볍다는 것만으로 비거리가 늘지는 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">브레이크를 거의 0까지 내릴 수 있습니다</h2>
+
+<br>
+
+<p>
+브레이크 자석은 모두 접착되어 있어 따로 뺄 수 없습니다.<br>
+한쪽 자석이 스프링으로 움직이는 방식은 그대로입니다.<br><br>
+시마노는 이 릴의 브레이크를 거의 0에 가깝게 낮출 수 있게 만들었습니다.<br>
+브레이크 허브를 가장 안쪽으로 넣어 보세요.<br>
+구형은 자석이 아직 많이 드러나 있는데 2022년형은 둥근 플라스틱 부품 안으로 깊이 들어갑니다.<br>
+구형에서는 1번 근처로 내리기는커녕 3번 아래로 내리기도 어려웠습니다.<br><br>
+여기에 금속 링이 하나 더해졌습니다.<br>
+다이와 쪽에서도 자석이 붙는 링이 금속이면 브레이크를 아주 낮게 쓸 수 있고 플라스틱이면 그러지 못했습니다.<br>
+이 링이 자력을 조금 보태 주는 구조로 보입니다.<br>
+다만 그것이 비거리로 이어질지는 직접 던져 봐야 알 수 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">핸들은 부드러워졌지만<br>
+브레이크 다이얼이 손가락을 누릅니다</h2>
+
+<br>
+
+<p>
+마이크로 모듈 기어가 들어가면서 핸들이 눈에 띄게 부드러워졌습니다.<br>
+구형은 드랙을 풀고 핸들을 돌려 보면 시마노답지 않게 거칠었습니다.<br>
+2022년형은 그 자리에서 돌려 보기만 해도 이가 맞물리는 느낌이 거의 사라졌습니다.<br><br>
+반면 튀어나온 브레이크 다이얼은 손바닥으로 감싸 쥐어 보시면 손가락 살을 누릅니다.<br>
+숫자도 여전히 흐려서 나이 드신 낚시인은 읽기 어렵습니다.<br>
+물가에서 불편할지는 두고 봐야 하지만 아쉬운 부분입니다.<br><br>
+핸들은 84mm에서 80mm로 짧아졌고, 스풀 텐션 캡은 금색 장식과 홈이 사라져 돌리기 어려워졌습니다.<br>
+드랙 클릭 소리는 한결 낮고 조용해졌습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">무게는 4.67온스로<br>
+구형보다 가볍습니다</h2>
+
+<br>
+
+<p>
+2022년형은 4.67온스(약 132g)로 구형 4.71온스(약 134g)보다 가볍습니다.<br>
+제조사가 밝힌 값은 오히려 1g 더 무겁다는 것이었으니 예상과 다른 결과입니다.<br>
+알파스 에어 TW는 5.6온스(약 159g)였습니다.<br><br>
+프레임은 마그네슘, 사이드 플레이트는 CI4 플러스로 구형과 같습니다.<br>
+베어링은 9개에 1개를 더한 구성에서 10개에 1개로 하나 늘었습니다.<br>
+드랙 스타는 알루미늄에서 CI4 플러스로 바뀌었지만 훨씬 날렵하고 정교해졌습니다.<br><br>
+크기는 몇 가지 BFS 릴과 나란히 놓고 봤습니다.<br>
+릴 풋 높이는 낮지만 사이드 플레이트가 커서 손에서는 작게 느껴지지 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">가벼운 루어를 던지는 자리라면<br>
+스풀과 브레이크를 함께 봅니다</h2>
+
+<p>
+가벼운 스풀은 1g 안팎의 가벼운 루어에서 유리하고,<br>
+브레이크를 낮춰 쓰면 그 이점이 더 크게 살아납니다.<br>
+루어가 1/16온스(약 1.8g)를 넘어서면 작은 스풀이 불리할 수 있으니<br>
+브레이크 낮춤 폭과 비거리를 따로 확인해 보세요.<br><br>
+다이얼이 손가락을 누르는 정도는 직접 쥐어 봐야 알 수 있습니다.<br>
+카탈로그의 스풀 무게만 보고 고르면 놓치는 부분입니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

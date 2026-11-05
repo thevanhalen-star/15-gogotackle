@@ -1,0 +1,179 @@
+<!--
+봄 배스 베이트 피네스 라인, 7파운드 플로로카본이 플리핑에 맞는 이유
+#베이트피네스
+#BFS세팅
+#봄배스
+#플로로카본
+#배스루어
+봄 배스 베이트 피네스
+플로로카본 라인 굵기
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 봄철 얕은 커버 앞에서 가벼운 루어를 베이트 장비로 던지려는 배스 낚시인 / 자료: 내수면·영어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+봄 배스는 스피닝으로 던져야 가벼운 루어가 제대로 날아간다고 생각하는 분들이 많습니다.<br>
+하지만 베이트 장비로 한 단계 줄인 루어를 던지면 같은 자리에서 입질이 다시 이어집니다.<br>
+이 글은 얕은 커버 앞에서 쓰는 베이트 피네스 장비와 라인을 고르는 기준을 제시합니다.<br>
+무게는 1/16온스(약 1.8g) 헤드부터 1/8온스(약 3.5g) 헤드까지를 다룹니다.<br>
+이 글은 자리 읽기, 릴과 로드 조합, 라인 굵기, 루어 종류별 쓰임을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 봄 얕은 커버 앞에서는<br>
+한 단계 줄인 루어가 먼저 먹힙니다</h2>
+
+<br>
+
+<p>
+BFS는 베이트 피네스 시스템의 약자로, 베이트릴로 아주 가벼운 루어를 던지는 방식을 말합니다.<br>
+말뚝이 늘어선 선착장 라인이나 풀 가장자리를 훑는 봄 배스 낚시에서는 이 방식이 특히 잘 통합니다.<br><br>
+몇 해째 같은 자리에 압박이 쌓여 고기들이 일반 크기 소프트 베이트를 잘 물지 않습니다.<br>
+말뚝 라인을 한 번 훑고도 입질이 없다면<br>
+돌아서서 크리처 웜이나 스윔베이트를 한 단계 줄여 보세요.<br>
+그러면 같은 자리에서 입질이 나옵니다.<br><br>
+BFS는 크게 두 갈래입니다.<br>
+하나는 작은 물에서 초경량을 던지는 쪽입니다.<br>
+다른 하나는 2.8인치(약 7cm) 네드 웜처럼 한 단계 줄인 파워 피싱입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 릴은 던질 거리와<br>
+자리를 보고 가릅니다</h2>
+
+<br>
+
+<p>
+입문용 릴은 1/8온스 헤드에 작은 스윔베이트를 달아 던질 만큼은 됩니다.<br>
+1/16온스를 완벽하게 날리지는 못합니다.<br><br>
+시마노(Shimano) 큐라도 BFS는 이 시장의 기준을 잡은 릴입니다.<br>
+1/16온스 텅스텐을 달아 커버 속으로 플리핑하는 것도 됩니다.<br>
+작은 스윔베이트와 마이크로 저크베이트, 탑워터도 던집니다.<br><br>
+고급 릴은 쓰임이 갈립니다.<br>
+스파이베이트를 지평선까지 날리고 싶다면 가장 멀리 나가는 릴이 맞습니다.<br>
+작은 물과 커버 가까이에서 정확하게 피칭할 때는 알데바란 BFS가 맞습니다.<br>
+극도로 가벼운 루어까지 세밀하게 맞출 수 있는 릴입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 라인은 7파운드 플로로카본이<br>
+플리핑과 캐스팅 사이에서 맞습니다</h2>
+
+<br>
+
+<p>
+7파운드(약 3.2kg) 플로로카본은 입질을 받을 만큼 가늘고, 힘으로 당길 만큼 굵습니다.<br>
+정면으로 당기면 하드 베이트 바늘이 먼저 펴질 정도로 단단합니다.<br>
+그래서 플리핑과 피칭에는 7파운드가 가장 알맞은 굵기입니다.<br><br>
+멀리 던질 때는 6파운드(약 2.7kg) 합사에 리더를 달아 스파이베이트를 날립니다.<br>
+스피닝보다 훨씬 멀리 나가서 맑은 물에서 경계심 많은 배스에게 쓸 만합니다.<br>
+5~6파운드(약 2.3~2.7kg) 플로로카본을 그대로 감아도<br>
+30~50야드(약 27~46m)는 날립니다.<br><br>
+아주 가는 합사는 한 스풀 가득 감을 수 있지만 그만큼 많이 감지 않아도 됩니다.<br>
+권사량을 너무 욕심내지 마세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 로드는 짧을수록 정확하고<br>
+길수록 멀리 갑니다</h2>
+
+<br>
+
+<p>
+6피트 5인치(약 2m)처럼 짧은 로드는 커버 근처에서 아주 정확하게 던질 수 있습니다.<br>
+7피트 1인치(약 2.2m) 미디엄 라이트 로드는<br>
+작은 트레블 훅 루어를 슬로 피칭하기에 맞습니다.<br><br>
+6피트 8인치(약 2m) 라이트는 스파이베이트부터 소프트 베이트까지 모두 다룹니다.<br>
+로드 액션이 대체로 모더레이트 쪽이라 12~18번 같은 작은 바늘을 쓰는 루어에도 잘 맞습니다.<br>
+로드와 릴 드랙이 받쳐 주니 걸린 고기를 끝까지 끌어낼 수 있습니다.<br><br>
+작은 바늘, 부드러운 로드, 가벼운 드랙이 한 세트입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 네드, 웨이트리스, 마이크로 텍사스는<br>
+풀 가장자리에서 나눠 씁니다</h2>
+
+<br>
+
+<p>
+소프트 베이트는 세 가지 방식으로 달 수 있습니다.<br>
+첫 번째는 일반 네드 헤드입니다.<br>
+오뚝이처럼 서도록 만든 헤드가 따로 있는데, 보통 헤드는 무게가 한쪽으로 쏠려 웜을 눕힙니다.<br><br>
+두 번째는 바늘이 숨어 있는 위드리스 네드 헤드입니다.<br>
+강에서 흐름에 흘려 보내다 헤드를 자꾸 잃던 상황이었습니다.<br>
+이 헤드로 바꾸자 입질이 오는 대로 모두 걸렸습니다.<br><br>
+세 번째는 마이크로 텍사스 리그입니다.<br>
+1/16온스 텅스텐 싱커와 바늘 간격이 넓은 훅을 맞춥니다.<br>
+65파운드 합사로 플립스틱을 쓰던 자리를 7파운드 라인으로 똑같이 피칭할 수 있습니다.<br>
+막상 던져 보면 걸린 고기가 오히려 열린 물로 빠져나옵니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 하드 베이트도<br>
+한 단계 줄이면 다시 반응합니다</h2>
+
+<br>
+
+<p>
+스파이베이트는 맑은 물에서 아무도 던지지 않던 거리로 던지면 효과가 큽니다.<br>
+배스가 보트나 사람의 존재를 모를 만큼 멀리 던지기 때문입니다.<br><br>
+저크베이트와 탑워터, 크랭크베이트도 그대로 줄이면 됩니다.<br>
+봄에 배스가 먹이고기를 쫓아 얕은 곳으로 올라올 때가 있습니다.<br>
+얕게 도는 저크베이트를 비틀고 당기고 끊어 주면 반응이 나옵니다.<br><br>
+5인치(약 13cm) 얇은 센코를 와키로 달면 일반 센코보다 가볍습니다.<br>
+그래서 가는 라인으로도 던지기 쉽고 입질도 늘어납니다.<br>
+3.5인치(약 9cm) 소프트 저크베이트에 1번 위드리스 바늘을 달아 보세요.<br>
+풀 가장자리와 말뚝 사이에 떨어뜨리면 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">맑은 물 장거리와<br>
+커버 앞 피칭은 장비가 다릅니다</h2>
+
+<p>
+시야가 트이는 맑은 물에서 멀리 던질 때는 가는 합사에 리더를 달고, 가장 멀리 나가는 릴을 씁니다.<br>
+풀 가장자리와 말뚝처럼 좁은 커버 앞에서는 7파운드 플로로카본에 짧은 로드를 맞추세요.<br><br>
+낚시인이 많이 다녀 압박이 쌓인 자리일수록 한 단계씩 줄여 보는 쪽이 낫습니다.<br>
+어느 자리에 어느 장비를 쓸지 미리 나누어 두세요.
+</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!--
+PNC 플루마 BFS 릴은 베어링 11개에 기어는 4mm 알루미늄이다
+#BFS릴
+#릴분해
+#베이트릴
+#릴베어링
+#알루미늄기어
+BFS 릴 베어링 11개
+알루미늄 기어 4mm
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 경량 BFS 릴의 내부 구조와 관리법이 궁금한 낚시인 / 자료: 내수면·포르투갈어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+가벼운 BFS 릴은 베어링이 많을수록 좋다고 생각하는 분이 많습니다.<br>
+그런데 베어링 수보다 각각이 어디에 들어가고 소금기에 어떻게 견디는지가 더 중요합니다.<br>
+PNC 플루마(Pluma) BFS를 분해한 구조를 기준으로<br>
+베어링 위치, 기어와 드랙, 분해할 때 주의할 점을 짚어 봅니다.<br>
+릴의 한계를 알고 쓰면 오래 쓴다는 점도 함께 보게 됩니다.<br><br>
+이 글은 베어링 위치, 기어와 드랙, 몸체 구조, 분해 주의점, 쓰임새를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 베어링 11개는 이렇게 나뉩니다<br>
+핸들에만 네 개가 들어 있습니다</h2>
+
+<br>
+
+<p>
+이 릴의 베어링은 모두 열한 개입니다.<br>
+정확히는 일반 베어링 10개에 안티 리버스 롤러 1개를 더한 숫자입니다.<br><br>
+핸들 손잡이에 두 개씩 들어 있어서 핸들 쪽에만 벌써 네 개입니다.<br>
+스풀 축을 받치는 베어링이 둘이고, 하나는 커버에 하나는 스풀에 있습니다.<br>
+피니언을 받치는 베어링도 둘이고, 핸들 축에도 위아래로 두 개가 있습니다.<br>
+여기까지가 열 개이고, 여기에 안티 리버스가 붙어 열한 개가 됩니다.<br><br>
+핸들 축 위쪽 베어링은 8×12×3.5mm이고, 피니언 위쪽 베어링은 5×9×3mm입니다.<br>
+교체할 일이 생기면 이 규격을 적어 두세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 기어는 4mm 알루미늄이고<br>
+드랙은 3kg쯤으로 보는 편이 맞습니다</h2>
+
+<br>
+
+<p>
+메인 기어는 알루미늄이고 두께가 4mm입니다.<br>
+재료가 많이 들어 있지 않은 아주 가벼운 기어입니다.<br><br>
+드랙 디스크는 카본이고 기어 위에 한 장, 아래에 한 장 들어 있습니다.<br>
+돌려 보면 아주 부드러워서 드랙 느낌이 좋을 것으로 보입니다.<br><br>
+다만 상자에 적힌 최대 드랙 5.5kg은 그대로 믿기 어렵습니다.<br>
+이 기어로 5.5kg까지 버티면 기어가 다칩니다.<br>
+실제로는 최대 3kg쯤으로 보는 쪽이 현실적이고, 3kg이면 낚시를 하기에 부족하지 않으니 걱정하지 않으셔도 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 몸체는 하이브리드 요크에<br>
+나사는 전부 스테인리스입니다</h2>
+
+<br>
+
+<p>
+가벼운 릴이지만 요크에는 강철 보강판이 들어 있습니다.<br>
+몸체가 금속이 아니라서 나사가 모두 굵은 나사산입니다.<br>
+스테인리스 나사라서 바다에 가져가도 녹 걱정이 덜합니다.<br><br>
+클로는 나일론에 금속을 입힌 모양이라 문제 없이 오래 쓸 것으로 보입니다.<br>
+요크 기둥도 몸체와 한 덩어리입니다.<br><br>
+핸들 축에는 구멍을 네 개 뚫고 안쪽에도 하나 더 뚫어 무게를 줄였습니다.<br>
+핸들 축을 잡는 판에는 방향이 있습니다. 조립할 때 거꾸로 끼우는 분이 있으니 주의하세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 웜 샤프트는 베어링이 아니라<br>
+부싱이 받치고 있습니다</h2>
+
+<br>
+
+<p>
+레벨 와인더의 웜 샤프트는 한쪽을 커버가, 반대쪽을 부싱이 받칩니다.<br>
+부싱 규격은 472입니다.<br><br>
+베어링이 하나 더 있었으면 하는 생각이 들 수 있지만 바꿀 필요는 없습니다.<br>
+이 부싱은 품질이 좋아서 감김이 아주 부드럽습니다.<br>
+소금기에 녹이 슬 걱정이 없으니 신경 쓸 부품이 하나 줄어듭니다.<br><br>
+클로는 가볍게 파내지 않은 형태입니다.<br>
+라인 가이드는 원뿔형이고 아래쪽은 평평하며 위쪽은 둥글게 되어 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 표기 125g에 실제 127g<br>
+가벼운 릴은 숫자가 딱 맞기 어렵습니다</h2>
+
+<br>
+
+<p>
+제조사 표기는 125g이고 실제 무게는 127g입니다.<br>
+2g 차이는 이런 초경량 릴에서 흔한 정도입니다.<br><br>
+가벼운 릴일수록 표기 숫자와 정확히 맞기 어렵습니다.<br>
+무게보다는 드랙과 기어 구조에 한계가 있다는 점을 기억해 두세요.<br><br>
+한계를 지키며 쓰면 이 릴은 아주 오래 갑니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 분해할 때는 스프링이 튀니<br>
+배 위에서는 열지 마세요</h2>
+
+<br>
+
+<p>
+핸들 너트는 왼손 핸들 릴이라면 시계 방향으로 풀어야 합니다.<br>
+모든 릴이 같은 방식은 아닙니다.<br><br>
+스타 드랙이 떠 있는 방식이라 아래에 스프링이 있어서 너트를 풀면 튀어 오릅니다.<br>
+핸들 위의 얇은 덮개도 같이 빠지기 쉽습니다.<br>
+사이드 커버를 열 때도 부품이 튑니다. 손가락으로 눌러 잡고 열어 보세요.<br><br>
+부품은 빼는 순서대로 늘어놓고 사진으로 기록해 두면 조립이 편합니다.<br>
+말발굽 스프링은 아주 작아서 튕겨 나가면 찾기 어렵습니다. 배 위에서는 열지 않는 편이 안전합니다.<br><br>
+기어 안쪽 라인 경고 장치에는 아주 작은 핀이 들어 있어 잃어버리기 쉽습니다.<br>
+안티 리버스 베어링은 방향이 정해져 있습니다. 반대로 끼우면 핸들이 돌아가지 않고 잠깁니다.<br>
+숨은 나사는 가는 십자 드라이버가 있어야 풀립니다.<br><br>
+조립할 때 와셔가 높게 얹히면 베어링이 제자리에 앉지 않아서 닫았다가도 다시 열어야 합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">7. 원심 브레이크 BFS는<br>
+섬세한 낚시에 어울립니다</h2>
+
+<br>
+
+<p>
+이 릴은 원심 브레이크를 쓴다는 점이 특징입니다.<br>
+원심 브레이크는 마그네틱 방식보다 캐스팅 거리가 더 나온다고 알려져 있습니다.<br><br>
+다만 실제 거리 차이는 던져 봐야 알 수 있습니다.<br>
+무게가 가볍고 부품이 고르게 좋은 릴이라 감도가 중요한 섬세한 낚시에 맞습니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">베어링 11개를 관리하지 않으면<br>
+소금기에 먼저 상합니다</h2>
+
+<p>
+바다처럼 소금기가 닿는 자리에서는 베어링을 가볍게 보지 마세요.<br>
+어떤 베어링도 소금기 앞에서는 영원하지 않습니다.<br><br>
+핸들 손잡이의 네 개는 부싱이나 녹슬지 않는 베어링으로 바꿔도 좋습니다.<br>
+다만 지금 들어 있는 베어링도 품질이 좋아 잘 관리하면 오래 갑니다.<br>
+릴의 한계를 지키며 쓴다면 아주 오래 쓰는 릴입니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

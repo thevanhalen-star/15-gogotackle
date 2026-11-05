@@ -1,0 +1,197 @@
+<!--
+한여름 오픈워터 배스, 먹이고기가 작아질수록 같이 줄여 가는 초소형 스윔베이트
+#배스낚시
+#스윔베이트
+#BFS
+#오픈워터
+#여름배스
+한여름 오픈워터 배스
+작은 스윔베이트로
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 한여름부터 가을까지 댐 오픈워터에서 배스를 노리는 라이트 베이트 낚시인 / 자료: 내수면·외국어 자막 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+한여름에는 배스가 수초와 커버 안에 숨는다고<br>
+생각해 그쪽만 훑는 분들이 많습니다.<br>
+그런데 먹이고기의 산란이 끝나는 7월부터는 배스도<br>
+오픈워터로 따라 나옵니다.<br>
+그때 수중 곶과 물골 위에서 먹이고기를 기다리는 배스를 어떻게<br>
+노릴지 기준을 잡아 보겠습니다.<br>
+이 글은 초소형 스윔베이트의 크기와 색, 감는 방식,<br>
+라이트 베이트 장비를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">산란이 끝난 먹이고기는 오픈워터로 나옵니다</h2>
+
+<br>
+
+<p>
+7월이 되면 먹이고기들이 산란을 마치고<br>
+얕은 커버를 떠나 오픈워터로 나옵니다.<br>
+배스도 같이 따라 나와 수중 곶이나 높은 자리,<br>
+물골 위에서 먹이고기가 지나가기를 기다립니다.<br><br>
+먹이고기가 그 위를 지나가는 순간 수면이 들끓습니다.<br>
+배스가 먹이고기를 수면으로 몰아붙이며 한꺼번에 먹기 때문입니다.<br>
+가을이 가까워질수록 배스는 더<br>
+작은 먹이고기에 반응하기 시작합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">맑은 물에서는 물결이나 구름을 기다리거나 작은 루어를 씁니다</h2>
+
+<br>
+
+<p>
+물이 맑을 때는 몇 가지를 해 볼 수 있습니다.<br>
+수면에 약간 물결이 일거나 구름이<br>
+끼기를 기다리는 것도 방법입니다.<br>
+아니면 초소형 스윔베이트를 써서<br>
+7월부터 10월까지 입질을 이어 가 보세요.<br><br>
+배스가 큰 먹이고기를 먹다가 시간이 지나 작게<br>
+자란 1년생 먹이고기로 옮겨 가기 때문입니다.<br>
+이 먹이고기들은 도망 속도가 빠릅니다.<br>
+그래서 루어도 작고 빠르게 움직여야 하고, 수면 바로<br>
+아래에서 좌우로 걷듯 흔들리는 액션이 잘 먹힙니다.<br>
+이런 루어를 안 쓰면 배스가 아예 따라오지 않는 날이 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">4인치로 시작해 작은 쪽으로 줄여 갑니다</h2>
+
+<br>
+
+<p>
+6.4cm(2.5인치) 글라이드 타입은 잘라서<br>
+더 작게 쓸 수 있습니다.<br>
+하지만 이 시기에는 멀티조인트 타입이 조금 더 쓸 만합니다.<br>
+작은 크기에서도 먹이고기와 닮은 몸놀림이 가능하기 때문입니다.<br><br>
+7월 초에는 먹이고기도 아직 큰 편이라<br>
+10cm(4인치) 크기로 시작합니다.<br>
+이때는 배스가 7월 말이나 8월만큼 공격적이지는 않습니다.<br>
+가을로 갈수록 먹이고기가 작아지니<br>
+루어도 작은 쪽으로 줄여 갑니다.<br>
+글라이드는 한 자리에 오래 둘 수 있어 섬세하게 보이고,<br>
+멀티조인트는 멀리 던져 빨리 감기에 알맞습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">멀티조인트는 머리 위로 빠르게 감다 멈춥니다</h2>
+
+<br>
+
+<p>
+멀티조인트 타입은 최대한 멀리 던져<br>
+배스 머리 위로 지나가게 합니다.<br>
+빠르게 감다가 딱 멈추기를 반복합니다.<br>
+이때 로드 팁으로 가볍게 흔들어 주기만<br>
+해도 도망치는 작은 고기처럼 보입니다.<br>
+배스는 빠르게 움직이는 작은 먹이를 그냥 놓치지 못합니다.<br><br>
+반대로 글라이드는 속도를 올렸다가 멈추고,<br>
+다시 올렸다가 멈춥니다.<br>
+배스가 활발하게 따라올 때 위로 불러올리는 힘이 큽니다.<br>
+가까이 따라오면 멈췄다가 다시 움직이는데,<br>
+첫 움직임에 물고 가는 일이 많습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">색은 물색과 먹이고기에 맞춰 두세 가지를 챙깁니다</h2>
+
+<br>
+
+<p>
+작은 블루길 같은 먹이고기가 있는 소규모 저수지나<br>
+선착장 주변에서는 투명하고 은은한 색이 잘 먹힙니다.<br>
+등이 초록색인 먹이고기를 쫓는 배스에게는<br>
+같은 초록 등 색이 맞습니다.<br><br>
+몸이 하얀 뼈색에 등이 푸른 색은 작은데도<br>
+맑은 물에서 반짝임이 큽니다.<br>
+흐린 날과 탁한 물에서는 펄 색이 효과를 냅니다.<br>
+먹이고기가 많은 맑은 물에서는 은색 계열이 어울립니다.<br>
+광택은 살짝 문질러 조금만 줄여 두세요.<br>
+수면 위쪽과 오픈워터를 노리는 만큼 너무<br>
+번쩍이지 않게 하는 편이 낫습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">무게를 더해야 빠르게 감을 수 있습니다</h2>
+
+<br>
+
+<p>
+작은 루어를 더 빠르게 끌고 싶다면 무게를 더해 줍니다.<br>
+몸통 가운데에 서스펜드 도트를 붙이면 루어가 조금<br>
+가라앉아 빠르게 감아도 튀어 오르지 않습니다.<br><br>
+큰 훅으로 바꾸고 텅스텐 퍼티나 납선을 붙이는 방법도 있습니다.<br>
+이렇게 하면 멀리 날아가고 더 빠르게 감을 수 있습니다.<br>
+먹이고기를 쫓는 배스를 노릴 때는 빠르게<br>
+감을수록 입질이 늘어납니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">훅셋은 옆으로, 로드 팁은 낮게 합니다</h2>
+
+<p>
+작은 훅은 훅셋 방향이 중요합니다.<br>
+옆으로 당기고 로드 팁을 낮게 두면서<br>
+로드와 라인이 일하게 두는 것이 핵심입니다.<br><br>
+배스를 배 쪽으로 천천히 끌어와 지치게 하세요.<br>
+장비는 7피트(약 2.1m) 라이트 패스트<br>
+로드에 기어비 8.2:1 BFS 릴이 맞습니다.<br>
+리더는 약 1.5m(5피트)<br>
+길이의 8lb(약 3.6kg) 플로로카본입니다.<br>
+메인 라인은 5lb(약 2.3kg) 합사를 씁니다.<br>
+릴에 라인은 가득 채우지 마세요.<br><br>
+더 멀리 던져야 한다면<br>
+7피트 3인치(약 2.2m) 미디엄 헤비<br>
+모더레이트 패스트 로드에 DC 릴을 달아 보세요.<br>
+리더는 약 3m(10피트) 플로로카본,<br>
+메인은 얇은 합사를 씁니다.<br>
+배스가 활발한 3월부터 11월까지 이런 구성으로<br>
+수중 곶과 물골 위를 훑어 보시면 됩니다.<br>
+한여름부터 가을까지 입질을 이어 갈 수 있습니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

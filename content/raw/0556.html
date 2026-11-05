@@ -1,0 +1,183 @@
+<!--
+BFS 베이트릴 고르기, 입문급은 초소형 루어에서 한계가 보였다
+#베이트피네스
+#베이트릴
+#웨이딩낚시
+#소형스피너
+#BFS로드
+BFS 베이트릴 고를 때
+입문급 한계 어디까지
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 처음 BFS 릴을 고르면서 등급과 용도를 정하지 못한 낚시인 / 자료: 내수면·네덜란드어(영어 자막) / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+BFS 릴을 사면 스피닝릴이 필요 없어질 거라고 기대하고 고르는 분이 많습니다.<br>
+그러나 막상 써 보면 BFS는 스피닝릴을 대신하지 못합니다.<br>
+등급을 잘못 고르면 가벼운 루어가 나가지 않거나, 필요 이상의 릴을 사서 쓰임새를 못 찾게 됩니다.<br>
+등급별 한계를 기준으로 용도에 맞는 릴을 고르는 순서를 풀어 봅니다.<br><br>
+이 글은 용도, 릴 등급별 차이, 로드 조합을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. BFS 릴은 스피닝릴을<br>
+대신하는 장비가 아닙니다</h2>
+
+<br>
+
+<p>
+BFS는 쉽게 말해 베이트릴로 가벼운 루어를 던지는 베이트 피네스 시스템을 말합니다.<br>
+계류에서 웨이딩을 할 때 짧고 정확하게 던질 수 있고, 쓸 수 있는 루어도 폭넓습니다.<br>
+하드베이트와 작은 탑워터, 작은 저크베이트, 작은 스피너에는 BFS가 아주 잘 맞습니다.<br><br>
+소프트베이트는 다릅니다.<br>
+BFS로도 던질 수는 있고 실제로 잘 됩니다.<br>
+하지만 소프트베이트는 여전히 스피닝릴 쪽이 편합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 가장 낮은 등급과 가장 높은 등급,<br>
+처음엔 둘 다 어긋납니다</h2>
+
+<br>
+
+<p>
+가장 아래 등급의 BFS 릴을 골랐다가 루어가 나가지 않으면<br>
+BFS는 자신과 맞지 않는다고 접는 경우가 있습니다.<br>
+반대로 처음부터 최상급을 사서 손에 맞지 않아 내놓는 경우도 적지 않습니다.<br>
+최상급 릴은 갖고 싶은 이유가 분명할 때만 고를 릴이기 때문입니다.<br><br>
+BFS 릴은 가장 낮은 등급과 가장 높은 등급 사이에서 용도에 맞게 고르는 것이 실패가 적습니다.<br>
+입문급 가운데 위쪽이나 중급에서 시작해 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 입문급 케스트럴은<br>
+스피너베이트까지 잘 던집니다</h2>
+
+<br>
+
+<p>
+카스트킹(KastKing) 케스트럴(Kestrel) BFS는 입문급 가운데 위쪽에 놓이는 릴입니다.<br>
+가벼운 루어를 잘 던지고, 스피너베이트도 무리 없이 던집니다.<br>
+한 시즌 내내 상태가 그대로였고, 드랙 소리와 핸들 마감도 단단합니다.<br><br>
+그런데 4파운드(약 1.8kg) 라인에 아주 작은 지그나 계류 송어용 초소형 루어를 달면 한계가 보입니다.<br>
+이런 용도로 만든 에어(Air) 버전이 따로 있으니, 초소형 루어가 목적이라면 그쪽을 알아보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 중급 큐라도 BFS는<br>
+스풀 구조가 성격을 가릅니다</h2>
+
+<br>
+
+<p>
+시마노(Shimano) 큐라도(Curado) BFS는 5년 가까이 쓰여 온 중급 릴입니다.<br>
+속을 벌집 모양으로 파낸 가벼운 스풀을 끼워 BFS다운 성격을 더했습니다.<br>
+스풀이 가벼울수록 가벼운 루어는 잘 나가지만, 무거운 루어에서는 오버런이 조금 늘어납니다.<br><br>
+그래도 송어용 초소형 루어를 달아 보면 잘 나가지 않습니다.<br>
+스피너베이트처럼 가벼운 배스 루어가 중심이라면 훌륭한 릴입니다.<br>
+1/32온스(약 0.9g)급 루어를 쓸 일이 없다는 조건이 붙습니다.<br>
+드랙은 상급보다 약하고, 무게는 28g 가까이 더 나갑니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 최상급 콘퀘스트 BFS는<br>
+한 대로 거의 다 던집니다</h2>
+
+<br>
+
+<p>
+시마노 콘퀘스트(Conquest) BFS는 전체가 금속으로 된 최상급 릴입니다.<br>
+드랙 소리가 나고 보조 스풀이 함께 들어 있습니다.<br>
+4~6파운드(약 1.8~2.7kg) 플루오로카본을 감으면 아주 가벼운 루어도 던집니다.<br>
+스피너부터 초소형 지그까지 의외일 만큼 잘 나갑니다.<br><br>
+3/8온스(약 10g) 스피너를 하루 종일 던져도 문제가 없었고,<br>
+7g쯤 되는 라이트 저크베이트는 이 릴이 특히 잘 던집니다.<br>
+베이트릴로 저크베이트를 던지기 싫어하는 낚시인에게도 이 릴만큼은 예외입니다.<br>
+꼭 사야 하는 릴은 아니니, 이 한 대로 하고 싶은 일이 분명할 때 고르세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. BFS 로드는 팁이 무르면<br>
+네드리그 훅셋이 안 됩니다</h2>
+
+<br>
+
+<p>
+BFS는 로드와 릴을 따로 떼어 고를 수 없는 낚시입니다.<br>
+시마노 센실라이트(Sensilite) 7피트(약 2.1m) 라이트 로드는 코르크 그립에 감도가 좋고 액션이 훌륭합니다.<br>
+케스트럴 BFS 로드는 3피스이고 네다섯 가지 액션과 길이가 나옵니다.<br>
+6피트 9인치(약 2m) 라이트는 핀네스 스피너베이트용으로 쓰기 좋았습니다.<br>
+콘퀘스트 같은 최상급 릴을 이 로드에 달아 써도 잘 어울립니다.<br><br>
+BFS 로드는 팁이 너무 무른 제품이 많아서 액션을 꼭 확인해 보세요.<br>
+네드리그를 던질 생각이라면 백본, 곧 로드 허리의 버티는 힘이 훅셋을 할 만큼 있어야 합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">7. 지그헤드 웜과 와키 리그는<br>
+스피닝릴이 낫습니다</h2>
+
+<br>
+
+<p>
+지그헤드에 미노우 웜을 달아 던지는 낚시를 BFS로 하는 것은 논리가 약합니다.<br>
+와키 리그와 네드리그도 막상 던져 보면 조금 어색합니다.<br><br>
+가벼운 텍사스 리그는 사정이 다릅니다.<br>
+특정 자리를 정확히 노릴 때는 괜찮지만, 수풀 가까이에 가벼운 채비를 던지는 일은 위험해 보이기도 합니다.<br><br>
+소프트베이트 중심의 날은 스피닝릴이 편합니다.<br>
+작은 하드베이트 중심의 날은 BFS가 편합니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">BFS는 스피닝릴을 대신하지 않고<br>
+웨이딩 낚시를 넓혀 줍니다</h2>
+
+<p>
+웨이딩 낚시를 하는 날은 BFS 한 대로 큰 탑워터만 빼고, 작은 탑워터에서 가벼운 네드리그까지 하루가 정리됩니다.<br>
+계류 송어든 소류지 배스든 같은 방식입니다.<br><br>
+처음 시작한다면 입문급 위쪽이나 중급에서 용도에 맞는 릴을 고르세요.<br>
+1/32온스(약 0.9g)나 그보다 가벼운 루어를 쓰지 않는다면 최상급은 필요 없습니다.<br>
+소프트베이트가 중심인 날은 스피닝릴을 함께 챙기면 됩니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

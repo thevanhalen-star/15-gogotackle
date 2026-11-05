@@ -1,0 +1,254 @@
+<!--
+20g 배스 로드에 1000번 릴을 맞추면 무게 중심이 검지 근처에 오는 조합
+#스피닝릴
+#릴번수
+#기어비
+#배스로드
+#라이트루어
+릴 번수 숫자 뜻 알면
+로드 조합이 쉬워진다
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 2번 장비 세팅 / 타겟: 로드와 릴, 줄을 처음 맞추며 번수와 기어비 숫자가 헷갈리는 입문 배스 낚시인 / 자료: 내수면·독일 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+릴 이름에 붙은 4000과 6.0이<br>
+무슨 숫자인지 모르고 고르면<br>
+로드와 릴이 서로 어긋납니다.<br>
+번수와 기어비를 모르면 어떤 로드에<br>
+어떤 릴이 맞는지 가늠하기 어렵습니다.<br>
+그래서 번수와 기어비,<br>
+캐스팅 무게와 줄 굵기를 한<br>
+흐름으로 묶어 기준을 세워 봅니다.<br>
+이 숫자들을 알고 나면 긴 길이와<br>
+번수 표기에 더는 헷갈리지 않습니다.<br><br>
+이 글은 배스 로드와 스피닝릴의 크기,<br>
+기어비, 줄 굵기를 짝짓는<br>
+방법을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">번수는 옛날 줄 감는 양에서<br>
+나온 숫자입니다</h2>
+
+<br>
+
+<p>
+릴 크기를 부르는 1000,<br>
+2000, 3000, 4000이라는<br>
+숫자는 역사에서 비롯됐습니다.<br>
+예전에는 릴에 모노필라멘트만 감았습니다.<br>
+3000번 릴은 굵기 0.30mm 줄을<br>
+100m 감을 수 있는 크기였습니다.<br>
+5000번은 0.50mm 줄을<br>
+100m 감는 크기였습니다.<br><br>
+회사마다 번수를 매기는 방식이 달랐지만<br>
+요즘은 대부분 1000 단위로 정리됩니다.<br>
+번수는 쉽게 말해 스풀에 감을 수 있는<br>
+줄의 양을 나타내는 숫자입니다.<br>
+이 용량이 정해지면 릴의 축 굵기와<br>
+베일 크기 같은 몸체도<br>
+그 크기에 맞춰 정해집니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">작은 번수는 가볍고 섬세하고<br>
+큰 번수는 굵은 줄을 받습니다</h2>
+
+<br>
+
+<p>
+1000번 같은 작은 번수는<br>
+모든 부분이 섬세합니다.<br>
+스풀 지름이 작고 릴 자체도 훨씬 가볍습니다.<br><br>
+중간 크기인 3000번에는<br>
+중간 굵기의 줄이 맞습니다.<br>
+크고 무거운 릴은 굵은 줄과<br>
+무거운 낚시를 위한 몫입니다.<br>
+작은 릴에는 가는 줄, 중간 릴에는 중간 줄,<br>
+큰 릴에는 굵은 줄을 감습니다.<br>
+이 흐름만 알아도 릴 고르기가 훨씬 쉬워집니다.<br><br>
+가게에서 쏘가리 같은 중형 어종용 릴을<br>
+3000번과 4000번 중 어느 쪽으로<br>
+할지 묻는 낚시인이 많습니다.<br>
+몸체 크기와 줄 용량이 서로 다르다는<br>
+사실만 알아도 대부분 해결됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">기어비 6.0은<br>
+핸들 한 바퀴에 로터가 여섯 번 돕니다</h2>
+
+<br>
+
+<p>
+기어비는 핸들을 한 바퀴 돌렸을 때 로터,<br>
+정확히는 라인롤러가 스풀 둘레를<br>
+몇 바퀴 도는지를 나타냅니다.<br>
+6.0이면 핸들 한 바퀴에<br>
+여섯 번 줄이 감깁니다.<br><br>
+4.6 같은 낮은 기어비는 같은 한<br>
+바퀴에 줄이 훨씬 적게 감깁니다.<br>
+7.0까지 올라가는 높은 기어비는<br>
+한 바퀴에 줄이 많이 들어옵니다.<br>
+낮은 기어비는 천천히 감기고,<br>
+높은 기어비는 빨리 감깁니다.<br><br>
+천천히 끌어야 하는 낚시에는<br>
+낮은 기어비가 어울립니다.<br>
+핀네스 채비나 다운샷,<br>
+수온이 낮은 계절이 그렇습니다.<br>
+천천히 감으면 루어가 지나가는<br>
+길도 느려지기 때문입니다.<br>
+추운 날에는 릴 기어비부터 낮춰 보세요.<br>
+송어처럼 재빠르게 헤엄치는 고기를<br>
+노릴 때는 줄이 빨리 감기고 부하가<br>
+적은 높은 기어비가 낫습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">기어비 숫자가 딱 떨어지면<br>
+검지에 라인롤러가 멈춥니다</h2>
+
+<br>
+
+<p>
+기어비가 6.0처럼 딱 떨어지는 숫자면<br>
+핸들을 한 바퀴 돌릴 때마다 라인롤러가<br>
+같은 자리로 돌아옵니다.<br>
+검지로 줄을 눌러 루어가 떨어지는<br>
+때와 입질을 읽는 낚시인에게는<br>
+이 점이 쓸모 있습니다.<br><br>
+핸들을 멈추면 라인롤러가 항상 위쪽,<br>
+즉 검지 앞에서 멈추기 때문입니다.<br>
+기어비에 소수점이 있으면<br>
+라인롤러가 매번 다른 곳에서<br>
+멈춰 줄 잡는 자리가 달라집니다.<br><br>
+번수와 기어비를 함께 보면 릴이<br>
+어떤 낚시에 맞는지 읽힙니다.<br>
+번수가 작고 기어비가 낮은 릴은<br>
+가볍고 천천히 감는 낚시에 맞습니다.<br>
+번수가 크고 기어비가 높은 릴은 무거운<br>
+루어를 빨리 회수하는 낚시에 맞습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">20g 배스 로드엔<br>
+1000번 릴이 손목을 지켜 줍니다</h2>
+
+<br>
+
+<p>
+캐스팅 무게는 쉽게 말해 로드가<br>
+받쳐 줄 수 있는 루어 무게의 최댓값입니다.<br>
+표기가 20g이면 지그헤드와<br>
+웜을 합쳐 10g쯤 되는<br>
+구간에서 가장 편하게 던집니다.<br><br>
+길이 2.1~2.15m에 캐스팅 무게<br>
+20g인 배스 로드 한 대면 충분합니다.<br>
+크랭크베이트와 트위칭,<br>
+웜 낚시를 모두 받쳐 줍니다.<br>
+핀네스와 하드베이트로 나누지 않아도<br>
+한 대로 많은 낚시를 합니다.<br><br>
+여기에 1000번 릴을 달면 무게<br>
+중심이 검지가 닿는 자리에 모입니다.<br>
+손목에 닿는 무게가 아주 가벼워져서<br>
+오래 던져도 지치지 않고 섬세하게<br>
+루어를 다룰 수 있습니다.<br>
+가게에서도 로드를 휘두르거나 팁을 당겨 보는<br>
+것보다 이 균형을 손에 쥐게 합니다.<br>
+막상 쥐어 보면 가벼울수록 감도도 좋아집니다.<br>
+가게에서 두 가지 릴을 번갈아 달아 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">50g 로드엔 3000번,<br>
+70g 로드엔 4000번을 맞춥니다</h2>
+
+<br>
+
+<p>
+중간 로드는 팁의 감각을<br>
+살린 50g급이 어울립니다.<br>
+여기에는 3000번 릴을 달면<br>
+무게 중심이 알맞게 잡혀 바닥을<br>
+찍는 느낌이 선명하게 전해집니다.<br><br>
+20g 로드에 3000번 릴을<br>
+달면 균형이 깨집니다.<br>
+릴 크기와 캐스팅 무게의 짝이 맞는지가<br>
+좋은 조합인지 가리는 기준입니다.<br><br>
+가장 무거운 70g급 로드에는 4000번을<br>
+달면 모든 것이 맞아떨어집니다.<br>
+이렇게 세 대의 로드와 릴 조합으로 가벼운<br>
+낚시부터 무거운 낚시까지 대부분을 해결합니다.<br><br>
+2000번은 중간 크기입니다.<br>
+길이가 긴 로드는 무게 중심이<br>
+앞으로 쏠리므로 2000번 릴로<br>
+무게를 뒤로 보내 줍니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">줄 굵기는 릴 크기를 따르고<br>
+드랙이 나머지를 맡습니다</h2>
+
+<p>
+작은 릴에는 가는 줄, 가운데 릴에는 중간 줄,<br>
+무거운 조합에는 굵은 줄을 감습니다.<br>
+굵기와 PE 호수, 인장 강도<br>
+숫자를 따지면 한도 끝도 없습니다.<br><br>
+요즘 줄은 힘이 워낙 세서 이 부분은<br>
+크게 신경 쓰지 않아도 됩니다.<br>
+드랙만 잘 맞추면 가는 줄로도<br>
+큰 고기를 걸 수 있습니다.<br>
+큰 배스가 물었을 때는 파이팅 중에<br>
+드랙을 조금 풀어 주세요.<br><br>
+고기가 줄을 가져갈 틈이 있으면<br>
+로드의 탄력과 드랙이 충격을 받아 줍니다.<br>
+그러면 고기를 놓치지 않습니다.<br><br>
+처음에는 가볍게, 중간, 무겁게<br>
+세 대의 로드와 릴로 시작해 보세요.<br>
+취향이 생기면 길이가 다른 배스 로드를<br>
+하나씩 더해도 늦지 않습니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

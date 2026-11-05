@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@700;800&display=swap">
+<title>광고 관리 · 고고태클 관리자</title>
+<style>
+:root{color-scheme:light;--bg:#F5F2EA;--card:#FFFFFF;--line:#DDD7C7;--tx:#1A211C;--mut:#5B655E;--cy:#12332A;--am:#b45309;--ok:#15803d;--bad:#b91c1c;--head:#12332A;--soft:#FFF3CC;--serif:"Noto Serif KR","Batang",serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.6 "Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:22px 18px 120px}
+header.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--head)}
+h1{margin:0;font-family:var(--serif);font-size:23px;font-weight:800;letter-spacing:-.5px;color:var(--head)}
+.meta{color:var(--mut);font-size:12.5px;margin-left:auto;text-align:right}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:18px 20px;margin-bottom:16px}
+.card h2{margin:0 0 4px;font-family:var(--serif);font-size:16.5px;color:var(--head)}.card .sub{color:var(--mut);font-size:13px;margin:0 0 14px}
+.banner{border-radius:4px;padding:12px 16px;margin-bottom:14px;font-size:13.5px}
+.banner.warn{background:#fff6e5;border:1px solid #f0d49a;color:#7a4b00}.banner.err{background:#fdecec;border:1px solid #f0b4b4;color:#8f1d1d}.banner.ok{background:#eaf6ee;border:1px solid #b5dcc3;color:#1b5e34}
+.switch{position:relative;display:inline-block;width:46px;height:26px;flex:none}
+.switch input{opacity:0;width:0;height:0}
+.switch span{position:absolute;inset:0;background:#d9cdbc;border-radius:99px;cursor:pointer;transition:.2s}
+.switch span:before{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:.2s}
+.switch input:checked+span{background:var(--cy)}.switch input:checked+span:before{transform:translateX(20px)}
+.switch.big{width:62px;height:34px}.switch.big span:before{width:28px;height:28px}.switch.big input:checked+span:before{transform:translateX(28px)}
+.master{display:flex;align-items:center;gap:16px}.master b{font-family:var(--serif);font-size:17px;color:var(--head)}
+.badge{font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:3px;border:1px solid}
+.b-on{color:var(--ok);border-color:#b5dcc3;background:#eaf6ee}.b-off{color:var(--mut);border-color:var(--line);background:#EAE6D8}.b-warn{color:var(--am);border-color:#f0d49a;background:#fff6e5}
+input[type=text],input[type=url],input[type=date],input[type=number],select,textarea{width:100%;background:#fff;color:var(--tx);border:1px solid var(--line);border-radius:4px;padding:8px 10px;font:inherit}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--cy);box-shadow:0 0 0 3px #12332A26}
+textarea{min-height:92px;resize:vertical;font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+label.f{display:block;font-size:12px;color:var(--mut);margin:10px 0 4px}
+.row{display:grid;gap:12px}.r2{grid-template-columns:1fr 1fr}.r3{grid-template-columns:1fr 1fr 1fr}.r4{grid-template-columns:2fr 1fr 1fr 1fr}
+.slotrow{display:grid;grid-template-columns:auto 1.4fr 1fr auto auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.slotrow:first-of-type{border-top:0}
+code{background:#EAE6D8;border:1px solid var(--line);border-radius:3px;padding:1px 6px;font-size:12px;color:#8F2F07}
+.ad{border:1px solid var(--line);border-left:4px solid var(--cy);border-radius:3px;margin-bottom:14px;background:#F4FAF9}
+.adhead{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}.adhead input.name{font-weight:700;font-size:15px;background:transparent;border-color:transparent;padding:4px 8px}.adhead input.name:focus{background:#fff}
+.adbody{padding:4px 16px 16px}
+.thumbs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.thumbs img{width:54px;height:54px;object-fit:cover;border-radius:3px;border:1px solid var(--line);background:#DDEFEC}.thumbs .bad{border-color:var(--bad)}
+.btn{background:#fff;color:var(--head);border:1px solid #BCD0D0;border-radius:4px;padding:7px 14px;font:inherit;font-weight:700;cursor:pointer}.btn:hover{background:var(--soft)}
+.btn.pri{background:var(--cy);border:1px solid var(--cy);color:#fff}.btn.pri:hover{background:#8F2F07}.btn.pri:disabled{opacity:.35;cursor:default}
+.btn.danger{color:var(--bad);border-color:#e3b3b3}.btn.sm{padding:4px 10px;font-size:12.5px}
+.savebar{position:fixed;left:0;right:0;bottom:0;background:#FFFFFFf2;border-top:1px solid var(--line);padding:12px 18px;display:flex;gap:12px;align-items:center;justify-content:center;z-index:20;backdrop-filter:blur(6px)}
+.hist{font-size:13px;color:var(--mut)}.hist li{padding:4px 0;border-top:1px solid var(--line);list-style:none}.hist ul{margin:0;padding:0}.hist b{color:var(--tx)}
+.errs{margin:8px 0 0;padding-left:18px}
+.hint{font-size:12px;color:var(--mut)}
+@media(max-width:760px){.r2,.r3,.r4,.slotrow{grid-template-columns:1fr}.meta{margin-left:0;text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>광고 관리</h1>
+    <div class="meta" id="meta">불러오는 중…</div>
+  </header>
+  <div id="banners"></div>
+
+  <section class="card">
+    <div class="master"><label class="switch big"><input type="checkbox" id="master"><span></span></label>
+      <div><b>전체 광고 노출</b><div class="sub" style="margin:0">끄면 모든 페이지에서 모든 광고가 숨겨집니다. (개별 광고·자리 설정은 그대로 유지)</div></div></div>
+  </section>
+
+  <section class="card">
+    <h2>광고 자리 (위치)</h2>
+    <p class="sub">자리를 끄면 그 위치의 광고가 모두 숨겨집니다. 새 자리는 페이지에 해당 ID의 자리(<code>data-ad-slot</code>)가 있어야 보입니다.</p>
+    <div id="slots"></div>
+    <div class="row r3" style="margin-top:12px;align-items:end">
+      <div><label class="f">새 자리 ID (영문 소문자·숫자·-)</label><input type="text" id="newSlotId" placeholder="예: list-card"></div>
+      <div><label class="f">이름</label><input type="text" id="newSlotLabel" placeholder="예: 목록 · 카드 사이"></div>
+      <div><button class="btn" id="addSlot">+ 자리 추가</button></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>광고 목록</h2>
+    <p class="sub">같은 자리에 켜진 광고가 여럿이면 가중치대로 번갈아 노출됩니다. 이미지는 한 줄에 하나씩 적으면 매번 랜덤으로 바뀝니다.</p>
+    <div id="ads"></div>
+    <button class="btn" id="addAd">+ 광고 추가</button>
+  </section>
+
+  <section class="card">
+    <h2>변경 기록</h2>
+    <div class="hist" id="hist">-</div>
+  </section>
+</div>
+
+<div class="savebar">
+  <span id="state" class="hint">변경 사항 없음</span>
+  <button class="btn" id="reload">되돌리기</button>
+  <button class="btn pri" id="save" disabled>저장</button>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var cfg = null, baseVersion = 0, history = [], dirty = false, kvOk = true;
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function todayKST() { return new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10); }
+
+  function setDirty(v) {
+    dirty = v;
+    $('save').disabled = !v;
+    $('state').textContent = v ? '저장하지 않은 변경 사항이 있습니다' : '변경 사항 없음';
+    $('state').style.color = v ? 'var(--am)' : '';
+  }
+  function banner(kind, html) { var d = document.createElement('div'); d.className = 'banner ' + kind; d.innerHTML = html; $('banners').appendChild(d); return d; }
+
+  async function api(method, body) {
+    var opt = { method: method, credentials: 'same-origin', headers: { 'X-Gogo-Admin': '1' } };
+    if (body) { opt.headers['Content-Type'] = 'application/json'; opt.body = JSON.stringify(body); }
+    var r = await fetch('/api/admin/ads', opt), data = {};
+    try { data = await r.json(); } catch (e) { /* ignore */ }
+    if (!r.ok) { var err = new Error(data.error || ('HTTP ' + r.status)); err.data = data; err.status = r.status; throw err; }
+    return data;
+  }
+
+  function status(a) {
+    var slot = cfg.slots.find(function (s) { return s.id === a.slot; }), t = todayKST();
+    if (!cfg.enabled) return ['전체 꺼짐', 'b-off'];
+    if (!a.enabled) return ['꺼짐', 'b-off'];
+    if (!slot || slot.enabled === false) return ['자리 꺼짐', 'b-warn'];
+    if (a.start && t < a.start) return ['기간 전', 'b-warn'];
+    if (a.end && t > a.end) return ['기간 종료', 'b-warn'];
+    return ['노출 중', 'b-on'];
+  }
+
+  function renderMeta() {
+    $('meta').innerHTML = (cfg.version ? '버전 ' + cfg.version + ' · ' + esc(new Date(cfg.updatedAt).toLocaleString('ko-KR')) + ' · ' + esc(cfg.updatedBy) : '아직 저장된 적 없음 (기본 설정)') + '<br>접속: ' + esc(window.__user || '');
+    $('master').checked = cfg.enabled !== false;
+  }
+
+  function renderSlots() {
+    var box = $('slots'); box.innerHTML = '';
+    cfg.slots.forEach(function (s, i) {
+      var n = cfg.ads.filter(function (a) { return a.slot === s.id; }).length;
+      var row = document.createElement('div'); row.className = 'slotrow';
+      row.innerHTML = '<label class="switch"><input type="checkbox"' + (s.enabled !== false ? ' checked' : '') + '><span></span></label>'
+        + '<input type="text" value="' + esc(s.label) + '" maxlength="40">'
+        + '<div><code>' + esc(s.id) + '</code></div><div class="hint">광고 ' + n + '개</div>'
+        + '<button class="btn danger sm"' + (n ? ' disabled title="이 자리의 광고를 먼저 옮기거나 삭제하세요"' : '') + '>삭제</button>';
+      row.querySelector('input[type=checkbox]').onchange = function (e) { s.enabled = e.target.checked; setDirty(true); refreshBadges(); };
+      row.querySelector('input[type=text]').oninput = function (e) { s.label = e.target.value; setDirty(true); };
+      row.querySelector('button').onclick = function () { if (!n) { cfg.slots.splice(i, 1); setDirty(true); renderAll(); } };
+      box.appendChild(row);
+    });
+    if (!cfg.slots.length) box.innerHTML = '<div class="hint">광고 자리가 없습니다.</div>';
+  }
+
+  // 이미지 항목은 {src, link}. 문자열(예전 형식)이 와도 객체로 맞춘다.
+  function normImgs(list) {
+    return (list || []).map(function (x) { return typeof x === 'string' ? { src: x.trim(), link: '' } : { src: String(x.src || '').trim(), link: String(x.link || '').trim() }; }).filter(function (x) { return x.src; });
+  }
+  // 입력칸 한 줄 = "이미지주소 | 링크"  (링크는 생략 가능, 엑셀에서 두 칸을 복사해 붙여도 됩니다)
+  function toLines(a) { return a.images.map(function (x) { return x.link ? x.src + ' | ' + x.link : x.src; }).join('\n'); }
+  function parseLines(text) {
+    return text.split('\n').map(function (line) {
+      var m = line.match(/^([^|\t]*)[|\t]\s*(.*)$/);
+      return m ? { src: m[1].trim(), link: m[2].trim() } : { src: line.trim(), link: '' };
+    }).filter(function (x) { return x.src; });
+  }
+  function countText(a) {
+    var own = a.images.filter(function (x) { return x.link; }).length, none = a.images.length - own;
+    return '이미지 ' + a.images.length + '장 · 개별 링크 ' + own + '장' + (none && !a.link ? ' · ⚠ 링크 없는 이미지 ' + none + '장 (기본 링크를 넣으세요)' : '');
+  }
+  function thumbs(a) {
+    return a.images.slice(0, 8).map(function (x) { return '<img src="' + esc(x.src) + '" alt="" onerror="this.classList.add(\'bad\')" title="' + esc(x.src + (x.link ? '  →  ' + x.link : '')) + '">'; }).join('')
+      + (a.images.length > 8 ? '<span class="hint" style="align-self:center">+' + (a.images.length - 8) + '</span>' : '');
+  }
+
+  function renderAds() {
+    var box = $('ads'); box.innerHTML = '';
+    cfg.ads.forEach(function (a, i) {
+      var el = document.createElement('div'); el.className = 'ad';
+      var opts = cfg.slots.map(function (s) { return '<option value="' + esc(s.id) + '"' + (s.id === a.slot ? ' selected' : '') + '>' + esc(s.label) + ' (' + esc(s.id) + ')</option>'; }).join('');
+      el.innerHTML = '<div class="adhead"><label class="switch"><input type="checkbox" class="en"' + (a.enabled !== false ? ' checked' : '') + '><span></span></label>'
+        + '<input type="text" class="name" value="' + esc(a.name) + '" maxlength="60" placeholder="광고 이름"><span class="badge st"></span>'
+        + '<button class="btn sm dup">복제</button><button class="btn danger sm del">삭제</button></div>'
+        + '<div class="adbody"><div class="row r4"><div><label class="f">기본 링크 (이미지에 링크가 없을 때 사용 · 선택)</label><input type="url" class="link" value="' + esc(a.link) + '"></div>'
+        + '<div><label class="f">광고 자리</label><select class="slot">' + opts + '</select></div>'
+        + '<div><label class="f">가중치 (1~100)</label><input type="number" class="w" min="1" max="100" value="' + esc(a.weight || 1) + '"></div>'
+        + '<div><label class="f">시작일 / 종료일 (선택)</label><div class="row r2"><input type="date" class="start" value="' + esc(a.start) + '"><input type="date" class="end" value="' + esc(a.end) + '"></div></div></div>'
+        + '<label class="f">이미지 — 한 줄에 하나: <code>이미지주소 | 클릭 링크</code> (링크를 생략하면 기본 링크 사용). 엑셀에서 두 칸을 복사해 붙여도 됩니다</label><textarea class="imgs" spellcheck="false" placeholder="/ad_image/005/001.jpg | https://제휴링크1&#10;https://example.com/b.jpg | https://제휴링크2">' + esc(toLines(a)) + '</textarea>'
+        + '<div class="hint cnt" style="margin-top:6px"></div>'
+        + '<div class="thumbs"></div></div>';
+      var q = function (s) { return el.querySelector(s); };
+      q('.en').onchange = function (e) { a.enabled = e.target.checked; setDirty(true); refreshBadges(); };
+      q('.name').oninput = function (e) { a.name = e.target.value; setDirty(true); };
+      q('.link').oninput = function (e) { a.link = e.target.value.trim(); q('.cnt').textContent = countText(a); setDirty(true); };
+      q('.slot').onchange = function (e) { a.slot = e.target.value; setDirty(true); renderSlots(); refreshBadges(); };
+      q('.w').oninput = function (e) { a.weight = parseInt(e.target.value, 10) || 1; setDirty(true); };
+      q('.start').onchange = function (e) { a.start = e.target.value; setDirty(true); refreshBadges(); };
+      q('.end').onchange = function (e) { a.end = e.target.value; setDirty(true); refreshBadges(); };
+      q('.imgs').oninput = function (e) { a.images = parseLines(e.target.value); q('.thumbs').innerHTML = thumbs(a); q('.cnt').textContent = countText(a); setDirty(true); };
+      q('.cnt').textContent = countText(a);
+      q('.dup').onclick = function () { var c = JSON.parse(JSON.stringify(a)); c.id = newId(); c.name = a.name + ' (복사)'; cfg.ads.splice(i + 1, 0, c); setDirty(true); renderAll(); };
+      q('.del').onclick = function () { if (confirm('"' + a.name + '" 광고를 삭제할까요? (저장 전에는 되돌리기로 취소할 수 있습니다)')) { cfg.ads.splice(i, 1); setDirty(true); renderAll(); } };
+      q('.thumbs').innerHTML = thumbs(a);
+      a.__el = el; box.appendChild(el);
+    });
+    if (!cfg.ads.length) box.innerHTML = '<div class="hint" style="margin-bottom:10px">등록된 광고가 없습니다.</div>';
+    refreshBadges();
+  }
+
+  function refreshBadges() {
+    cfg.ads.forEach(function (a) {
+      if (!a.__el) return;
+      var st = status(a), b = a.__el.querySelector('.st'); b.textContent = st[0]; b.className = 'badge st ' + st[1];
+    });
+  }
+  function newId() { return 'ad-' + Date.now().toString(36); }
+
+  function renderHistory() {
+    $('hist').innerHTML = history.length ? '<ul>' + history.map(function (h) {
+      return '<li><b>v' + h.version + '</b> · ' + esc(new Date(h.at).toLocaleString('ko-KR')) + ' · ' + esc(h.by) + '<br>' + esc(h.note) + '</li>';
+    }).join('') + '</ul>' : '아직 기록이 없습니다.';
+  }
+  function renderAll() { renderMeta(); renderSlots(); renderAds(); renderHistory(); }
+
+  function clean(c) {
+    return { enabled: c.enabled !== false, slots: c.slots.map(function (s) { return { id: s.id, label: s.label, enabled: s.enabled !== false }; }),
+      ads: c.ads.map(function (a) { return { id: a.id, name: a.name, slot: a.slot, link: a.link || '', images: a.images, enabled: a.enabled !== false, weight: a.weight || 1, start: a.start || '', end: a.end || '' }; }) };
+  }
+
+  async function load() {
+    $('banners').innerHTML = '';
+    try {
+      var d = await api('GET');
+      cfg = d.config; baseVersion = cfg.version || 0; history = d.history || []; kvOk = d.kv; window.__user = d.user;
+      cfg.ads.forEach(function (a) { a.images = normImgs(a.images); a.link = a.link || ''; });
+      if (!d.kv) banner('warn', '<b>저장소(KV)가 아직 연결되지 않았습니다.</b> 화면은 볼 수 있지만 저장은 되지 않습니다. 「관리자 설정 방법」 문서의 KV 연결 단계를 먼저 진행하세요.');
+      else if (!cfg.version) banner('ok', '아직 저장된 설정이 없어 <b>기본 설정</b>(현재 사이트의 광고 4개)을 보여주고 있습니다. 저장하면 그때부터 이 화면의 설정이 적용됩니다.');
+      setDirty(false); renderAll();
+    } catch (e) {
+      $('meta').textContent = '';
+      banner('err', '<b>불러오지 못했습니다.</b> ' + esc(e.message) + (e.status === 401 || e.status === 403 ? ' (로그인이 필요하거나 접근 권한이 없습니다)' : ''));
+    }
+  }
+
+  $('master').onchange = function (e) { cfg.enabled = e.target.checked; setDirty(true); refreshBadges(); };
+  $('addSlot').onclick = function () {
+    var id = $('newSlotId').value.trim(), label = $('newSlotLabel').value.trim() || id;
+    if (!/^[a-z0-9][a-z0-9_-]{0,39}$/.test(id)) return alert('자리 ID 는 영문 소문자·숫자·-·_ 로 40자 이하여야 합니다.');
+    if (cfg.slots.some(function (s) { return s.id === id; })) return alert('이미 있는 자리 ID 입니다.');
+    cfg.slots.push({ id: id, label: label, enabled: true }); $('newSlotId').value = ''; $('newSlotLabel').value = '';
+    setDirty(true); renderAll();
+  };
+  $('addAd').onclick = function () {
+    if (!cfg.slots.length) return alert('먼저 광고 자리를 추가하세요.');
+    cfg.ads.push({ id: newId(), name: '새 광고', slot: cfg.slots[0].id, link: '', images: [], enabled: false, weight: 1, start: '', end: '' });
+    setDirty(true); renderAll();
+    var last = cfg.ads[cfg.ads.length - 1].__el; if (last) last.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  $('reload').onclick = function () { if (!dirty || confirm('저장하지 않은 변경 사항을 버리고 다시 불러올까요?')) load(); };
+  $('save').onclick = async function () {
+    $('save').disabled = true; $('state').textContent = '저장 중…';
+    try {
+      var d = await api('PUT', { baseVersion: baseVersion, config: clean(cfg) });
+      cfg = d.config; baseVersion = cfg.version; history = d.history || []; cfg.ads.forEach(function (a) { a.images = normImgs(a.images); a.link = a.link || ''; });
+      $('banners').innerHTML = ''; banner('ok', '저장했습니다. 방문자 화면에는 최대 1~2분 안에 반영됩니다.');
+      setDirty(false); renderAll();
+    } catch (e) {
+      $('banners').innerHTML = '';
+      var msg = '<b>저장하지 못했습니다.</b> ' + esc(e.message), list = e.data && e.data.errors;
+      if (list) msg += '<ul class="errs">' + list.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+      banner('err', msg); setDirty(true); window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+  window.addEventListener('beforeunload', function (e) { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+  load();
+})();
+</script>
+</body>
+</html>

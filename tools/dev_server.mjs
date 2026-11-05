@@ -12,12 +12,12 @@ http.createServer((req, res) => {
   let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
   const tries = [p, p + '.html', path.posix.join(p, 'index.html')];
   for (const t of tries) {
-    const f = path.join(ROOT, t);
-    if (f.startsWith(ROOT) && fs.existsSync(f) && fs.statSync(f).isFile()) {
+    const f = path.join(ROOT, 'public', t);
+    if (f.startsWith(path.join(ROOT, 'public')) && fs.existsSync(f) && fs.statSync(f).isFile()) {
       res.writeHead(200, { 'Content-Type': TYPES[path.extname(f)] || 'application/octet-stream' });
       return fs.createReadStream(f).pipe(res);
     }
   }
   res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-  fs.createReadStream(path.join(ROOT, '404.html')).pipe(res);
+  fs.createReadStream(path.join(ROOT, 'public', '404.html')).pipe(res);
 }).listen(PORT, () => console.log('http://localhost:' + PORT));

@@ -1,0 +1,171 @@
+<!--
+캘커타 콘퀘스트 BFS, 브레이크는 최대보다 절반 위에서 맞바람을 이겼다
+#베이트피네스
+#베이트릴
+#브레이크세팅
+#배스루어
+#경량루어
+베이트피네스 브레이크
+최대로 걸면 어긋남
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 뒤가 막힌 강·수로 자리에서 가벼운 루어를 던지는 배스 낚시인 / 자료: 내수면·일본 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+가벼운 루어를 던질 때<br>
+브레이크부터 최대로 올리는 분이 많습니다.<br>
+그렇게 두면 첫 캐스트부터 흐트러지고 거리도 나오지 않습니다.<br>
+맞바람이 부는 날에는 이 차이가 더 크게 드러납니다.<br><br>
+특히 뒤가 막힌 강변에서는 한 번의 캐스트가 아쉽습니다.<br>
+브레이크를 어디에 맞출지부터 정해 두는 게 좋습니다.<br><br>
+이 글은 자리와 루어 무게에 맞는 브레이크와 라인 선택을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 195g 아래의 몸체가<br>
+강성감과 콤팩트함을 함께 줍니다</h2>
+
+<br>
+
+<p>
+시마노(Shimano)의 캘커타 콘퀘스트 BFS는<br>
+베이트피네스 릴입니다.<br>
+무게는 195g대로 200g이 안 됩니다.<br>
+베이트피네스는 쉽게 말해 가벼운 루어를 베이트릴로 던지는 낚시를 말합니다.<br><br>
+몸체가 단단해서 쥐어 보면 흔들림이 없고<br>
+콤팩트해서 꽉 쥐어도 릴의 무게가 크게 느껴지지 않습니다.<br>
+핸들도 단단하고, 드랙은 소리가 나는 기계식에 드럼 클리커까지 달려 있습니다.<br><br>
+해수에서도 쓸 수 있다는 점이 이 릴의 또 다른 특징입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. PE 0.8호를 감을 때는<br>
+밑줄에 플로로를 먼저 깝니다</h2>
+
+<br>
+
+<p>
+이 릴은 PE 사용이 권장되지 않습니다.<br>
+그래서 밑줄로 플로로카본을 조금 넉넉히 감고 그 위에 PE를 감습니다.<br><br>
+PE 0.8호를 50m쯤 감았는데도 아직 20~30m는 더 감길 만큼 여유가 있습니다.<br>
+둥근 몸체 릴은 줄을 많이 감고 싶어지는 법입니다.<br>
+몸체가 강해서 라인이 많아도 늘어지거나 처지는 걱정이 없습니다.<br><br>
+PE 0.8호는 강도가 높습니다.<br>
+긴 리더를 달아 쓰면 M급 로드에 1/2온스급 하드베이트까지 다룰 수 있습니다.<br>
+1g 안팎의 아주 가벼운 루어를 노린다면 PE 0.4호나 0.3호까지 내려갑니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 브레이크를 최대로 걸면<br>
+첫 캐스트부터 어긋납니다</h2>
+
+<br>
+
+<p>
+7g 섀드를 날릴 때 브레이크를 최대로 두면 첫 캐스트가 시원하게 나가지 않습니다.<br>
+한 단계씩 낮추면 맞바람에서도 루어가 힘 있게 날아갑니다.<br><br>
+브레이크 설정은 쓰는 루어와 바람에 따라 달라집니다.<br>
+숏캐스트를 많이 쓸 때는 절반보다 조금 위쯤에서 시작해 보세요.<br>
+그 정도에서도 맞바람이 센 날 충분히 멀리 날았습니다.<br><br>
+스풀이 풀려 나가는 프리 느낌은 스피닝처럼 가볍습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 뒤가 막힌 강변에서는<br>
+낮게 날리는 캐스트가 맞습니다</h2>
+
+<br>
+
+<p>
+육지 낚시에서는 백캐스트 공간이 제한되는 경우가 많습니다.<br>
+뒤쪽이 수풀로 엉망일 때는 오버헤드로 휘두를 수 없어 사이드핸드 캐스트로 던집니다.<br><br>
+4.7g 소형 미노우는 탄도가 아주 낮게 나갑니다.<br>
+7g 섀드와 거리가 크게 차이 나지 않습니다.<br>
+엄지로 스풀을 누르지 않고 던져도 어렵지 않아서 사이드 캐스트에 잘 맞습니다.<br>
+릴이 작아서 세 손가락으로 쥔 채 로드 팁의 휨을 살려 계속 던지기에도 편합니다.<br><br>
+사람이 많아 들어갈 곳이 적은 강변에서는 트인 자리를 골라 던지는 일이 많습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 7g에서 0.6g까지<br>
+무게가 달라져도 이어서 날립니다</h2>
+
+<br>
+
+<p>
+7g 섀드에서 4.7g 미노우, 1.8g 스몰러버를 거쳐<br>
+0.6g 지그헤드에 2.5인치 웜까지 순서대로 던질 수 있습니다.<br>
+제조사는 1g대 루어도 던질 수 있다고 안내합니다.<br>
+0.6g 지그헤드도 오버헤드로 문제없이 날았습니다.<br><br>
+바람이 초속 2~3m 불면 스몰러버는 상당히 쓰기 어려워집니다.<br>
+그런데 이 릴은 1.8g 스몰러버도 사이드핸드로 여유 있게 날립니다.<br>
+5cm급 하드베이트도 던져지지만 강 배스는 회유성이 강해서 출번이 많지 않습니다.<br>
+배스 위치가 눈에 보이는 자리에서만 그런 작은 하드베이트가 살아납니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 가벼운 릴보다 손에 무게가 있는 쪽이<br>
+트위칭에 낫습니다</h2>
+
+<br>
+
+<p>
+릴이 가벼우면 손목이 오히려 흔들립니다.<br>
+트위칭처럼 손목을 짧게 치는 조작에서는 무게가 어느 정도 있는 릴이 안정적입니다.<br><br>
+이 릴처럼 기어비가 높으면 감는 동작만으로도 소형 미노우가 다트합니다.<br>
+손목이 약해 트위칭이 힘든 분도 이 방식이면 가능합니다.<br><br>
+가벼운 릴은 손목이 흔들립니다.<br>
+무게가 있는 릴은 손목이 안정됩니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">브레이크는 자리와 무게로<br>
+다시 맞춥니다</h2>
+
+<p>
+뒤가 막힌 자리라면 사이드핸드에 낮은 탄도, 트인 자리라면 오버헤드 캐스트로 바꿔 던지세요.<br>
+루어 무게가 바뀔 때마다 브레이크를 한 번씩 만져 주는 습관을 들여 두세요.<br><br>
+1g 안팎까지 노릴 때는 PE 0.4호로 낮추고 드랙을 믿고 차분히 파이팅하면 됩니다.<br>
+배스 위치가 보이는 자리라면 작은 하드베이트를 꺼내 보세요.
+</p>
+</div>
+
+</div>
+</body>
+</html>

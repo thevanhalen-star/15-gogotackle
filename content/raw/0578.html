@@ -1,0 +1,172 @@
+<!--
+마그네슘 몸체 시마노 베이트릴, 연안 소금물에서 3년 버틴 관리법
+#베이트릴
+#농어루어
+#BFS릴
+#릴관리
+#연안루어
+마그네슘 베이트릴
+소금물에서 3년 관리
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 하구와 방파제의 얕은 연안에서 베이트릴로 농어를 노리는 낚시인 / 자료: 바다·영어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+소금물에서 쓰는 베이트릴이라면<br>
+방수 처리가 된 릴만 써야 한다고 생각하는 분들이 많습니다.<br>
+그러나 마그네슘 몸체의 시마노 릴도<br>
+관리하는 습관만 갖추면 연안 소금물에서 오래 버티는 경우가 있습니다.<br>
+하구와 방파제의 얕은 연안에서 쓰는 시마노 베이트릴의 판단 기준을 제시합니다.<br><br>
+이 글은 마그네슘 몸체의 관리, BFS 릴의 쓰임, DC 릴, 던질 수 있는 루어 무게를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 마그네슘 몸체는<br>
+물을 뿌리지 말고 닦아 냅니다</h2>
+
+<br>
+
+<p>
+메타늄 MGL은 한 덩어리 마그네슘 프레임으로 만든 릴이어서<br>
+소금물 낚시에 완전히 맞춰진 릴은 아닙니다.<br>
+그래도 쓸 수는 있고, 관리 방법이 따로 있습니다.<br><br>
+물을 뿌려 씻지 말고 젖은 면 천으로 닦아 내세요.<br>
+오일은 낚시를 나가는 횟수에 맞춰 적어도 한 달에 한 번은 쳐야 합니다.<br>
+마그네슘 부품이 많은 릴은 소금기가 남으면 상하기 쉽기 때문입니다.<br><br>
+쓴 지 한 달 만에 큰 농어를 15~18마리쯤 걸어냈는데 문제는 없었습니다.<br>
+오래 버틸지는 시간이 말해 주겠지만, 드랙은 막힘 없이 매끄럽습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 3년 쓴 메타늄 DC에는<br>
+부식도 녹도 없었습니다</h2>
+
+<br>
+
+<p>
+같은 마그네슘 계열의 메타늄 DC는 3년을 거칠게 써서 겉이 낡았어도<br>
+부식이나 녹이 생기지 않았습니다.<br>
+공식 정비소에서 정비를 세 번 받았다는 것이 큰 몫을 했을 것입니다.<br><br>
+해수용으로 설계된 릴은 아니지만,<br>
+닦고 기름을 치는 습관이 쌓이면 낚시를 이어 가기에 충분합니다.<br>
+소금물에서 쓰는 마그네슘 릴은 쓰고 난 뒤의 손질이 수명을 정합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 일체형 알루미늄 BFS는<br>
+작은 루어로 큰 농어를 받습니다</h2>
+
+<br>
+
+<p>
+BFS는 베이트 피네스 시스템의 줄임말로,<br>
+아주 작은 루어를 베이트릴로 던질 수 있게 만든 방식을 말합니다.<br><br>
+알루미늄 한 덩어리로 짠 BFS 릴은 2년 가까이 쓰는 동안 문제가 없었고,<br>
+매끄럽고 힘 들이지 않고 돌아갑니다.<br>
+작은 루어를 던져 큰 농어를 걸어낸 적이 많지만 기계적인 결함으로 놓친 고기는 없었습니다.<br><br>
+그 대신 몸체가 묵직하고 쓰임새가 좁은 편입니다.<br>
+작은 루어를 쓰려는 분이라면 이 점을 염두에 두세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 입문형 BFS는<br>
+조금 덜 매끄러워도 믿을 만합니다</h2>
+
+<br>
+
+<p>
+몸체가 70번 크기인 입문형 BFS는 상급 BFS만큼 매끄럽지는 않습니다.<br>
+핸들을 돌릴 때 마찰이 살짝 느껴지고 소리도 조금 납니다.<br><br>
+정밀도가 그만큼 촘촘하지 않아 때가 쉽게 낍니다.<br>
+두 번 분해 청소를 받고 매달 오일과 정비를 했더니 잘 돌아갔고,<br>
+기계적인 고장은 한 번도 없었습니다.<br><br>
+소금물 연안에서 BFS와 작은 루어를 처음 시작하려는 분께는 믿을 만한 입문 릴입니다.<br>
+다만 BFS 전용이어서 상급 릴만큼 쓰임새가 넓지는 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 중급 DC는<br>
+작은 루어와 무거운 채비를 모두 던집니다</h2>
+
+<br>
+
+<p>
+SLX DC는 DC 릴 가운데 보급형에 가깝고,<br>
+작은 루어와 무거운 채비를 가리지 않고 던질 수 있습니다.<br>
+이 릴로 큰 고기를 여러 번 걸어냈고 쓰는 맛도 좋습니다.<br><br>
+검은색 무광 마감은 흠집이 쉽게 나서 보기에 아쉽다는 이야기가 있습니다.<br>
+성능과 쓰임새만 놓고 보면 아쉬운 점이 거의 없는 릴입니다.<br><br>
+가장 매끄럽게 도는 상급 모델은 큰 스윔베이트도, 작은 루어도 던지는 만능형입니다.<br>
+단단한 일체 프레임 때문에 묵직하다는 점은 감안하세요.<br>
+손바닥에 딱 맞게 감기는 맛이 이 릴의 장점입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 던질 수 있는 무게가 넓으면<br>
+릴 하나로 채비를 바꿉니다</h2>
+
+<br>
+
+<p>
+메타늄 MGL은 28g(1온스) 스윔베이트도 던지고,<br>
+3.5g(1/8온스)짜리 작은 루어도 던집니다.<br>
+BFS처럼 쓰려면 그에 맞는 합사를 감아 주세요.<br><br>
+메타늄 DC는 1g, 3.5g(1/8온스), 가는 합사를 쓰면 약 1.8g(1/16온스)짜리까지 던집니다.<br>
+평소에는 7~14g(1/4~1/2온스)을 즐겨 던지고,<br>
+필요하면 56g(2온스) 스윔베이트도 어렵지 않습니다.<br>
+크롬 마감 상급기는 반들거려서 닦아 줘야 광택이 오래 가고,<br>
+손바닥에 감기는 맛이 좋습니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">얕은 연안 베이트릴은<br>
+관리 약속과 루어 무게로 갈립니다</h2>
+
+<p>
+자리가 바뀌면 릴 고르는 순서도 바뀝니다.<br>
+물이 튀는 하구 입구나 방파제 끝에서는 해수 사양을 먼저 보고,<br>
+안쪽의 잔잔한 얕은 물에서는 던질 수 있는 루어 무게부터 보세요.<br><br>
+마그네슘 릴을 쓴다면 쓴 날마다 닦고 매달 기름 치는 약속을 정해 두는 게 좋습니다.<br>
+농어는 30cm 이하는 놓아주셔야 합니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

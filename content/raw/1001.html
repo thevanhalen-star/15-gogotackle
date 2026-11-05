@@ -1,0 +1,174 @@
+<!--
+배스 베이트릴 3종, 가벼운 웜부터 큰 스윔베이트까지 스풀 깊이로 나눕니다
+#배스베이트릴
+#BFS릴
+#스윔베이트
+#피네스낚시
+#베이트릴스풀
+베이트릴 용도 3종
+스풀 깊이로 갈렸다
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 용도별로 베이트릴을 나눠 갖추려는 배스 낚시인 / 자료: 내수면·영어(장비) / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+배스 베이트릴 한 대로 모든 루어를 던지려는 분들이 많습니다.<br>
+그렇게 하면 가벼운 웜 채비는 날리기 어렵고, 큰 스윔베이트는 릴이 버텨 주지 못합니다.<br>
+시마노(Shimano)의 큐라도(Curado) BFS XG와 300 HG,<br>
+메타늄(Metanium) MGL을 스풀 깊이와 기어비로 나눠 보면 역할이 갈립니다.<br>
+이 글은 세 릴이 맡는 루어 무게대와 라인 굵기, 쓰임새 차이를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">세 릴은 스풀 깊이와 기어비로<br>
+맡는 일이 나뉩니다</h2>
+
+<br>
+
+<p>
+가벼운 쪽, 중간 쪽, 무거운 쪽으로 릴을 셋으로 나누는 구성입니다.<br>
+큐라도 BFS XG는 기어비 8.2대 1에 스풀이 아주 얕습니다.<br>
+큐라도 300 HG는 기어비 6.6대 1에 스풀이 깊고 기어가 보강되어 있습니다.<br><br>
+메타늄 MGL은 기어비 7.1대 1로 두 릴 사이를 메우는 주력 릴입니다.<br>
+세 릴 가운데 시마노 라인업의 윗급은 메타늄입니다.<br><br>
+스풀 깊이는 곧 감을 수 있는 라인의 굵기입니다.<br>
+얕은 스풀은 얇은 라인에 맞고, 깊은 스풀은 굵은 라인을 넉넉히 감습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">가벼운 웜도 베이트릴로 던지려고<br>
+스풀을 얕게 만든 릴이 BFS입니다</h2>
+
+<br>
+
+<p>
+BFS XG는 스피닝 채비로 던지던 가벼운 루어를 베이트릴로 던지려는 릴입니다.<br>
+네꼬리그, 노싱커 와키 리그 같은 채비가 여기에 들어갑니다.<br>
+스피닝 릴이 손에 익지 않아 줄이 엉키는 분이 베이트릴로 가벼운 채비를 던지고 싶을 때 맞습니다.<br><br>
+스풀이 아주 얕아서 8파운드(약 3.6kg, 2호) 라인을 50야드(약 45m)쯤밖에 못 감습니다.<br>
+굵은 라인은 감기지 않으니 얇은 라인에 맞추세요.<br>
+브레이크는 피네스 튠 브레이크 시스템이 달려 있습니다.<br><br>
+로드는 미디엄 파워가 가장 무거운 쪽입니다.<br>
+라인도 가벼운 것을 맞춰 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">112g을 넘는 큰 루어는<br>
+300 쪽이 맞습니다</h2>
+
+<br>
+
+<p>
+큐라도 200급은 84~112g 루어까지는 무리 없이 던집니다.<br>
+그 위로 올라가면 더 튼튼한 몸체와 기어가 있어야 합니다.<br>
+300이 그 일을 맡습니다.<br><br>
+300 HG는 스풀이 깊어서 20~25파운드(약 9~11kg) 플로로카본이나 모노필라멘트를 넉넉히 감습니다.<br>
+핸들은 크고 길고, 보강된 기어가 하우징 안에 들어 있습니다.<br>
+처음 쥐면 다소 무겁게 느껴지지만 큰 루어를 던지는 릴이라 그렇습니다.<br>
+몸체가 낮아서 손바닥에는 잘 들어옵니다.<br><br>
+쓰임은 약 196g짜리 큰 소프트 스윔베이트, 큰 글라이드베이트, 깊이 잠기는 큰 크랭크베이트입니다.<br>
+굵은 라인을 넉넉히 감을 수 있어 멀리 던지는 데도 유리합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">메타늄 MGL은<br>
+가벼운 쪽과 무거운 쪽 사이를 맡습니다</h2>
+
+<br>
+
+<p>
+메타늄 MGL은 일본 사양 모델입니다.<br>
+SVS 인피니티 브레이크와 매그넘 라이트 스풀을 갖췄고, 몸체가 매우 가볍습니다.<br>
+시마노 상급 라인업의 기술이 들어간 릴입니다.<br><br>
+스윔 지그 같은 중간 무게대 루어에 17파운드(약 7.7kg) 플로로카본을 감아 주력으로 쓰는 구성입니다.<br>
+가벼운 웜 채비는 BFS, 큰 루어는 300으로 나누면 이 릴은 가장 자주 던지는 루어를 맡게 됩니다.<br>
+기어비 7.1대 1이라 감는 속도도 중간입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">활성이 낮을 때는 웜의 냄새와 색을 먼저 바꿉니다</h2>
+
+<br>
+
+<p>
+입질이 약한 시기에는 냄새가 나는 웜이 힘을 냅니다.<br>
+약 19cm 곡선 꼬리 웜에 냄새가 배어 있으면 텍사스 리그로 바닥을 끌 때 입질을 이끌 수 있습니다.<br>
+직선 꼬리 웜을 더 자주 쓰던 분이라면 곡선 꼬리를 하나 넣어 보세요.<br><br>
+색은 준버그가 물색을 가리지 않습니다.<br>
+맑은 물, 흐린 물 어느 쪽에서도 쓸 수 있습니다.<br>
+맑은 호수에서도 붉은 기가 도는 대담한 색이 잘 먹힐 때가 있습니다.<br>
+수박색에 호박색 배가 섞인 색은 자연스러우면서 반짝임이 있어 안정적인 선택입니다.<br><br>
+입질이 아주 까다로우면 납작한 핀 모양 웜을 드롭샷에 달고 스피닝 채비로 바꾸는 방법도 있습니다.<br>
+스윙 헤드와 쉐이키 헤드를 합친 제품에 이 웜을 꿰면 아래에서 새우나 작은 물고기처럼 춤을 춥니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">글라이드베이트는 크기보다<br>
+물색에 맞춰 색을 고릅니다</h2>
+
+<br>
+
+<p>
+관절이 있는 레진 글라이드베이트는 붓 모양 꼬리가 달리고 크기는 작은 편입니다.<br>
+이 정도 크기는 300이 없어도 던질 수 있습니다.<br>
+다만 300으로 던져도 문제는 없습니다.<br><br>
+맑은 호수에서는 섀드를 닮은 자연색이 맞습니다.<br>
+죽어 가는 섀드처럼 보이도록 연한 보라색이 살짝 들어간 색도 있습니다.<br>
+아주 탁한 물에서는 빨강과 노랑에 검은 세로줄이 들어간 퍼치 계열 색이 눈에 띕니다.<br>
+아가미 둘레에 연보라 포인트가 들어간 색입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">한 대로 다 하려 하지 말고<br>
+무게대로 세 단계를 나눠 봅니다</h2>
+
+<p>
+국내 댐이나 저수지에서는 풀 사이를 가볍게 두드리는 날과 개방 수면에서 큰 루어를 던지는 날이 섞입니다.<br>
+그날 던지는 루어에 따라 릴이 갈립니다.<br><br>
+풀 사이는 BFS, 가장 자주 던지는 중간 루어는 메타늄, 큰 루어는 300 순서로 나누는 구성입니다.<br>
+세 대를 한꺼번에 갖추기 어렵다면 가장 자주 던지는 루어 무게부터 정해 보세요.<br>
+그 무게에 맞는 스풀 깊이를 고르면 나머지는 하나씩 채울 수 있습니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

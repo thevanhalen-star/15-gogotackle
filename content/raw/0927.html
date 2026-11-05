@@ -1,0 +1,175 @@
+<!--
+알데바란 BFS와 알파스 에어 TW, 같은 7g 지그에서 갈린 브레이크 눈금
+#BFS릴
+#브레이크세팅
+#지그헤드
+#캐스팅거리
+#바람부는날
+BFS 릴 브레이크
+2.5와 1.5의 차이
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형(바람·조류·수로 폭) / 타겟: 바람과 조류가 있는 수로에서 BFS 릴로 가벼운 지그헤드를 던지는 낚시인 / 자료: 바다·영어 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+바람 센 날 BFS 릴에 가는 PE 라인을 감고 브레이크부터 풀어 버리는 분들이 많습니다.<br>
+그러면 라인이 스풀 위에서 파고들어 백러쉬로 돌아옵니다.<br>
+2022년형 시마노(Shimano) 알데바란 BFS와<br>
+다이와(Daiwa) 알파스 에어 TW를 같은 조건에서 비교하면<br>
+브레이크를 내려도 되는 한계가 확연히 다릅니다.<br><br>
+이 글은 바람과 조류, 지그헤드 무게별 브레이크 눈금, 릴리스 타이밍을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">바람은 왼쪽으로 불고 조류는 오른쪽으로 흐르면<br>
+라인부터 정리합니다</h2>
+
+<br>
+
+<p>
+바람이 센 날의 수로 낚시는 라인 관리가 먼저입니다.<br>
+바람은 왼쪽으로 불고 조류는 오른쪽으로 흘러서, 가는 PE 라인은 왼쪽으로 밀리고 지그헤드는 오른쪽으로 끌려갑니다.<br>
+다리 같은 구조물이 바람 속도를 조금 꺾어 주기는 하지만 완전히 막지는 못합니다.<br><br>
+이럴 때는 던진 직후 슬랙부터 걷어 보세요.<br>
+라인이 너무 가늘어서 한 번 끊어 먹으면 리더를 다시 묶어야 합니다.<br>
+그러니 무리해서 세게 던지지 않는 편이 낫습니다.<br>
+노리는 고기가 물가 가까이 붙어 있는 자리라면 애초에 멀리 던질 이유도 없습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">지그헤드가 무거울수록<br>
+브레이크는 3.5에서 시작합니다</h2>
+
+<br>
+
+<p>
+조류가 센 자리에서는 3g 지그헤드가 2g보다 훨씬 낫습니다.<br>
+가벼운 지그헤드는 조류에 밀려 바닥을 못 느끼기 때문입니다.<br>
+알데바란 BFS에 3g을 달면 브레이크 4에서는 캐스팅이 약간 왼쪽으로 쏠립니다.<br>
+3.5로 내려도 3g 무게에서는 무난하게 날아갑니다.<br><br>
+2g으로 바꾸면 이야기가 달라집니다.<br>
+가벼운 만큼 브레이크를 한 눈금쯤 낮춰도 스풀이 얌전합니다.<br>
+반대로 4g처럼 덩치가 큰 루어는 바람이 줄어든 뒤에도 3.5가 무난합니다.<br>
+옆바람이 불 때 공기 저항이 큰 루어를 억지로 던지면 라인이 스풀에 파고들어 심한 백러쉬가 납니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">알데바란은 낮게 날아가고<br>
+릴리스 타이밍을 목표에 맞춰야 합니다</h2>
+
+<br>
+
+<p>
+알파스 에어는 포물선을 그리며 날아가서 던지기 쉽습니다.<br>
+알데바란은 같은 동작이라도 궤적이 낮고 평평합니다.<br>
+릴리스 포인트, 곧 루어를 놓는 타이밍을 목표에 맞춰 조금씩 바꿔 줘야 합니다.<br><br>
+처음 던져 보면 놓는 시점이 어색해서 자꾸 한쪽으로 빠집니다.<br>
+그래도 손에 익으면 조준은 오히려 알데바란이 더 좋습니다.<br>
+작은 지그헤드를 40피트(약 12m)쯤 보내는 것은 어렵지 않고, 45피트(약 14m)까지도 나갑니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">7g 지그로 수로 한가운데를 넘기려면<br>
+2.5가 한계입니다</h2>
+
+<br>
+
+<p>
+7g 메탈 지그는 알데바란의 브레이크를 어디까지 낮출 수 있는지 보여 줍니다.<br>
+PE 0.3호에 7g을 달고 브레이크 3.5에서 던지면 수로 한가운데까지 닿습니다.<br>
+3으로 내리면 더 나가고, 2.5까지 내리면 살짝 부풀어 오르는 정도로 수로 중간을 한참 넘깁니다.<br><br>
+2.5가 사실상 한계이고, 2 근처는 위험합니다.<br>
+3 바로 아래에 맞추는 쪽이 훨씬 안전합니다.<br>
+이 세팅이면 35m는 쉽게 닿습니다.<br>
+더 긴 7피트(약 2.1m) 로드를 쓰면 40m 근처도 닿습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">같은 자리에 닿는 눈금이<br>
+알데바란 2.5, 알파스 1.5입니다</h2>
+
+<br>
+
+<p>
+알파스 에어 TW로 같은 7g 지그를 던지면 브레이크 6은 확실히 오버 브레이크입니다.<br>
+5로 내리면 수로 한가운데 가까이 닿고, 3까지 내려도 거리는 크게 변하지 않습니다.<br>
+알데바란이 2.5에서 닿던 자리에 알파스는 1.5에서 닿습니다.<br><br>
+2 아래로 내리면 0.3호 PE로는 위험한 구간입니다.<br>
+다만 두 릴에 감은 라인의 굵기가 달라서 이 숫자를 그대로 믿기는 어렵습니다.<br>
+알파스 쪽 0.3호는 조금 굵게 느껴지고 알데바란 쪽은 더 가늘어서 파고들 확률이 높습니다.<br>
+정확한 비교는 같은 라인을 감고 다시 던져 봐야 합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">브레이크를 0까지 내려도<br>
+알파스는 자력 브레이크가 남습니다</h2>
+
+<br>
+
+<p>
+알파스 에어 TW는 브레이크를 0에 놓아도 안쪽에 자력 브레이크가 조금 남아 있습니다.<br>
+그래서 2나 1.5 아래로 내려도 거리가 크게 늘지 않습니다.<br>
+8피트 6인치(약 2.6m) 로드로 브레이크 0에 놓고 던져 보면 25m 안팎이 나옵니다.<br><br>
+알데바란은 사정이 다릅니다.<br>
+눈금이 여섯 단계뿐이라 세밀한 조정은 알파스가 낫습니다.<br>
+알데바란은 2 아래로 내리려면 각오가 필요합니다.<br>
+그 대신 3과 3.5 사이처럼 작은 차이로는 캐스팅이 무너지지 않습니다.<br><br>
+가는 PE는 빨리 가라앉아 소프트 베이트에 어울리고, 굵은 쪽은 덜 파고들어 메탈 지깅에 편합니다.<br>
+알데바란의 드랙 클릭 소리가 좋다는 점도 취향을 가르는 부분입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">수로 폭이 달라지면<br>
+브레이크 눈금도 따로 잡습니다</h2>
+
+<p>
+노리는 고기가 물가에 붙어 있는 좁은 자리라면 2g 지그헤드에 브레이크 4 안팎이면 충분합니다.<br>
+멀리 던질 이유가 없으니 알데바란이든 알파스든 무리해서 내릴 필요가 없습니다.<br><br>
+조류가 센 자리는 3g 이상으로 바꾸고 3.5부터 시작해 보세요.<br>
+수로 한가운데를 넘겨야 하는 넓은 자리라면 7g 메탈 지그에 알데바란은 2.5 근처, 알파스는 1.5까지 내려야 합니다.<br>
+옆바람이 있는 날은 여기서 한 눈금 높게 잡아 두세요.<br>
+이 범위를 넘으면 라인이 파고들어 리더를 다시 묶게 됩니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

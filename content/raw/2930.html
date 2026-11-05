@@ -1,0 +1,192 @@
+<!--
+베이트 피네스 로드, 일본식 울트라라이트와 일반 배스 BFS가 갈리는 지점
+#베이트피네스
+#BFS로드
+#배스낚시
+#스피닝릴
+#로드그립감도
+베이트 피네스 두 갈래
+일본식 울트라라이트
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 베이트 피네스를 막 시작하며 릴과 로드를 고르는 배스 낚시인 / 자료: 내수면·영어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+모델이 바뀌었다는 이유만으로 장비를 바꾸면 쓰던 것보다 못할 수 있습니다.<br>
+같은 이름이라도 손에 오는 차이는 가볍기와 부드러움에서 갈리기 때문입니다.<br>
+특히 베이트 피네스는 일본식 울트라라이트와 일반 배스 낚시용으로 쓰임이 나뉩니다.<br>
+릴과 로드가 어떤 자리에서 무엇을 바꾸는지 기준을 짚어 봅니다.<br><br>
+이 글은 릴의 체감 변화, 베이트 피네스 장비의 두 갈래, 속 빈 그립과 접이식 로드를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 상위 기술이 내려온 중급 스피닝릴<br>
+스펙표보다 손에 오는 가벼움이 먼저입니다</h2>
+
+<br>
+
+<p>
+시마노(Shimano)의 중급 스피닝릴이 크게 손질되었습니다.<br>
+최상급 릴에서 쓰던 기술 네 가지를 중급으로 내려보낸 모델입니다.<br>
+원래도 값 대비 만족도가 높은 릴이었는데, 이번엔 한 단계를 더 뛰어넘었습니다.<br><br>
+사양표에서는 조금 가벼워진 정도입니다.<br>
+손에 들면 훨씬 가볍게 느껴집니다.<br>
+그보다 크게 달라진 것은 감김이 놀랄 만큼 부드러워졌다는 점입니다.<br>
+최상급 릴을 쥔 듯한 감촉이라 같은 릴을 여러 대 두고<br>
+기법별로 나눠 쓰고 싶어집니다.<br><br>
+사양 목록보다 직접 느낄 수 있는 차이를 보세요.<br>
+기술 이름보다 손에 닿는 차이가 구입 이유가 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 가격은 그대로, 부드러움만 올린 입문급 베이트릴<br>
+바깥에서 브레이크를 조절합니다</h2>
+
+<br>
+
+<p>
+입문급 베이트릴에 사일런트 튠(Silent Tune)이라는 기술이 더해졌습니다.<br>
+핵심은 이 릴이 눈에 띄게 부드러워졌다는 점입니다.<br>
+가격이 올라가지 않았다는 점이 더 반갑습니다.<br><br>
+입문급에서 한 단계 올린 모델은 바깥에서 브레이크를 조절할 수 있습니다.<br>
+릴을 열어 안쪽을 만지지 않고 빠르게 세팅을 바꿉니다.<br>
+조금 더 지출이 되더라도 이 한 단계는 의미가 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 파워 피싱용으로 맞춘 릴이 나왔습니다<br>
+가벼운 루어를 잘 던지던 릴과는 반대 방향입니다</h2>
+
+<br>
+
+<p>
+다이와(Daiwa)의 베이트릴 가운데에는 가벼운 루어를 잘 던지는 모델이 있습니다.<br>
+스퀘어빌처럼 가볍고 바람에 잘 밀리는 루어를 던질 때 빛납니다.<br>
+이번 릴은 반대 방향입니다. 파워 피싱에 맞춰 조정했습니다.<br><br>
+합사를 감는 것을 염두에 두고 만들었습니다.<br>
+물론 모노나 플로로도 쓸 수 있습니다.<br>
+커버에서 고기를 끌어내고 큰 루어, 무거운 루어를 던지는 데 맞습니다.<br>
+펀칭과 플리핑, 프로깅 같은 낚시가 여기에 들어갑니다.<br><br>
+써 본 시간이 길지 않아 첫인상 단계입니다.<br>
+같은 회사 릴이라도 용도에 따라 이렇게 갈립니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 입문 가격 BFS 릴과 로드<br>
+한 대로 시작할 수 있는 길이 열렸습니다</h2>
+
+<br>
+
+<p>
+입문 가격대에서 제대로 던지는 BFS 릴이 처음 나왔습니다.<br>
+작은 BFS 전용 릴이 아니라 핸들까지 풀사이즈입니다.<br>
+그런데도 3.5g짜리 구피 헤드에 스윔베이트나 언더스핀을 달아 쭉쭉 날립니다.<br><br>
+7파운드(약 3.2kg) 플로로카본이 약 54m 감깁니다.<br>
+이 줄 길이면 BFS 낚시에 충분합니다.<br>
+가벼운 루어를 나무 밑으로 스키핑하는 전문 기술까지 바라는 릴은 아닙니다.<br>
+BFS를 처음 해 보는 사람이 2.8인치 쉐드 웜을 달거나 링 크로 웜을 던지는 용도로는 충분합니다.<br><br>
+짝이 되는 로드는 약 2m(6.5피트) 라이트 BFS 로드입니다.<br>
+팝퍼부터 카라시, 작은 플루크, 마이크로 플리핑까지 한 대로 소화하는 범용 액션입니다.<br>
+BFS를 맛보려는 낚시인이 한 대만 고른다면 이 정도 구성이 좋습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 베이트 피네스는 두 갈래로 나뉘었습니다<br>
+일본식 울트라라이트와 일반 배스 BFS</h2>
+
+<br>
+
+<p>
+일본의 베이트 피네스는 진짜 울트라라이트입니다.<br>
+아주 작은 루어를 쓰고, 상당 부분이 송어 낚시입니다.<br>
+작은 개울을 걸으며 베이트 장비로 가벼운 송어 루어를 던지는 방식입니다.<br><br>
+반면 지금 이 낚시에 뛰어드는 사람 대부분은 일반 배스 낚시인입니다.<br>
+스피너베이트나 크랭크베이트를 감던 감각 그대로<br>
+2.8인치 웜을 문 약 28cm 배스에 세게 챔질합니다.<br>
+팝퍼, 작은 스윔베이트, 언더스핀, 작은 지크베이트를 던집니다.<br><br>
+한 로드 제조사가 약 2.2m 미디엄 라이트와 약 2.3m 라이트 로드를 내놓았습니다.<br>
+미디엄 라이트는 조금 큰 루어를 더 멀리 날려 BFS 밖의 일까지 해냅니다.<br>
+2.3m 라이트는 헤어 지그나 스파이베이트처럼 스피닝으로만 하던 낚시를 베이트로 소화합니다.<br><br>
+이 갈림은 앞으로 더 뚜렷해질 전망입니다.<br>
+고급 일본식 BFS와 일반 배스 BFS는 같은 줄에 세울 수 없는 낚시가 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 속이 빈 그립은 장식이 아닙니다<br>
+바닥 진동이 손에 그대로 옵니다</h2>
+
+<br>
+
+<p>
+시마노(Shimano)의 최상급 로드 라인은 크게 손질되었습니다.<br>
+그립이 속이 빈 카본 일체형입니다.<br>
+바닥을 두드리거나 입질이 올 때 진동이 로드를 타고 내려와<br>
+빈 그립에서 울리면서 커집니다.<br><br>
+배 바로 밑에서 루어를 내리고 있다고 해 봅시다.<br>
+배스가 아래서 올려 물면 로드 끝이 살짝 풀리는 정도라 거의 느낄 수 없습니다.<br>
+가벼운 루어일수록 더 그렇습니다.<br>
+그런데 이 로드로는 그 입질이 느껴졌고, 챔질하자 2.7kg에 가까운 배스가 걸렸습니다.<br>
+느껴지지 않을 입질이 느껴진다는 점이 이 그립의 값어치입니다.<br><br>
+로드의 액션도 중요합니다.<br>
+일본식 로드는 레귤러 액션이 많습니다.<br>
+7피트 미디엄 헤비 레귤러 하나로 배스 낚시의 8할을 소화하기도 합니다.<br>
+6피트 10인치 미디엄 헤비와는 같은 이름이라도 쓰임이 전혀 다릅니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">작은 연못이 눈에 띄면<br>
+접이식 로드를 한 대 넣어 두세요</h2>
+
+<p>
+자리가 달라지면 장비의 무게와 길이도 바뀝니다.<br>
+트럭 좌석 밑에 로드 한 대를 넣어 두었다가 농장 연못이 보일 때 던지는 날에는<br>
+접이식 팩 로드가 잘 맞습니다.<br><br>
+이 로드는 가이드가 블랭크에 느슨하게 끼워져 있다가 펼칠 때 밀어 올려 고정합니다.<br>
+손잡이는 풀어서 접습니다.<br>
+흔히 접이식은 싸구려라는 인식이 있지만 이건 다릅니다.<br>
+다만 직접 낚시해 보지 않아 감도는 말할 수 없습니다.<br><br>
+송어용 약 1.8m 울트라라이트 BFS 로드도 눈여겨보세요.<br>
+작은 스피너를 던지는 용도라 배스에는 트레블 훅을 쓰세요.<br>
+외바늘은 이 로드로 챔질하기 어렵습니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

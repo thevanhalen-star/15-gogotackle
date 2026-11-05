@@ -1,0 +1,175 @@
+<!--
+큐라도 BFS와 견준 C9-Air, 155g 릴이 드랙 소리와 유격에서 갈렸다
+#베이트피네스
+#BFS릴
+#베이트릴
+#릴브레이크
+#초경량릴
+베이트 피네스 핸들
+10cm 긴 핸들의 힘
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 바람 부는 물가에서 가벼운 루어를 던지는 베이트 피네스 낚시인 / 자료: 내수면·영어(장비 테스트) / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+가벼운 루어용 베이트 피네스 릴을 고를 때 스펙표의 무게 숫자만 보고 정하기 쉽습니다.<br>
+그런데 바람 부는 물가에서 막상 던져 보면 핸들 길이와 스풀 무게, 브레이크 눈금이 결과를 가릅니다.<br>
+155g 초경량 릴 하나를 놓고 무엇을 어떻게 확인하는지 기준을 정리했습니다.<br><br>
+이 글은 루어스타(Lurestar) C9-Air를 시마노(Shimano) 큐라도(Curado) BFS와 견주어<br>
+핸들, 스풀, 드랙, 브레이크 세팅을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 핸들이 10cm로 길어<br>
+돌리는 힘이 덜 듭니다</h2>
+
+<br>
+
+<p>
+C9-Air의 핸들은 길이를 재 보면 10cm입니다.<br>
+다른 BFS 릴이 보통 8.5cm 안팎인 것과 비교하면 꽤 깁니다.<br>
+핸들이 길면 지렛대 힘이 커져서 감는 데 힘이 덜 들고, 한 번 돌기 시작한 스풀이 더 오래 돕니다.<br><br>
+베이트 피네스는 쉽게 말해 가벼운 루어를 던지는 데 맞춘 베이트릴 낚시입니다.<br>
+이 릴은 무거운 스풀을 끼워 무거운 루어까지 던지게 하려고 핸들을 길게 만든 것으로 보입니다.<br><br>
+다만 핸들이 길어서 손바닥 안에 감추듯 쥐기는 어렵습니다.<br>
+크기는 작지도 크지도 않은 중간쯤입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 스풀은 두 종류,<br>
+가벼운 쪽은 3g부터 던집니다</h2>
+
+<br>
+
+<p>
+기본으로 들어 있는 가벼운 스풀은 베어링을 포함해 8.3g입니다.<br>
+구멍이 100개 가까이 뚫려 있고, 베어링을 빼면 7g대입니다.<br>
+이 정도면 3g짜리 루어부터 편하게 던질 수 있습니다.<br><br>
+함께 들어 있는 깊은 스풀은 13g이고 10g 이상의 루어를 던지는 쪽입니다.<br>
+스풀 무게는 스풀을 돌리기 시작하는 데 드는 힘을 가르는 숫자입니다.<br>
+가벼울수록 가벼운 루어로도 스풀이 잘 돕니다.<br><br>
+사이드 플레이트 안 베어링에는 NMB 표기가 새겨져 있어서 품질도 괜찮은 쪽으로 보입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 소리는 일정하고<br>
+흔들림은 거의 없습니다</h2>
+
+<br>
+
+<p>
+스풀 텐션 노브, 드랙 노브, 브레이크 조절기를 돌리면 모두 딸깍 소리가 납니다.<br>
+스풀 조절기와 드랙은 적당한 크기로, 브레이크 조절기는 조금 더 크게 납니다.<br>
+눈에 띄는 점은 드랙 소리가 드랙 세기와 상관없이 비슷하다는 것입니다.<br>
+큐라도는 드랙을 올리면 소리가 거의 사라지는데, 이 릴은 약하게 풀어도 세게 조여도 같은 소리가 납니다.<br><br>
+사이드 플레이트는 스위치를 젖히고 아래로 돌려서 뺍니다.<br>
+안에는 자석 뱅크가 두 줄, 자석은 모두 여덟 개입니다.<br><br>
+축 방향 유격도 회전 유격도 큐라도보다 작아서, 드랙을 조이며 흔들어 봐도 거의 움직이지 않습니다.<br>
+핸들은 카본이고 노브는 단단한 폼입니다.<br>
+노브에는 약간 놀이가 있어서 와셔를 한두 장 넣어 주는 편이 낫습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 드랙은 세게 걸리고<br>
+최소로 풀면 5초 넘게 돕니다</h2>
+
+<br>
+
+<p>
+드랙을 최대로 조이면 꽤 강하게 걸립니다.<br>
+최소로 풀면 스풀이 5초 넘게 돌고 소리도 아주 조용합니다.<br><br>
+감는 느낌은 큐라도 BFS보다 부드럽습니다.<br>
+더 매끄러운 상위급 릴에는 못 미치지만 가깝습니다.<br>
+기어비는 7.2대 1이라 천천히 끌어도 되고, 빠르게 회수할 때도 한참 기다릴 필요가 없습니다.<br>
+라인 가이드는 라인이 나가는 쪽이 넓은 원뿔 모양이라 각도가 좋습니다.<br><br>
+아쉬운 점은 드랙 노브가 작고 플라스틱 느낌이라는 것입니다.<br>
+드랙을 최대 가까이 조이면 딸깍할 때마다 작은 소리가 한 번 더 납니다.<br>
+드랙은 라인과 리더를 묶고 한두 번 맞추면 끝이라 크게 걸리는 문제는 아닙니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 바람 부는 날에는<br>
+브레이크를 5.5에서 6 사이에 둡니다</h2>
+
+<br>
+
+<p>
+로드는 2~10g 라이트 로드, 라인은 PE 0.4호를 썼습니다.<br>
+루어는 2.7g 지그헤드에 실리콘 웜을 달아 합쳐서 6g쯤 됩니다.<br>
+수초를 피하려고 웜 쪽에 아주 작은 클립을 하나 달았습니다.<br><br>
+브레이크 다이얼을 8에서 시작해 첫 캐스팅에서 너무 높다고 느껴 6으로 내렸습니다.<br>
+그러자 20m쯤 날았고 5.5에서도 같은 거리가 나왔습니다.<br>
+5까지 내리자 이번에는 큰 백러쉬가 났습니다.<br>
+옆바람이 있는 날에는 5.5가 맞고, 안전하게 가려면 6으로 올려 두세요.<br><br>
+백러쉬가 나도 PE 0.4호가 스풀과 프레임 사이로 파고들지 않았습니다.<br>
+그 틈이 아주 좁다는 뜻입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 6kg 안팎의 큰 고기도<br>
+드랙이 달리는 힘을 받아 냅니다</h2>
+
+<br>
+
+<p>
+수초 줄기를 따라 루어를 끌어오는 자리는 대형 육식어가 붙어 있을 만한 곳입니다.<br>
+세 마리인지 네 마리인지 놓친 끝에 걸린 고기는 처음엔 3kg쯤으로 보였습니다.<br>
+막상 올려 보니 길이가 약 90cm, 무게는 6kg 안팎이었습니다.<br><br>
+드랙이 딸깍거리며 고기의 달리기를 받아 내다가 멈췄고, 고기가 머리를 흔들 때도 꾸준히 풀렸습니다.<br>
+뜰채를 늘리고서야 담을 수 있는 크기였습니다.<br>
+베이트 피네스 장비로 이런 고기를 만나는 일은 흔치 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">브레이크는 자리가 바뀌면<br>
+한 눈금씩 다시 맞춥니다</h2>
+
+<p>
+이 릴은 바람 부는 날에 5.5에서 6 사이가 맞았습니다.<br>
+바람이 약한 날 거리를 더 내고 싶다면 한 눈금씩 내려 보세요.<br>
+한 눈금 차이로 백러쉬가 나기도 하니 곧장 5까지 내리지 않는 편이 안전합니다.<br><br>
+수초 줄기를 훑는 자리에서는 가벼운 스풀로 던지되 큰 고기가 붙는 자리라면 드랙부터 확인하세요.<br>
+강폭이 30m쯤 되는 곳에서 건너편을 노릴 때는 바람 방향부터 살펴보면 됩니다.<br>
+국내 소형 저수지와 수로에서도 같은 순서로 맞춰 보세요.
+</p>
+</div>
+
+</div>
+</body>
+</html>

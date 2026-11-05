@@ -1,0 +1,194 @@
+<!--
+BFS 얕은 스풀, 1.8g 지그는 괜찮아도 무거운 루어에서는 라인이 말려 든다
+#베이트릴
+#BFS
+#백러쉬
+#브레이크세팅
+#배스루어
+얕은 스풀 베이트릴
+라인이 말려든 순간
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 7번 비교 분석 / 타겟: 베이트 릴에 얕은 스풀을 끼워 아주 가벼운 루어를 던지려는 배스 루어 낚시인 / 자료: 내수면·기타 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+같은 베이트 릴로 1.8g 지그와 2.9g 루어를 던져도<br>
+백러쉬가 나는 정도가 완전히 다릅니다.<br>
+이 차이를 만드는 조건은 루어 무게와 스풀이 앉은 자리입니다.<br>
+그래서 얕은 스풀을 끼운 BFS 세팅을 이 두 조건으로 가려 봅니다.<br>
+얕은 스풀을 처음 쓰는 낚시인이 가장 걱정하는 일도 함께 짚습니다.<br><br>
+이 글은 다이와(Daiwa) 타튤라(Tatula) 100의<br>
+백러쉬와 비거리를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 스풀이 비뚤게 앉으면<br>
+라인이 스풀 틈으로 말려듭니다</h2>
+
+<br>
+
+<p>
+BFS는 베이트 릴로 아주 가벼운 루어를 던지는 방식을 말합니다.<br>
+여기에 쓰는 얕은 스풀은 순정 베어링이 맞지 않을 때가 있어서<br>
+세라믹 하이브리드 베어링 가운데<br>
+맞는 것을 골라 끼우게 됩니다.<br><br>
+맞지 않는 베어링을 끼우면 스풀이 반듯하게 앉지 않습니다.<br>
+한쪽이 더 튀어나와 사이드 플레이트와 틈이 생기고,<br>
+백러쉬가 나면 라인이 그 틈으로<br>
+스풀 안쪽에 끌려 들어갑니다.<br><br>
+맞는 베어링을 끼우면 플레이트에 걸리지 않고 조립됩니다.<br>
+스풀이 좌우로 흔들리지 않고 양쪽이 고르게 앉습니다.<br>
+메인 베어링은 그대로 두고 이 한 가지만 바꿔서<br>
+효과부터 확인해 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 아주 가벼운 지그는<br>
+브레이크 14단계에서 날아갑니다</h2>
+
+<br>
+
+<p>
+테스트에 쓴 루어는 1/16온스(약 1.8g) 마라부 지그입니다.<br>
+브레이크를 14단계에 놓고 던져 보면 아주 멀리 날아갑니다.<br>
+첫 캐스팅에서 백러쉬가 아주 조금 나면<br>
+브레이크를 12단계로 낮춰 볼 만합니다.<br><br>
+12단계에서도 지그는 시원하게 날아갑니다.<br>
+다만 이 무게에는 12단계가 부족합니다.<br>
+백러쉬가 한 번 나더니 곧 다시 나고,<br>
+이어서 큰 백러쉬까지 나옵니다.<br>
+13단계가 맞을 수 있지만 14단계가 가장 안정적입니다.<br>
+루어가 가벼울수록 브레이크는 높은 단계에서 시작하는 편이 안전합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 백러쉬가 세 번 나도<br>
+라인은 스풀로 들어가지 않습니다</h2>
+
+<br>
+
+<p>
+브레이크를 낮춰 일부러 백러쉬를 내 보시면<br>
+결과가 확실해질 때까지 같은 무게로 여러 번 던져 보세요.<br>
+지그는 멀리 날아가고, 엉킨 라인을 당겨 풀어도<br>
+스풀 안쪽에 끼지 않고 그대로 풀립니다.<br><br>
+백러쉬가 세 번 나는 동안에도 라인은 틈으로 들어가지 않습니다.<br>
+스풀이 반듯하게 앉았기 때문입니다.<br>
+긁히는 소리도 없고,<br>
+오른쪽 플레이트의 세라믹 베어링 소리만 작게 들립니다.<br><br>
+스풀이 반듯하게 앉았는지가 백러쉬 뒤의 수습을 가릅니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 로드가 길수록<br>
+같은 지그가 더 멀리 나갑니다</h2>
+
+<br>
+
+<p>
+약 1.8m 울트라라이트 로드로도 멀리 나가지만,<br>
+약 2.1m 로드로 바꾸면 확실히 더 멀리 날아갑니다.<br>
+같은 지그를 달아도 긴 로드가 비거리를 한 단계 더 만들어 줍니다.<br>
+로드를 바꿀 때는 길이와 함께 라인 굵기도 같이 봐 주세요.<br><br>
+라인은 4lb(약 1.8kg) 저가 라인입니다.<br>
+6lb(약 2.7kg)로 올리면 비거리를 많이 잃으니<br>
+라인을 굵게 바꾸는 일은 신중하게 하세요.<br><br>
+긴 로드는 같은 지그를 더 멀리 보냅니다.<br>
+굵은 라인은 같은 지그를 더 짧게 보냅니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 소프트락 지그헤드는<br>
+웜을 지켜 줍니다</h2>
+
+<br>
+
+<p>
+표준으로 쓰는 지그 크기는 1/16온스(약 1.8g)입니다.<br>
+소프트락 텅스텐 지그헤드에 마이크로 웜을 끼우는데,<br>
+2인치 그럽 테일이나 작은 바이브 웜이 어울립니다.<br><br>
+소프트락은 미늘 없이 웜이 지그에 붙어 있게 하는 방식을 말합니다.<br>
+웜을 뺄 때 상하는 일이 적고,<br>
+웜이나 색을 바꿀 때도 부담이 없습니다.<br>
+가끔 웜이 미끄러져 내려오지만 다시 올리면 됩니다.<br><br>
+13단계로 두고 뒤로 던지다 보면 백러쉬가 한 번 날 때도 있습니다.<br>
+그래도 이 무게에서 저가 릴로 이만큼 던지는 일은 쉽지 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 무거운 루어에서는<br>
+라인이 스풀 속으로 들어갑니다</h2>
+
+<br>
+
+<p>
+2.9g짜리 직접 만든 마이크로 채터베이트를<br>
+브레이크 13단계로 던져 보면 결과가 달라집니다.<br>
+비거리가 아주 크지는 않고 백러쉬가 크게 납니다.<br>
+1.8g 지그보다 훨씬 무거워서 던지는 방식을 따로 잡아야 합니다.<br><br>
+그러다 긁는 소리가 나면서 라인이 스풀 틈으로 말려 들어갑니다.<br>
+많은 백러쉬 가운데 단 한 번이었지만<br>
+가장 걱정하던 일이 벌어진 순간입니다.<br><br>
+사이드 플레이트를 열고 풀어 보려는 시도가 오히려 화를 부릅니다.<br>
+스풀이 끼어 빠지지 않아 결국 라인을 잘라 내야 합니다.<br><br>
+백러쉬로 라인이 말려들면 스풀을 억지로 열지 마세요.<br>
+라인을 자르고 푸는 편이 빠릅니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">가벼운 루어와 무거운 루어는<br>
+스풀을 나눠 써야 합니다</h2>
+
+<p>
+많은 백러쉬 가운데 문제는 한 번이었으니 쓸 만합니다.<br>
+다만 완벽하지는 않습니다.<br>
+얕은 스풀 하나로 1.8g 지그까지는 편하게 던지지만,<br>
+2.9g이 넘는 루어에서는 한계가 보입니다.<br><br>
+아주 가벼운 지그에는 얕은 스풀을 쓰세요.<br>
+네드리그나 지카리그처럼 조금 무거운 채비에는<br>
+중간 깊이 스풀을 따로 두는 쪽이 낫습니다.<br>
+미디엄 라이트 캐스팅 로드에 빠른 팁이면 이 채비가 편합니다.<br><br>
+늦가을에서 초겨울까지는 네드리그를 얕은 스풀 세팅으로 던져 보세요.<br>
+스피닝 대신 베이트 릴로 던지는 맛이 있습니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!--
+스풀 33mm BFS 릴은 초소형 스풀 유행을 거스르고 파워 BFS를 노린다
+#BFS릴
+#베이트피네스
+#파워BFS
+#BFS스풀
+#스풀교체
+BFS 릴 스풀 33mm
+초소형 유행 반대로
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 굵은 라인과 가벼운 루어를 한 릴로 겸하려는 베이트 피네스 낚시인 / 자료: 내수면·영어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+요즘 베이트 피네스 릴은 스풀을 얼마나 작게 만들었는지로 경쟁합니다.<br>
+그렇다고 작은 스풀이 모든 상황에서 이기는 것은 아닙니다.<br>
+굵은 라인을 감거나 조금 무거운 루어를 던지면 오히려 불리해집니다.<br>
+드림 태클(Dream Tackle)의 DTD 100을 기준으로<br>
+큰 스풀의 무게와 브레이크, 캐스팅 거리를 시마노(Shimano) 쿠라도 BFS와 견주어 봅니다.<br><br>
+이 글은 스풀 지름, 스풀 무게, 브레이크, 캐스팅 거리, 스풀 교체를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 최근 흐름은 28~30mm 초소형 스풀인데<br>
+이 릴은 33mm로 반대로 갑니다</h2>
+
+<br>
+
+<p>
+요즘 베이트 피네스 릴은 지름 28~30mm의 아주 작은 스풀이 대세입니다.<br>
+1.5g 이하의 아주 가벼운 루어를 멀리 던지려고 지름을 줄여 온 결과입니다.<br><br>
+이 릴의 스풀은 33mm입니다.<br>
+앞 세대 베이트 피네스 스풀이 평균 32mm였으니 그보다 더 큽니다.<br>
+깊이도 꽤 깊고 가운데가 오목하게 파여 있습니다.<br>
+구멍을 뚫어 무게를 줄인 방식도 눈에 띕니다.<br>
+요즘 기준으로는 구식에 가까운 설계입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 스풀 무게는 8.148g<br>
+경쟁 모델보다 가볍고 최신 초소형보다는 무겁습니다</h2>
+
+<br>
+
+<p>
+얕은 스풀은 베어링을 끼운 채로 8.148g입니다.<br>
+5×11×4mm 표준 베어링을 빼면 6.5g 안팎이 됩니다.<br><br>
+딸려 오는 깊은 여분 스풀은 베어링 포함 9.2g이고, 베어링을 빼면 8g쯤입니다.<br>
+비교로 놓은 시마노 쿠라도 BFS 스풀은 8.864g입니다.<br><br>
+마그네틱 브레이크 릴이라면 베어링을 뺀 스풀이 9g 이하여야 한다는 기준이 있습니다.<br>
+쿠라도 BFS는 이 선을 간신히 맞추고, 이 릴은 그보다 확실히 가볍습니다.<br>
+다만 요즘 초소형 스풀 릴과 나란히 놓으면 이 무게는 무거운 편입니다.<br>
+대여섯 해 전이라면 최고 수준이었을 무게입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 브레이크는 마그네틱 8개, 다이얼 1~10<br>
+출고 직후에는 스풀 유격부터 조입니다</h2>
+
+<br>
+
+<p>
+브레이크는 마그네틱 방식이고 스프링이 달리지 않았습니다.<br>
+자석은 여덟 개이고 바깥 다이얼이 1부터 10까지 나뉩니다.<br>
+드랙에는 경보 클릭이 없습니다.<br><br>
+공장에서 나왔을 때는 스풀이 좌우로 꽤 흔들립니다.<br>
+스풀 장력 조절부를 조여 이 유격을 없애 주세요.<br>
+이 조절부는 클릭 없이 돌지만 정확하게 맞습니다.<br><br>
+브레이크가 강한 편이라는 점도 알아 두면 좋습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 5g 웜은 브레이크 6과 8 사이에서<br>
+오버런이 한두 바퀴로 정리됩니다</h2>
+
+<br>
+
+<p>
+4인치(약 10cm) 노싱커 스틱 웜은 약 5g이고 이 릴이 감당할 상한에 가깝습니다.<br>
+브레이크를 10에서 시작해 8로 내리면 첫 캐스팅부터 부드럽게 나갑니다.<br><br>
+6까지 내리면 스풀이 갑자기 풀려 나가며 엉킵니다.<br>
+그래서 6과 8 사이로 맞춰 봅니다. 오버런이 한두 바퀴 생겼다가 금방 정리됩니다.<br>
+약 27m(30야드) 떨어진 건너편 둑까지도 조용하게 나갑니다.<br><br>
+오버헤드로 던지면 스풀 속도가 더 붙어 잠깐 엉킬 수 있으니 브레이크를 조금 올려 보세요.<br>
+나무가 많은 자리에서는 던지는 폭을 줄이고 낮게 던져야 합니다.<br>
+브레이크를 8에 놓고 약 14m(15야드) 앞의 교각 모서리를 노리면 낮은 탄도로 30cm 안팎 앞에 떨어집니다.<br>
+스풀 무게가 6.5g쯤이라 피칭이 아주 잘 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 1/8온스는 거뜬하고<br>
+2g 루어도 21m 날립니다</h2>
+
+<br>
+
+<p>
+베이트 피네스의 출발선은 1/8온스(약 3.5g)입니다.<br>
+3인치(약 7.6cm) 미노우 웜에 1/16온스 지그헤드를 단 정도의 무게는 이 릴이 쉽게 던집니다.<br>
+나무가 있는 비좁은 자리에서도 약 24m(80피트)가 나갑니다.<br><br>
+더 가벼운 쪽으로 내려가면 이야기가 달라집니다.<br>
+2인치(약 5cm) 미노우 웜에 1/32온스 지그헤드를 달면 전체 무게가 2g 안팎입니다.<br>
+브레이크가 너무 높으면 공이 무지개처럼 위로 솟았다가 짧게 떨어집니다.<br>
+브레이크를 낮추고 오버헤드로 던지면 약 21m(70피트)가 나갑니다.<br><br>
+4파운드(약 1.8kg) 라인과 더 부드러운 로드를 쓰면 이 거리는 더 늘어납니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 여분 딥 스풀 하나가<br>
+굵은 라인과 일반 배스 낚시를 이어 줍니다</h2>
+
+<br>
+
+<p>
+큰 스풀의 진짜 쓸모는 굵은 라인에 있습니다.<br>
+파워 BFS처럼 8파운드(약 3.6kg) 라인을 쓰려면 라인 용량이 넉넉해야 합니다.<br>
+이 릴은 6파운드(약 2.7kg) 불소카본을 감아도 스풀이 절반쯤밖에 차지 않습니다.<br><br>
+딸려 오는 깊은 여분 스풀은 더 요긴합니다.<br>
+일반 배스 낚시를 하려면 스풀만 갈아 끼워서 다른 로드에 달면 됩니다.<br>
+쿠라도 BFS로 같은 일을 하려면 릴을 통째로 따로 사야 합니다.<br><br>
+32mm 이상 큰 스풀을 쓰는 베이트 피네스 릴은 손에 꼽을 정도입니다.<br>
+앞으로 나올 후속 모델은 작은 스풀로 바뀔 가능성이 높습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">7. 새 기록을 세우는 릴은 아니지만<br>
+1/16온스까지 안정적으로 받습니다</h2>
+
+<br>
+
+<p>
+이 릴은 캐스팅 기준을 새로 세우는 릴은 아닙니다.<br>
+다만 맞는 로드와 라인을 쓰면 1/16온스(약 1.8g)까지 안정적으로 던집니다.<br><br>
+감촉은 단단하고 소리 없이 매끄럽습니다.<br>
+삐걱거리거나 덜그럭거리는 소리가 나지 않고 금속 부품도 견고합니다.<br><br>
+굵은 라인과 상급 파워 BFS 기법이 중심이라면 큰 스풀 쪽이 맞습니다.<br>
+1.5g 이하만 노린다면 초소형 스풀 릴이 낫습니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">나무가 많은 자리에서는<br>
+브레이크를 올리고 낮게 던집니다</h2>
+
+<p>
+낚시 자리에 나무가 많으면 던지는 폭을 줄이고 낮게 던지는 쪽이 안전합니다.<br>
+브레이크는 8 안팎까지 올려서 시작해 보세요.<br><br>
+시야가 트인 곳으로 나가면 오버헤드로 바꾸고 브레이크를 한 칸씩 내려 거리를 늘립니다.<br>
+굵은 라인으로 갈 때는 여분의 깊은 스풀로 갈아 끼우면 됩니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!--
+마그넷 4개를 덜어내면 비거리가 늘어나는 BFS 베이트릴
+#BFS릴
+#베이트릴
+#마그넷브레이크
+#가벼운미끼
+#캐스팅비거리
+BFS 릴 마그넷 제거
+가벼운 미끼 비거리
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 가벼운 미끼를 던지는 BFS 베이트릴을 처음 고르는 낚시인 / 자료: 내수면·포르투갈어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+가벼운 미끼가 멀리 안 나가면 로드와 라인부터 바꾸는 분들이 많습니다.<br>
+그런데 브레이크가 너무 세게 걸려 있으면 로드와 라인을 바꿔도 비거리가 크게 늘지 않습니다.<br>
+셈레오(Cemreo) 에어 118 베놈(Air 118 Venom)을 기준으로<br>
+브레이크 세기가 비거리를 가르는 과정을 짚어 봅니다.<br><br>
+이 글은 마그넷 가감, 다이얼 눈금, 로드와 미끼별 비거리를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 출고 상태의 브레이크가<br>
+생각보다 훨씬 강합니다</h2>
+
+<br>
+
+<p>
+BFS는 쉽게 말해<br>
+가는 라인과 가벼운 미끼, 예민한 로드로 던지는 초경량 베이트 캐스팅입니다.<br>
+이 방식에 쓰는 릴은 브레이크가 느슨한 경우가 많습니다.<br><br>
+이 릴은 반대입니다.<br>
+마그넷 8개가 그대로 들어 있어서 출고 상태에서 브레이크가 아주 강하게 걸립니다.<br>
+던져 보면 줄 엉킴이 거의 생기지 않고, 미끼가 얌전하게 나갑니다.<br>
+그래서 BFS를 처음 배우는 낚시인에게는 다루기 편한 릴입니다.<br>
+가벼운 미끼로 연습하기에도 순한 편입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 마그넷을 반으로 줄이면<br>
+브레이크가 딱 맞습니다</h2>
+
+<br>
+
+<p>
+양쪽에서 2개씩, 모두 4개를 빼내도<br>
+브레이크는 충분히 걸립니다.<br>
+보통은 마그넷을 더해야 브레이크가 세지는 릴이 많습니다.<br>
+이 릴은 오히려 덜어내면서 맞출 수 있습니다.<br><br>
+마그넷은 접착제로 붙어 있지 않습니다.<br>
+바로 옆에 얇은 철판이 있어서 쇠로 된 도구를 마그넷에 붙여 당기면 그냥 빠집니다.<br>
+다시 끼울 때는 극성이 번갈아 가도록 놓아야 자기장이 제대로 작용합니다.<br><br>
+남기는 개수에 따라 느낌이 달라집니다.<br>
+2개만 남기면 스풀이 지나치게 날뜁니다.<br>
+3개만 남겨도 던질 수는 있습니다.<br>
+4개를 남기면 줄 엉킴 없이 던지는 맛이 가장 좋습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 다이얼 눈금은 4에서 6 사이<br>
+미끼 무게마다 한계가 있습니다</h2>
+
+<br>
+
+<p>
+마그넷을 모두 꽂은 상태에서 눈금 4에서 6 사이를 오가면<br>
+비거리는 23~24.5m 안팎에서 크게 달라지지 않습니다.<br>
+브레이크가 이미 충분히 세다 보니 눈금을 풀어도 차이가 작습니다.<br><br>
+마그넷을 반으로 줄이고 눈금 5에 맞추면 28m 가까이 나갑니다.<br>
+이때 눈금을 하나만 낮춰도 줄이 엉킵니다.<br>
+미끼가 이 정도 무게일 때는 눈금 5가 한계입니다.<br>
+미끼 무게가 바뀌면 이 숫자도 바뀝니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 짧은 로드가 오히려 더 멀리 날아가는<br>
+이유는 블랭크의 속도에 있습니다</h2>
+
+<br>
+
+<p>
+라인은 합사 1호에 같은 굵기의 리더를 묶는 구성이 한 예입니다.<br>
+이 구성에 조금 긴 로드와 짧은 로드를 번갈아 걸면 결과가 의외로 갈립니다.<br><br>
+더 짧은 로드가 더 멀리 날아갑니다.<br>
+캐스팅 무게 2~7g, 6파운드(약 2.7kg)급인 짧은 로드는 29~30.5m를 보냅니다.<br>
+블랭크가 더 빨라서 길이가 짧은 것을 보완하기 때문입니다.<br>
+값이 낮은 로드인데도 가벼운 미끼를 잘 던집니다.<br><br>
+브레이크 눈금을 올려 로드를 더 휘게 하는 방법도 있습니다.<br>
+26m쯤 나가던 비거리가 30m를 넘어섭니다.<br>
+로드를 휘게 만들어 던질수록 가벼운 미끼가 더 멀리 갑니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 미끼가 바뀌면 비거리도 달라지고<br>
+릴 소리는 거의 없습니다</h2>
+
+<br>
+
+<p>
+4.5g짜리 아주 가벼운 미끼도 28m를 날고, 브레이크를 조금 풀면 31m 가까이 갑니다.<br>
+은색 미끼도 28m 가까이 나갑니다.<br><br>
+값이 낮은 소형 미끼로 바꾸면 33m까지 나갑니다.<br>
+이 미끼는 던지기 좋은 모양이라 비거리가 가장 잘 나옵니다.<br>
+5g짜리 지그는 37~39m까지 보냅니다.<br><br>
+감을 때 들리는 소리는 릴이 내는 소리가 아닙니다.<br>
+라인 카운터가 내는 소리입니다.<br>
+릴 자체는 감을 때 조용합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 구조는 단순하고<br>
+기어비는 빠르지 않습니다</h2>
+
+<br>
+
+<p>
+이 릴은 부품이 적고 간단합니다.<br>
+분해하기도 쉽고 다시 조립하기도 쉽습니다.<br>
+스풀은 상급 BFS 릴보다 조금 무겁습니다.<br><br>
+마그넷 하나가 규격에서 약간 벗어난 채 오는 릴도 있습니다.<br>
+다른 것으로 바꿔 끼우면 바로 잡힙니다.<br><br>
+기어비는 7.0:1에는 미치지 못하는 편입니다.<br>
+빠르게 감는 릴은 아닙니다.<br>
+짧게 끊어 감는 낚시가 맞는 낚시인에게는 아쉬울 수 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">처음 하는 BFS 릴도<br>
+숙련자의 두 번째 릴도 됩니다</h2>
+
+<p>
+이 릴은 처음 BFS를 배우는 낚시인에게 잘 맞습니다.<br>
+브레이크가 세서 줄 엉킴이 거의 없고 미끼 무게별 비거리 차이도 눈에 잘 들어옵니다.<br>
+익숙해지면 마그넷을 4개 덜어내 날뛰지 않는 상태로 세팅해 보세요.<br><br>
+스틱 베이트를 가볍게 던져 넣는 플립 캐스팅에도 잘 맞습니다.<br>
+미끼 무게가 바뀌면 다이얼부터 만져 보세요.<br>
+눈금 하나가 비거리를 가릅니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

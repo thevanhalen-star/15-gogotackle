@@ -1,0 +1,173 @@
+<!--
+큐라도 BFS 초경량 스풀로 계류에서 1.5g 루어까지 던진 캐스팅 한계
+#BFS릴
+#초경량스풀
+#계류낚시
+#브레이크설정
+#배스루어
+BFS 스풀 교체 효과
+1.5g까지는 날았다
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 계류와 개울에서 초경량 루어를 베이트릴로 던지려는 낚시인 / 자료: 내수면 배스·영어 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+초경량 스풀만 바꾸면 1g짜리 루어까지 던질 수 있다고 기대하는 분들이 많습니다.<br>
+그런데 스풀이 가벼워져도 로드가 뻣뻣하면 반발력을 쓸 수 없어 1g대 루어는 한쪽으로 휘어 떨어집니다.<br>
+계류에서 1.5g 루어까지 던진 기록으로 스풀 교체가 어디까지 통하는지 가려 봅니다.<br>
+이 글은 스풀 교체 효과, 브레이크 설정, 로드 길이와 강도를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">브레이크 3에서 시작하고<br>
+자석은 더할 수 없습니다</h2>
+
+<br>
+
+<p>
+BFS는 베이트 피네스 시스템을 줄인 말로, 베이트릴로 가벼운 루어를 던지는 방식을 말합니다.<br>
+초경량 스풀은 라인이 적게 들어가는 대신 아주 가벼운 스풀을 뜻합니다.<br>
+스풀을 바꾼 큐라도 BFS는 브레이크를 2.5에 두자 스풀이 너무 빨리 나갔습니다.<br>
+3으로 올리니 상류를 향해 던진 첫 캐스팅부터 꽤 멀리 날아갔습니다.<br><br>
+나중에 2.5까지 내려 보니 거리가 크게 늘지는 않았습니다.<br>
+그래도 이 정도로 낮출 수 있다는 점은 스풀이 얼마나 가벼운지 보여 줍니다.<br>
+사이드 플레이트 쪽 자석은 기본 상태 그대로 모두 끼웠습니다.<br>
+이 스풀은 사이드 플레이트에 바짝 붙어서 자석을 더 얹을 수 없습니다.<br>
+다른 릴처럼 자석을 추가해 보려 해도 되지 않으니 시간 낭비를 하지 마세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">1.5g 루어는 168cm 로드와<br>
+0.6호 합사로 던졌습니다</h2>
+
+<br>
+
+<p>
+1/32온스(0.9g) 지그헤드에 작은 스윔베이트를 달면 합쳐서 1.5g쯤 됩니다.<br>
+라인은 0.6호 합사와 1.8kg(4파운드)급 모노로 아주 가늡니다.<br>
+로드는 길이 168cm에 끝이 빠른 시제품 로드입니다. 198cm짜리도 있지만 계류에서는 이쪽이 낫습니다.<br><br>
+스풀에 라인은 30m쯤 감았습니다.<br>
+개울에서는 이렇게 많이 필요하지 않고, 가는 라인이라 무게 부담도 크지 않습니다.<br>
+그런데 막상 던져 보면 라인에 꼬임이 한 번 생겨 가이드를 지날 때 걸렸습니다.<br>
+꼬임을 풀고 다시 던지자 정상으로 돌아왔습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">나뭇가지가 낮은 계류에선<br>
+짧은 로드가 유리합니다</h2>
+
+<br>
+
+<p>
+물가가 우거져서 서 있을 곳을 찾기도 쉽지 않았고, 물에 조금 들어가 서면 오히려 던지기 편했습니다.<br>
+바닥은 모래였고 상류 쪽으로 던졌습니다.<br>
+폭포 바로 앞 벽 옆에 붙이려고 엄지로 스풀을 제때 눌러 멈췄더니 거기서 입질이 왔습니다.<br><br>
+오버헤드로 높이 던지면 나뭇가지에 걸립니다.<br>
+계류에서는 짧은 로드가 확실히 유리합니다.<br>
+백핸드 캐스팅은 이 로드로 나뭇가지에 걸렸고, 사이드 캐스팅은 깊은 곳에 넣기에 괜찮았습니다.<br>
+가시나 수풀이 많은 곳이라 얇은 바지로는 불편하니 단단한 옷을 입으세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">작은 배스는 꼬리만 물어도<br>
+바늘에 걸립니다</h2>
+
+<br>
+
+<p>
+처음에는 입질만 있고 걸리지 않았습니다.<br>
+작은 배스가 스윔베이트의 꼬리만 건드렸기 때문입니다.<br>
+작은 스윔베이트는 이런 고기도 쉽게 걸리는 장점이 있습니다.<br><br>
+훅셋이 안 되는 느낌이 들 때는 드랙을 조금 조여 주세요.<br>
+그러자 입질이 잡히기 시작했습니다.<br>
+계류에서 이런 작은 지그로 낚시하는 재미가 분명히 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">3g 루어는 기본 스풀로도<br>
+충분히 날아갑니다</h2>
+
+<br>
+
+<p>
+1/16온스(1.8g) 지그헤드에 5cm짜리 스윔베이트를 달면 합쳐서 3g쯤 됩니다.<br>
+꼬리가 흔들리며 헤엄치는 모습이 보입니다.<br>
+조금 더 깊은 곳을 노리면 큰 배스도 노릴 수 있습니다.<br><br>
+이 무게는 기본 스풀로도 이미 던질 수 있었습니다.<br>
+초경량 스풀을 단 상태에서도 거리와 정확도는 좋았습니다.<br>
+다만 더 긴 로드를 쓰면 훨씬 편했을 것입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">1g 안팎에서는 스풀보다<br>
+로드가 걸림돌이었습니다</h2>
+
+<br>
+
+<p>
+1/64온스(0.4g) 지그헤드에 2.5cm 스윔베이트를 달면 합쳐서 1.1g쯤 됩니다.<br>
+브레이크를 2로 내리고 살살 던졌더니 루어가 왼쪽으로 휘었고 타이밍도 맞지 않았습니다.<br>
+거리는 짧았지만 가까운 곳에는 정확하게 붙였습니다.<br><br>
+원인은 로드에 있었습니다.<br>
+IM8 블랭크의 시제품 로드는 뻣뻣해서 가벼운 루어를 쏘아 보낼 반발력을 쓰기 어렵습니다.<br>
+무거운 루어라면 뒤로 젖힐 때 로드가 더 휘어 힘을 실어 주지만 1g대에서는 그렇지 않습니다.<br>
+초경량 스풀은 던질 수 있는 최저 무게를 낮춰 주지만, 로드와 라인이 그 무게를 다시 끌어올립니다.<br>
+그래서 1g 안팎은 이 조합으로 아직 어렵습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">깊은 곳엔 3g, 얕은 곳엔 1.5g으로<br>
+무게를 바꿉니다</h2>
+
+<p>
+물이 얕은 계류에서는 1.5g으로 되돌려 쓰는 것이 낫습니다.<br>
+조금 깊은 웅덩이에서는 3g쯤 되는 큰 지그헤드와 스윔베이트로 큰 고기를 노릴 만합니다.<br>
+캐스팅 공간이 넓은 트인 자리에서는 3g 루어도 편하게 던질 수 있습니다.<br><br>
+초경량 스풀은 큐라도 BFS와 SLX BFS를 가진 낚시인에게 예비 스풀로 어울립니다.<br>
+기본 스풀은 무겁지만 배스 BFS 낚시에는 훌륭한 스풀입니다.<br>
+가벼운 루어를 자주 던지려는 날에 갈아 끼우는 용도로 맞습니다.<br>
+1g 안팎까지 보내려면 라인을 더 줄이고 휘는 BFS 전용 로드와 짝을 맞춰 보세요.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

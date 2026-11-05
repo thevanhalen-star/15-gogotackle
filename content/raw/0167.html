@@ -1,0 +1,164 @@
+<!--
+캘커타 콘퀘스트 BFS, 플로로면 2g부터 편하고 PE면 더 가벼워진다
+#베이트피네스
+#소형베이트릴
+#경량루어
+#계류루어
+#라이트솔트
+플로로 2g부터는
+안정적으로 던진다
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 계류와 배스 커버, 라이트 솔트에서 가벼운 루어를 베이트릴로 던져 보려는 낚시인 / 자료: 민물·바다·일본 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+베이트 피네스 릴은 가볍고 납작한 로우프로파일이라야 한다고 생각하기 쉽습니다.<br>
+그런데 둥글고 묵직한 몸체에 가벼운 스풀을 넣은 별난 릴이 있습니다.<br>
+시마노(Shimano) 캘커타 콘퀘스트 BFS XG가 그 주인공입니다.<br>
+이 글은 몸체와 브레이크 구조, 플로로와 PE 세팅, 루어 무게별 캐스팅,<br>
+비슷한 릴과의 차이를 지형별로 짚어 드립니다. 가벼운 루어를 베이트릴로 던져 보려는 분께 도움이 되길 바랍니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">둥근 몸체에 가벼운 스풀을 넣은 별난 모델</h2>
+
+<br>
+
+<p>
+베이트 피네스 릴은 대체로 가볍고 낮은 몸체에 가벼운 스풀을 넣습니다.<br>
+이 릴은 둥글고 각진 금속 몸체에 가벼운 스풀을 넣었다는 점이 다릅니다.<br>
+무게는 약 195g이라 같은 계열의 로우프로파일과 손에 드는 느낌이 전혀 다릅니다.<br><br>
+건메탈 바탕에 금색 포인트가 들어가고 핸들도 살을 덜어 낸 모양입니다.<br>
+기계식 브레이크 노브까지 하나로 어울려서 겉모습만으로도 고르는 사람이 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">100번 몸체라 손에 쥐는 맛이 뛰어납니다</h2>
+
+<br>
+
+<p>
+몸체는 21 캘커타 콘퀘스트 100번을 바탕으로 합니다.<br>
+스풀이 작아서 엄지를 놓는 자리와 옆면 사이 단차가 적습니다.<br>
+쥐었을 때 높이가 거의 느껴지지 않아 로우프로파일을 쥔 것과 비슷합니다.<br><br>
+기어는 이전의 황동 대신 두랄루민으로 바뀌어 가벼워졌습니다.<br>
+감는 맛이 묵직하고 부드러운 느낌은 줄었습니다.<br>
+다만 가벼운 루어는 저항이 작아서 큰 차이로 느껴지지 않습니다.<br><br>
+브레이크는 시마노 특유의 FTB 방식입니다.<br>
+캐스팅 중에 마그넷이 조금씩 움직이며 스풀 가까이 다가갑니다.<br>
+다이와(Daiwa)의 PE 전용 모델보다는 조금 까다로운 편입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">플로로카본 약 1.5호 30m로 바람 속 6g을 던져 봅니다</h2>
+
+<br>
+
+<p>
+로드는 블랙레이블 631 L+, 라인은 플로로카본 약 1.5호를 30m 감은 구성입니다.<br>
+많이 감으면 플로로가 무거워지므로 실력을 가늠하기 좋은 길이입니다.<br><br>
+6g 플러그를 맞바람 속에서 던져도 시원하게 나갑니다.<br>
+브레이크를 절반으로 줄여도 문제가 없습니다.<br>
+감는 맛은 기존 캘커타의 중후함보다는 가벼운 쪽입니다.<br>
+오히려 가벼운 루어를 다루는 데는 이쪽이 어울립니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">가까운 커버와 계류에서 가장 힘을 냅니다</h2>
+
+<br>
+
+<p>
+3.5g 스모러버와 4g 웜을 가까운 커버 안쪽에 떨어뜨리는 피칭이 가장 어울립니다.<br>
+클러치를 끊으면 거의 자유낙하에 가깝게 떨어져서 정확하게 넣기 쉽습니다.<br>
+라인을 30m만 감았기 때문에 백래시가 일어나도 심해지지 않습니다.<br><br>
+폭이 좁은 계류에서 짧게 끊어 던질 때도 부담이 없습니다.<br>
+작은 플러그를 낮은 탄도로 건너편 가까이 붙이기에 알맞습니다.<br>
+스풀이 작아 일정한 속도로 천천히 감기도 쉽습니다.<br>
+이 부분에서는 스피닝릴보다 베이트릴이 유리합니다.<br>
+멀리 던져야 하는 열린 장소라면 스피닝이 낫습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">플로로로는 2g부터 안정됩니다</h2>
+
+<br>
+
+<p>
+1.4g 플러그는 플로로로는 스풀이 따라오지 못해 정확한 캐스팅이 어렵습니다.<br>
+1g대 루어는 브레이크를 세게 걸어도 거의 날아가지 않습니다.<br><br>
+2g을 넘으면 캐스팅이 한결 안정됩니다.<br>
+익숙한 낚시인은 2g대부터, 처음 쓰는 낚시인은 3g을 넘는 무게부터 다루기 쉽습니다.<br>
+플로로를 감고 1g대 플러그를 던질 일은 많지 않아서 참고만 하셔도 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">PE로 바꾸면 브레이크를 풀어도 됩니다</h2>
+
+<br>
+
+<p>
+PE 50m로 바꾸고 브레이크를 4분의 1에서 절반 사이로 줄이면 비거리가 확 늘어납니다.<br>
+맞바람 속 2g 루어도 낚시가 될 만큼 날아갑니다.<br>
+3.5g 플러그는 농어나 감성돔 같은 대상을 노릴 때 쓰는 크기라 충분히 던집니다.<br><br>
+다만 힘껏 휘두르면 초속이 너무 올라가 백래시가 납니다.<br>
+부드럽게 던질 때와 강하게 던질 때 브레이크를 다르게 맞추시길 권합니다.<br>
+이 릴을 가벼운 루어 전용으로 쓰려는 낚시인에게는 잘 맞지만 주력으로 삼기에는 스풀이 작은 편입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">알데바란과 월하미인 사이에서 고르는 기준</h2>
+
+<p>
+같은 시마노의 알데바란 BFS와 스풀 성능은 거의 같습니다.<br>
+릴 무게는 알데바란이 훨씬 가볍고, 로드를 휘두르는 손목이 한결 빠릅니다.<br>
+트위치나 셰이크처럼 로드를 흔드는 동작은 알데바란이 훨씬 편합니다.<br>
+반대로 감을 때는 콘퀘스트가 더 안정적이라 중간 이상 속도로 감아도 로드 끝이 덜 흔들립니다.<br><br>
+다이와 월하미인은 에어 브레이크 덕분에 가볍게 던져도 스풀이 잘 돌아 안심됩니다.<br>
+최대 비거리는 시마노가 조금 앞서지만 서밍이 필요합니다.<br>
+가벼운 루어 위주라면 알데바란, 감는 안정감을 원하면 콘퀘스트, 편하게 던지려면 월하미인이 맞습니다.<br>
+라이트 솔트에서 농어가 물 수 있으니 30cm 이하는 놓아주시길 바랍니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

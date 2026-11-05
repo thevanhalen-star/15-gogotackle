@@ -1,0 +1,13 @@
+{
+  "version": 0,
+  "updatedAt": "",
+  "updatedBy": "",
+  "enabled": true,
+  "slots": [
+    { "id": "detail-top", "label": "상세 · 본문 시작 전", "enabled": true },
+    { "id": "detail-mid-1", "label": "상세 · 본문 앞쪽", "enabled": true },
+    { "id": "detail-mid-2", "label": "상세 · 본문 뒤쪽", "enabled": true },
+    { "id": "detail-end", "label": "상세 · 글 맨 끝", "enabled": true }
+  ],
+  "ads": []
+}

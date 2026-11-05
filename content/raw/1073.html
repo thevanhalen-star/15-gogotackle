@@ -1,0 +1,221 @@
+<!--
+BFS 소형 채터베이트는 텅스텐 헤드에 와이어 가드 두 줄이 달렸다
+#배스루어
+#BFS낚시
+#채터베이트
+#소형루어
+#커버공략
+BFS 소형 채터베이트
+나무 커버용 가드 두 줄
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 가벼운 BFS 태클로 나무 커버를 노리는 배스 낚시인 / 자료: 내수면·영어 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+소형 채터베이트를 나무 커버에 던질 때 가장 많이<br>
+틀리는 곳은 가드 구조를 보지 않는 일입니다.<br>
+나뭇가지가 얽힌 자리는 채터베이트를<br>
+가장 많이 잃는 곳이기도 합니다.<br>
+해 본 분들은 아시겠지만,<br>
+한 번 걸리면 회수하기가 어렵습니다.<br>
+헤드가 작아도 가드가 허술하면<br>
+가지에 걸려서 채비째 날아갑니다.<br>
+이 글은 BFS 태클로 던지는<br>
+소형 루어의 가드 구조, 무게,<br>
+크기를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">나무 커버 앞에서는<br>
+와이어 가드가 두 줄인 헤드를 봅니다</h2>
+
+<br>
+
+<p>
+BFS란 쉽게 말해 가벼운 루어를<br>
+베이트릴로 던지는 방식을 말합니다.<br>
+이 태클에 맞춘 잭올(Jackall)의<br>
+소형 채터베이트는 8분의 1온스(약 3.5g)입니다.<br>
+헤드는 텅스텐으로 만들었습니다.<br>
+텅스텐 헤드는 같은 무게에서 납보다 작게<br>
+만들 수 있어서 헤드 크기가 줄어듭니다.<br><br>
+위쪽에는 가드 와이어가 두 줄 달려 있고,<br>
+아래쪽에도 와이어 두 줄이 더 있습니다.<br>
+아래쪽 와이어는 루어가 나무 위로 올라서고<br>
+돌아 빠져나오도록 돕는 설계입니다.<br>
+몸체 색은 흰색에 연두를 섞은 것과 흰색에 보라를<br>
+섞은 것, 금색 블레이드를 단 흰색 조합이 있습니다.<br>
+트레일러로 스트레이트 테일 웜을<br>
+달아 BFS 콤보로 던져 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">조용한 소형 립리스가<br>
+먹힐 때가 있습니다</h2>
+
+<br>
+
+<p>
+립리스란 쉽게 말해 입술 모양 립이<br>
+없는 바이브레이션 계열 루어를 말합니다.<br>
+TN38은 38mm에<br>
+5.1g인 작은 립리스입니다.<br>
+은색 배에 청록빛 등을 가져서<br>
+어린 블루길을 닮았습니다.<br><br>
+소리가 나지 않는 사일런트 타입은<br>
+과소평가되는 편입니다.<br>
+햇빛이 강해 고기가 보이는데도 경계심이<br>
+높은 날에는 요란하지 않은 루어가 낫습니다.<br>
+고기가 예민해 보일 때는 시끄럽지 않게<br>
+지나가는 소형 루어를 던져 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">초소형 언더스핀 지그헤드는<br>
+맑은 날 까다로운 배스에게 씁니다</h2>
+
+<br>
+
+<p>
+앞쪽에 무게를 몰아 곧게 헤엄치고, 아래에<br>
+작은 언더스핀이 달린 지그헤드가 있습니다.<br>
+바늘도 작은 핀네스용이라서<br>
+약 3.8cm짜리 패들 테일 웜을<br>
+달면 아주 작은 루어가 됩니다.<br><br>
+해가 쨍한 날이나 고기가<br>
+까다로운 날에 쓰기 좋은 구성입니다.<br>
+BFS든 울트라라이트든 가벼운 태클에<br>
+섞어 두면 하루를 편하게 보낼 수 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">속이 비치는 소형 블루길 루어는<br>
+작은 물에 어울립니다</h2>
+
+<br>
+
+<p>
+61mm에 7.8g인 싱킹 타입 블루길 루어는<br>
+몸통이 속까지 비쳐서 자연스러워 보입니다.<br>
+무게가 가벼워 BFS 릴에도,<br>
+스피닝 로드에도 던질 수 있습니다.<br><br>
+작은 연못이나 소류지처럼 좁은<br>
+물에 어울리는 크기입니다.<br>
+눈에 띄지 않는 색과 작은<br>
+몸집이라 경계심이 높은 물에서<br>
+먼저 꺼내 볼 만합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">크로우 웜은 거꾸로 꿰면<br>
+뒤로 미끄러져 들어갑니다</h2>
+
+<br>
+
+<p>
+3인치(약 7.5cm) 크로우 웜은<br>
+거꾸로 꿸 수 있습니다.<br>
+바늘 끝을 몸통에 넣고 바늘귀가<br>
+위로 오게 꿰는 방식입니다.<br>
+이렇게 꿴 웜을 독이나 브러시 앞에<br>
+플리핑으로 넣으면 곧바로 가라앉지<br>
+않고 뒤로 미끄러져 들어갑니다.<br><br>
+가벼운 프리리그를 쓰거나,<br>
+웜 코 쪽에 작은 못 추를<br>
+넣어도 같은 동작이 나옵니다.<br>
+까다로운 자리에서 접근법을 바꿔 보고<br>
+싶을 때 쓰기 좋은 방법입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">프로그와 소형 스위머도<br>
+커버 가까이에서 씁니다</h2>
+
+<br>
+
+<p>
+메가배스(Megabass) 빅 가보는<br>
+소프트 프로그입니다.<br>
+입이 오목하게 파여 있고 안쪽에<br>
+작은 컵 두 개가 달려 있습니다.<br>
+이 입이 물을 퍼 올리며 물보라를 만듭니다.<br>
+나무 아래로 스키핑하거나<br>
+수초 위에서 쓴 날 조과가<br>
+좋았다는 기록이 있습니다.<br>
+오목한 입과 부드러운 몸통,<br>
+날카로운 바늘이 한 몸에서 움직입니다.<br><br>
+7cm에 4.1g인 소형 스위머는 작은<br>
+클래스프와 아주 작은 바늘이 달려 있습니다.<br>
+스피닝 로드용 소형 스위머로 쓰는 크기입니다.<br>
+조인트 글라이드베이트는<br>
+14g짜리와 21g짜리가 있습니다.<br>
+스피너베이트 로드로도 던질 수 있어서<br>
+전용 로드가 필요 없습니다.<br>
+같은 회사의 비전 110은 주니어가 얕게 잠기고,<br>
+플러스 원이 더 깊게 잠기는 모델입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">자리가 바뀌면<br>
+루어 크기부터 줄여 봅니다</h2>
+
+<p>
+국내 저수지의 수몰 나무 지대에서는 와이어 가드가<br>
+두 줄인 소형 채터베이트를 먼저 꺼내 보세요.<br><br>
+독이나 브러시 안쪽으로<br>
+들어가야 할 때는 거꾸로<br>
+꿴 크로우 웜이 낫습니다.<br>
+햇빛이 강하고 경계심이 높은 날에는<br>
+조용한 소형 립리스로 바꿉니다.<br>
+25cm짜리 큰 스위머가 먹히지<br>
+않는 날에는 7cm급 소형 스위머나<br>
+글라이드베이트로 크기를 줄입니다.<br>
+잠기는 깊이를 나누고<br>
+싶다면 비전 110 주니어와<br>
+플러스 원을 함께 챙기면 됩니다.<br>
+얕은 자리에는 주니어를, 더 깊은<br>
+자리에는 플러스 원을 씁니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

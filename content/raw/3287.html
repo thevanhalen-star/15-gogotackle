@@ -1,0 +1,170 @@
+<!--
+플루마 BFS 베이트릴, 125g 소형 몸체에 원심 브레이크와 튼튼한 스풀
+#베이트피네스
+#초경량베이트릴
+#원심브레이크
+#BFS릴
+#배스루어
+초경량 베이트릴 구성
+몸체는 작게 스풀은 튼튼
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 가벼운 루어를 쓰면서도 라인이 넉넉한 소형 베이트릴을 찾는 배스·연안 낚시인 / 자료: 내수면·바다·포르투갈어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+BFS 릴이라고 하면 가볍기만 하면 된다고 보는 분이 많습니다.<br>
+그런데 몸체는 작아도 스풀이 약하면 조금만 굵은 라인을 써도 금방 한계가 옵니다.<br>
+피나클(Pinacle) 플루마 BFS(Pluma BFS)로<br>
+작고 가벼운 베이트릴을 가리는 법을 짚어 봅니다.<br><br>
+이 글은 크기와 무게, 원심 브레이크, 스풀 구성, 기어와 라인 선택, 어울리는 낚시를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. 표기 125g에 실제 127g<br>
+둥글게 감기는 낮은 몸체입니다</h2>
+
+<br>
+
+<p>
+포장에 적힌 무게는 125g입니다.<br>
+실제로 달아 보면 127g이 나오는데, 안에 발린 그리스 무게가 더해진 값입니다.<br>
+이 정도 차이면 표기를 그대로 믿어도 좋습니다.<br><br>
+몸체는 길이 70mm쯤이고 높이는 36mm쯤으로 낮습니다.<br>
+더 낮은 몸체의 소형 릴이 있지만 손에 쥐면 이 릴이 더 작고 날씬하게 느껴집니다.<br>
+손잡이는 작은 고무 재질이라 쥐기 편하고 핸들은 알루미늄입니다.<br>
+스타 드랙이 육각이라 한 손으로도 돌리기 쉽습니다.<br><br>
+몸체는 카본 소재로 표기되어 있고 중간에 보강이 들어 있습니다.<br>
+아래쪽에는 작은 구멍이 있어 물이 스며들어도 빠져나갑니다.<br>
+라인 가이드는 위쪽이 원뿔 모양이고 아래쪽은 곧은 형태입니다.<br>
+앞쪽 열림이 넉넉해서 라인이 잘 지나갑니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 가벼운 릴에 원심 브레이크를 단 구성은<br>
+드문 조합입니다</h2>
+
+<br>
+
+<p>
+가벼운 루어용 소형 릴은 보통 자석 브레이크를 씁니다.<br>
+이 릴은 원심 브레이크라서 쓰는 쪽에서는 보기 드문 선택입니다.<br><br>
+브레이크 조절은 30번 딸깍거리며 31단계로 나뉩니다.<br>
+브레이크 슈는 각각 움직이는 폭이 달라서 스풀이 빨리 돌수록 하나씩 더 붙습니다.<br>
+그래서 따로 켜고 끄지 않아도 알아서 단계적으로 걸립니다.<br><br>
+브레이크가 닿는 접시 부분은 깨끗해야 합니다.<br>
+기름 한 방울을 천에 묻혀 닦아도 문제없습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 단축 스풀과 O링 베어링<br>
+BFS 몸체에 튼튼한 스풀을 얹었습니다</h2>
+
+<br>
+
+<p>
+스풀 축은 28mm로 짧은 단축형입니다.<br>
+폭은 22.6mm이고 깊이는 14.5mm라서 가벼운 루어를 던지는 데 맞춘 구조입니다.<br>
+스풀 무게는 7.7g쯤으로, 순수 BFS 스풀보다 두껍고 단단해서 거친 사용에 버팁니다.<br><br>
+스풀 베어링은 3×8×4mm 규격이고 O링이 끼워져 있습니다.<br>
+O링은 던질 때 베어링 진동을 줄여 주는 부품입니다.<br>
+순수 BFS 릴이라기보다 BFS 몸체에 일반 스풀을 얹은 릴이라고 보는 편이 정확합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 기어비 7.8:1은<br>
+손으로 돌려 확인한 값입니다</h2>
+
+<br>
+
+<p>
+핸들 위치를 표시해 놓고 스풀을 세어 보면<br>
+핸들 한 바퀴에 스풀이 일곱 바퀴 반을 훌쩍 넘게 돕니다.<br>
+표기대로 7.8:1에 가깝다고 보면 됩니다.<br><br>
+베어링은 11개이고 그중 하나가 롤러 베어링입니다.<br>
+피니언 기어는 청동이고 베어링 두 개가 받쳐 줍니다.<br>
+드랙 디스크는 카본이고 표기된 최대 드랙은 5kg입니다.<br>
+작은 릴인데도 부품이 알찬 구성입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 나일론은 피하고<br>
+합사나 늘어남 적은 카본 라인을 감습니다</h2>
+
+<br>
+
+<p>
+스풀에는 0.20mm 나일론이 80m, 0.14mm 라인은 120m 들어간다고 적혀 있습니다.<br>
+하지만 늘어나는 나일론을 감으면 스풀이 눌려 상할 수 있습니다.<br>
+합사를 감거나, 모노를 쓴다면 늘어남이 적은 플로로카본을 고르세요.<br><br>
+합사는 표기 0.20이 진짜 0.20mm인 것을 고릅니다.<br>
+표기만 0.20이고 실제로는 0.30mm인 합사도 있으니 확인해 보세요.<br>
+진짜 0.20mm급이면 10kg 안팎의 강도라 연안 낚시에는 충분합니다.<br>
+이 이상으로 굵은 라인을 감는 낚시라면 다른 릴을 찾는 편이 낫습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 어울리는 낚시는<br>
+가벼운 루어를 쓰는 배스와 연안입니다</h2>
+
+<br>
+
+<p>
+배스낚시에는 부담 없이 쓸 수 있습니다.<br>
+스풀이 튼튼해서 가벼운 루어를 던지면서도 라인을 넉넉히 감을 수 있습니다.<br>
+가는 라인을 감아 연안에서 농어를 노릴 때도 가벼운 무게 덕에 손맛이 잘 전해집니다.<br><br>
+가물치도 이 릴로 낚을 수는 있습니다.<br>
+그러나 수초 위에서 70cm급 고기를 끌어내는 낚시에는 맞지 않습니다.<br>
+그 자리에는 황동 기어를 단 힘 좋은 릴이 따로 있어야 합니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">가볍다고 다 같지 않으니<br>
+스풀부터 보세요</h2>
+
+<p>
+BFS 몸체라도 스풀 굵기에 따라 쓸 수 있는 낚시가 달라집니다.<br>
+이 릴처럼 스풀이 튼튼하면 가벼운 낚시와 중간 정도 낚시를 함께 맡길 수 있습니다.<br><br>
+연안에서 쓴다면 합사부터 감고 브레이크 접시를 깨끗하게 관리해 보세요.<br>
+농어는 30cm 이하는 놓아주셔야 하니 크기를 확인하고 가시면 됩니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>

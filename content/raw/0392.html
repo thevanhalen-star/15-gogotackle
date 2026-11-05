@@ -1,0 +1,170 @@
+<!--
+포이즌 아드레나 165L/M, 릴과 라인을 바꾸면 BFS부터 미디엄까지 됩니다
+#배스베이트로드
+#BFS낚시
+#배스루어
+#라인호수
+#파워BFS
+배스 로드 한 자루로
+BFS부터 미디엄까지
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 베이트 로드 한 자루로 여러 세팅을 돌려 쓰려는 배스 낚시인 / 자료: 내수면·일본 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+한 로드로 가벼운 루어와 무거운 루어를 다 던지겠다며<br>
+릴과 라인은 그대로 두고 루어만 바꾸기 쉽습니다.<br>
+이러면 가벼운 루어는 맥없이 떨어지고 무거운 루어는 부담스럽게 나갑니다.<br>
+로드가 감당하는 범위가 넓어도 릴과 라인이 맞아야 그 범위를 제대로 씁니다.<br>
+시마노(Shimano) 포이즌 아드레나 165L/M 한 자루를<br>
+릴과 라인만 바꿔 파워 쪽과 BFS 쪽으로 돌려 쓰는 길을 짚어 보겠습니다.<br>
+이 글은 스풀 크기, 라인 호수, 루어 무게 범위를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">3.5g부터 21g까지 받아 주는<br>
+길이 약 1.95m의 로드</h2>
+
+<br>
+
+<p>
+포이즌 아드레나 165L/M은 대응 루어 무게가 3.5g에서 21g까지입니다.<br>
+BFS에 가까운 가벼운 루어부터 미디엄 타입이 던지는 무게까지 한 자루에 담겨 있습니다.<br>
+길이는 약 1.95m로 짧은 편이라 다루기 편합니다.<br><br>
+기본 세팅은 10파운드(약 2.5호) 플로로카본을 감은 미디엄 라이트급 타입입니다.<br>
+이 세팅을 기본으로 잡아 두세요. 여기서 파워 쪽이나 라이트 쪽으로 옮겨 갑니다.<br>
+릴을 어디에 맞추느냐에 따라 같은 로드가 전혀 다른 표정을 짓습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">파워 쪽은 줄 감는 양을 줄입니다</h2>
+
+<br>
+
+<p>
+미디엄 로드처럼 쓰려면 스풀 지름이 32~34mm인 소형 릴을 맞추세요.<br>
+12파운드(약 3호) 라인이 60~80m쯤 감기는 릴이 알맞습니다.<br>
+라인은 12~14파운드(약 3~3.5호) 플로로카본이면 됩니다.<br><br>
+실제로 던져 보면 14g 정도의 미노가 사이드로도 오버헤드로도 시원하게 나갑니다.<br>
+저킹이나 연속 트위칭 같은 액션도 어렵지 않습니다.<br>
+다만 아주 먼 거리를 노리는 로드는 아닙니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">바닥을 끌고 오는 낚시는 되지만<br>
+바닥을 튕기는 낚시는 어렵습니다</h2>
+
+<br>
+
+<p>
+이 로드의 팁은 L 액션이라 부드럽게 들어갑니다.<br>
+그래서 커버 가장자리에서 3~3.5인치 웜으로 바닥을 튕기는 보텀 저크는 맞지 않습니다.<br>
+팁이 너무 들어가 버려 조작하기 어렵고 힘이 흩어지기 때문입니다.<br><br>
+반대로 바닥을 끌고 오는 낚시는 무리가 없습니다.<br>
+지그나 작은 웜을 가라앉혀 질질 끌고 오는 방식입니다.<br><br>
+총 무게 6~7g의 소형 텍사스는 됩니다.<br>
+굵은 웜으로 커버를 파고드는 보텀 저크는 안 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">가벼운 쪽은 로드가 아니라<br>
+스풀이 먼저입니다</h2>
+
+<br>
+
+<p>
+일반적인 미디엄 로드는 버트에서 팁까지 모두 M으로 만듭니다.<br>
+이 로드는 버트와 벨리까지가 M이고 팁만 L입니다.<br>
+그래서 가벼운 루어도 끝에 무게를 실어 팁을 휘어 던질 수 있습니다.<br><br>
+이때 줄 감는 양이 많은 스풀을 쓰면 이 장점이 줄어듭니다.<br>
+12파운드 100m를 감지 말고 60~80m로 맞추면 스풀이 가벼워져서 던지기가 한결 쉽습니다.<br>
+7g 루어로 사이드캐스트를 해 보면 좌우로 새지 않고 로드에 무게가 실리는 느낌이 그대로 옵니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">무거운 쪽은 스피너베이트도 나갑니다</h2>
+
+<br>
+
+<p>
+3/8온스(약 10g) 헤드에 트레일러를 단 스피너베이트는 블레이드까지 합쳐 20g을 넘고 24g쯤 됩니다.<br>
+표기 상한을 넘는데도 이 세팅으로 문제 없이 던져집니다.<br>
+팁이 순하게 들어가서 릴리즈 타이밍이 조금 어긋나도 바로잡기 쉽습니다.<br><br>
+오버헤드로 힘껏 휘둘러도 로드가 불안하게 휘는 느낌이 없습니다.<br>
+캐스팅이 익숙하지 않다면 사이드나 언더로 던지는 편이 마음 편합니다.<br>
+상한은 28g 안팎(1온스)까지 보시면 됩니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">BFS 쪽으로 옮기면<br>
+힘이 남는 파워 BFS가 됩니다</h2>
+
+<br>
+
+<p>
+BFS 릴에 PE 1호를 감으면 이 로드가 BFS 타입으로 바뀝니다.<br>
+PE는 1.5호까지 대응하는 로드입니다.<br>
+55mm 소형 미노를 물에 얹는 피칭도 됩니다.<br>
+0.9g 네일싱커를 단 4.5인치(약 11cm) 스트레이트 웜 네꼬리그도 잘 나갑니다.<br>
+1.8g 지그헤드 와키도 문제없이 던져집니다.<br><br>
+다만 로드와 릴을 모두 BFS 전용으로 맞춘 세팅보다는 힘이 조금 더 있습니다.<br>
+이 힘이 오히려 장점이 되는 때가 있습니다.<br>
+채비를 늘어뜨려 수직으로 내리는 낚시를 스피닝으로 하면 베일을 열어야 하지만 베이트릴은 클러치만 누르면 줄이 풀립니다.<br>
+팁이 먹이를 물게 하고, 벨리와 버트가 들어 올려 줘서 놓치는 입질도 줄어듭니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">커버가 많은 곳이면 파워로 옮기고<br>
+열린 곳이면 BFS로 옮깁니다</h2>
+
+<p>
+이 로드는 초보자 첫 로드로도 괜찮고, 장비가 늘어난 뒤에도 쓸 데가 남습니다.<br>
+길이가 짧아 다루기 쉽고 팁이 순해서 로드에 무게가 실리는 느낌을 익히기 좋습니다.<br><br>
+자리가 바뀌면 릴과 라인부터 바꿔 보세요.<br>
+수초나 나무가 얽힌 거친 자리에서는 12~14파운드 라인에 소형 릴로 파워 쪽을 잡습니다.<br>
+물 위가 훤히 열려 가벼운 루어를 낮게 날려야 하는 자리에서는 PE 1호 BFS 릴로 옮깁니다.<br>
+로드는 그대로 두고 릴만 바꿔 자리에 맞추면 한 자루로 꽤 넓은 곳을 훑을 수 있습니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

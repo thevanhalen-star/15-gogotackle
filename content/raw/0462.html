@@ -1,0 +1,182 @@
+<!--
+큐라도 BFS 베이트릴, 7g 이하 가벼운 루어를 스피닝 대신 던지는 법
+#BFS릴
+#베이트피네스
+#경량루어
+#배스루어낚시
+#네드리그
+BFS릴 가벼운 루어
+스피닝 대신 베이트릴
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 스피닝으로만 던지던 3~7g 루어를 베이트릴로 바꿔 보려는 배스 낚시인 / 자료: 내수면 장비·영어 / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+가벼운 루어는 스피닝으로만 던져야 한다고 생각하는 분들이 많습니다.<br>
+일반 베이트 장비에 3g대 루어를 걸어 던지면 4~5m도 못 가고 수초 앞에 떨어집니다.<br>
+BFS 장비는 이 한계를 어디까지 줄이는지 기준을 세워 봅니다.<br>
+이 글은 시마노(Shimano) 큐라도(Curado) BFS의 스풀, 브레이크,<br>
+로드와 라인 조합을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. BFS는 7g 이하 루어를<br>
+베이트릴로 던지는 방식입니다</h2>
+
+<br>
+
+<p>
+BFS는 쉽게 말해 스피닝으로 던지던 가벼운 루어를 베이트릴로 던지도록 맞춘 장비 체계를 말합니다.<br>
+쓰는 루어는 3.5g에서 7g 정도입니다.<br>
+소형 크랭크베이트, 작은 핀네스 저크베이트, 다운샷,<br>
+가벼운 네드리그가 대표적입니다.<br><br>
+드랙이 딸깍거리며 풀리는 클릭 드랙이 달려 있어서 고기가 줄을 끌면 소리로 알려 줍니다.<br>
+얼마나 끌려 나가는지 귀로 들을 수 있으니 가는 라인에서는 드랙을 그때그때 조이기 편합니다.<br>
+송어가 있는 하천이나 맑은 물의 배스 낚시처럼 스피닝이 주로 쓰이던 자리에서 선택지가 하나 더 생깁니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 얕은 스풀이 가벼운 루어를<br>
+멀리 보내는 이유</h2>
+
+<br>
+
+<p>
+BFS 릴은 스풀이 얕아서 줄이 적게 감깁니다.<br>
+큰 스풀에 비해 돌아가는 무게가 작으니 가벼운 루어도 스풀을 쉽게 돌려 줍니다.<br>
+스풀이 가볍게 돌기 시작하고 가볍게 멈추니 백러쉬도 적습니다.<br><br>
+브레이크를 6단계 중 4번에 놓고 3.5g 소형 크랭크베이트를 엄지 없이 던지면 연못 절반 가까이 날아갑니다.<br>
+맞바람에서 던져 보면 줄이 엉키는 일이 거의 없습니다.<br>
+얕은 스풀은 줄을 적게 담는 대신 가벼운 루어를 던지는 데 맞춘 구조입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 가는 라인과 가벼운 로드가<br>
+짝을 이뤄야 시스템이 완성됩니다</h2>
+
+<br>
+
+<p>
+10파운드(약 4.5kg) 플로로카본은 한여름 활성이 낮을 때 쓰는 가는 채비입니다.<br>
+이런 릴이 늘면서 가는 합사에 4파운드(약 1.8kg) 리더를 달거나<br>
+4파운드 라인을 바로 묶어 쓰는 방식도 늘고 있습니다.<br>
+맑은 물에서는 라인 굵기가 입질 여부를 가르기 때문입니다.<br><br>
+로드는 길이 2m쯤의 미디엄 파워 모더레이트 액션 트위치 로드가 잘 맞습니다.<br>
+BFS 전용이 아니어도 이 정도 로드면 충분합니다.<br>
+처음 맞추신다면 로드부터 가볍게 골라 보세요.<br>
+BFS는 릴 하나로 되는 장비가 아니라 로드와 라인이 함께 맞아야 가벼운 루어가 날아갑니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 일반 베이트 장비로 같은 루어를 던지면<br>
+수초 앞에서 떨어집니다</h2>
+
+<br>
+
+<p>
+7피트(약 2.1m) 미디엄헤비 패스트 로드는 만능으로 쓰는 분이 많습니다.<br>
+이 로드에 같은 가벼운 루어를 걸면 정확도도 거리도 BFS 장비만 못합니다.<br><br>
+이유는 라인과 스풀입니다.<br>
+굵은 라인이 감긴 깊은 스풀은 돌려 주는 무게가 큽니다.<br>
+가는 라인을 감아도 스풀이 깊어 줄이 더 많이 들어가니<br>
+그 무게가 걸림돌이 됩니다.<br>
+텐션을 조이고 브레이크를 세게 걸어도 4.5m 남짓 나가는 데 그칩니다.<br><br>
+일반 장비는 4.5m에서 떨어집니다.<br>
+BFS 장비는 연못 절반을 넘깁니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 수초가 가득한 연못에서는<br>
+바닥의 네드리그로 바꿉니다</h2>
+
+<br>
+
+<p>
+소형 크랭크베이트는 다이빙 수심이 0.6~1.2m라서 수초가 많은 연못에서는 빌 끝에 풀이 자주 걸립니다.<br>
+거리를 보여 주기엔 좋아도 고기를 낚기엔 불리한 날이 있습니다.<br><br>
+그럴 때는 3g쯤 되는 지그헤드에 작은 웜을 꽂은 네드리그로 바닥을 노려 보세요.<br>
+네드리그는 버섯 모양 지그헤드에 짧은 웜을 꽂아 바닥에서 세워 두는 채비를 말합니다.<br>
+던지자마자 작은 잡어가 바로 달려들고, 가벼운 채비일수록 감도가 또렷하게 손에 옵니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 3파운드급 배스가 달려 나가면<br>
+스피닝처럼 드랙이 웁니다</h2>
+
+<br>
+
+<p>
+10파운드 라인에 3.3인치(약 8cm) 스윔베이트를 노출 바늘 네드 지그헤드에 달아 던졌더니 배스가 물었습니다.<br>
+막상 걸어 보면 스피닝 릴로 싸우는 것처럼 줄이 나갑니다.<br><br>
+크기는 3파운드(약 1.4kg)쯤 되지만 탁 트인 물에서 한참 달립니다.<br>
+드랙 소리가 계속 울려서 지금 얼마나 끌려 나가는지 알 수 있습니다.<br>
+크지 않은 고기도 이렇게 가는 라인에서는 힘을 제대로 씁니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">7. 핸들 노브가 가벼울수록<br>
+물속 루어 움직임이 손에 옵니다</h2>
+
+<br>
+
+<p>
+교체용 티타늄 핸들 노브는 고멕서스(Gomexus)가 대표적입니다.<br>
+티타늄 소재라 차갑거나 뜨겁게 느껴지지 않고 아주 가벼워서 손에 닿는 느낌이 늘어납니다.<br>
+안에는 베어링이 들어 있어 회전도 부드럽습니다.<br><br>
+기본 핸들은 짧고 가벼워서 손바닥에 쏙 들어옵니다.<br>
+가장 가벼운 베이트 장비를 원한다면 핸들 무게까지 줄여 보세요.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">가벼운 루어일수록<br>
+릴보다 로드와 라인을 먼저 봅니다</h2>
+
+<p>
+수초 지대를 넘겨야 하는 저수지에서는 BFS 릴로 3.5g 크랭크를 던져 풀 위로 넘기는 쪽이 편합니다.<br>
+맑은 하천이나 계류처럼 라인 굵기가 입질을 가르는 자리에서는 가는 라인을 감아 쓰는 쪽이 유리합니다.<br><br>
+BFS는 3.5g에서 7g 사이를 위한 장비입니다.<br>
+15g 이상 무거운 루어를 던질 때는 일반 베이트 장비로 돌아가세요.
+</p>
+</div>
+
+</div>
+</body>
+</html>

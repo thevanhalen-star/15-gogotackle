@@ -1,0 +1,197 @@
+<!--
+BFS 릴 여섯 대, 1.8g 루어에서 갈린 한계는 스풀 무게였다
+#BFS릴
+#베이트피네스
+#농어루어
+#스풀무게
+#연안루어
+BFS 릴 한계 무게는
+스풀 무게에서 갈렸다
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 2번 장비 세팅 / 타겟: BFS 릴을 처음 고르는 연안 농어 루어 낚시인 / 자료: 바다·벵골어 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+작은 지그헤드에 웜을 달아 던졌는데<br>
+루어가 발밑에 맥없이 떨어지는 날이 있습니다.<br>
+릴이 그 무게를 끌고 나가지 못할 때 생기는 일입니다.<br>
+BFS 릴은 스풀의 무게와 깊이에 따라<br>
+던질 수 있는 가장 가벼운 루어가 달라집니다.<br>
+그래서 연안 농어 낚시에 쓰이는 BFS 릴 여섯 대를 놓고<br>
+어디까지 던지고 어디서 버거워지는지 짚어 봅니다.<br><br>
+이 글은 BFS 릴의 스풀 무게와 라인 굵기를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">BFS의 1.8g은<br>
+지그헤드가 아니라 총무게입니다</h2>
+
+<br>
+
+<p>
+BFS는 쉽게 말해 낚시꾼이 몰리는 곳에서<br>
+작은 루어로 큰 고기를 노리며 자리 잡은 방식입니다.<br>
+사람이 많은 연안일수록<br>
+작은 루어가 큰 농어를 낚는 길이 됩니다.<br><br>
+무게를 말할 때 주의할 점이 있습니다.<br>
+1/16온스(약 1.8g)라고 하면<br>
+지그헤드나 바늘만이 아니라<br>
+웜까지 합친 총무게를 말합니다.<br>
+지그헤드 무게만 보고 릴을 고르면<br>
+막상 던질 때 기대보다 덜 나갑니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">쿠라도 BFS가 1.8g에서<br>
+버거워지는 이유</h2>
+
+<br>
+
+<p>
+시마노(Shimano) 쿠라도(Curado) BFS는<br>
+2021년에 나온 뒤 꾸준히 쓰이는 힘 좋은 릴입니다.<br>
+3.5g(1/8온스) 루어는 어려움 없이 던집니다.<br>
+그런데 총무게가 1.8g으로 내려가면 버거워합니다.<br><br>
+스풀이 얕은데도 가장 가벼운 축은 아니기 때문입니다.<br>
+스풀이 얕다고 가장 가벼운 루어까지 던지는 것은 아닙니다.<br><br>
+반대로 7g(1/4온스)짜리 납작한 루어까지 받아 줍니다.<br>
+다만 가는 라인에는 7g이 부담스럽습니다.<br>
+바다는 물론 민물에서도 쓸 수 있고 감는 느낌도 매끄럽습니다.<br>
+6개월쯤 쓰고도 처분하지 않고 남겨 둘 만큼 손에 익습니다.<br>
+울트라 라이트 BFS 로드와 짝지어 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">제퍼 BFS는 맞바람에 강하지만<br>
+브레이크를 오래 만져야 합니다</h2>
+
+<br>
+
+<p>
+캐스트 킹(Cast King) 제퍼(Zephyr) BFS는<br>
+드랙 클릭커가 달린 입문용 릴입니다.<br>
+쿠라도보다 조금 크고 무겁습니다.<br>
+클릭커 소리로 드랙이 풀리는 것을 귀로 알 수 있습니다.<br>
+엄지가 클러치 버튼보다 스풀에 먼저 닿는 점도 아쉽습니다.<br><br>
+3.5g은 가볍게 던지고 맞바람 속에서도 잘 나갑니다.<br>
+바람이 센 연안에서는 이 점이 꽤 쓸 만합니다.<br>
+가는 라인을 감아도 1.8g에서는 버거워합니다.<br>
+쓰는 사람에게 맞는 설정을 찾으려면<br>
+브레이크 다이얼을 여러 번 돌려 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">펄 섞인 흙탕물에서도 버틴<br>
+알데바란 BFS</h2>
+
+<br>
+
+<p>
+펄과 조개껍데기가 섞인 갯벌 흙탕물에서 오래 던져도<br>
+탈이 없었던 릴이 있습니다.<br>
+시마노 알데바란(Aldebaran) BFS입니다.<br>
+전문 점검 없이 가끔 오일만 쳤는데도<br>
+새것처럼 매끄럽고 조용하게 돌아갑니다.<br>
+소리가 거의 없어서 조용한 야간 낚시에도 어울립니다.<br><br>
+2017년에 나온 릴이고 스풀이 얕고 가볍습니다.<br>
+1.8g 이하 극소 루어를 던질 때 가장 먼저 꼽힙니다.<br>
+1.8g 이하를 던지려면 스풀이 얕고 가벼운 릴이어야 합니다.<br>
+부품을 가볍게 만들어 하루 종일 던져도 손이 덜 피곤합니다.<br>
+몸집이 작은데도 큰 농어를 걸어 올리기에 모자람이 없습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">한 대만 고른다면<br>
+알루미늄 프레임의 알파스 에어 TW</h2>
+
+<br>
+
+<p>
+다이와(Daiwa) 알파스 에어(Alphas Air) TW는<br>
+프레임이 알루미늄이라 아주 가볍지는 않습니다.<br>
+그래도 크기가 작아서<br>
+가벼운 루어도 무거운 루어도 던집니다.<br>
+1.8g 총무게까지 쉽게 나가니<br>
+한 대로 두루 쓰려는 낚시인이 첫 후보로 올릴 만합니다.<br><br>
+드랙 클릭커는 없습니다.<br>
+엄지가 스풀보다 먼저 클러치 버튼에 닿는 구조여서 던지는 순서가 손에 붙습니다.<br>
+같은 회사의 소형 신형은 이 릴을 줄인 모양입니다.<br>
+손에 장갑처럼 붙고 클릭커까지 달렸습니다.<br>
+작은 루어를 자주 던진다면 눈여겨볼 만합니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">입문용 울트라캐스트는<br>
+손에 닿는 느낌이 아쉽습니다</h2>
+
+<br>
+
+<p>
+아부 가르시아(Abu Garcia) 울트라캐스트(Ultracast) BF8은<br>
+입문용 BFS 릴입니다.<br>
+드랙 클릭커가 달려 있습니다.<br>
+매끄럽게 돌고 작은 루어도 잘 던집니다.<br>
+1/16온스(약 1.8g)짜리 웜 채비도 무리 없이 나갑니다.<br><br>
+다만 알파스 에어나 알데바란과 견주면<br>
+손에 닿는 느낌이 떨어지고 조금 무겁습니다.<br>
+저렴한 BFS 릴일수록 던지는 힘보다 손에 닿는 느낌에서 차이가 납니다.<br><br>
+던지는 힘은 충분합니다.<br>
+손에 닿는 느낌은 아쉽습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">굵은 합사를 감으면<br>
+어떤 BFS 릴도 무너집니다</h2>
+
+<p>
+여섯 대 모두 15~20파운드(약 6.8~9kg)급 굵은 합사를 감으면 쓸 수 없습니다.<br>
+줄 자체가 무거워서 작은 루어가 앞으로 나가지 못하고 주저앉기 때문입니다.<br>
+가늘고 가벼운 울트라 라이트 라인부터 감아 두세요.<br><br>
+쿠라도와 제퍼는 3.5g 이상을 편하게 던지는 릴입니다.<br>
+1.8g 이하는 알데바란이나 알파스 에어 쪽이 낫습니다.<br>
+한 대로 바닷가 농어를 두루 노린다면 알파스 에어급으로 시작해 보세요.<br>
+농어는 30cm 이하는 놓아주셔야 하니 확인하고 가시면 됩니다.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!--
+캘커타 콘퀘스트 SE, BFS 릴보다 25g 무겁지만 큰 스윔베이트도 던진 릴
+#베이트릴
+#경량베이트릴
+#BFS릴
+#스윔베이트
+#배스루어낚시
+배스 베이트릴 하나로
+작은 루어와 스윔베이트
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형(구조 세트 지정) / 타겟: 가벼운 BFS 릴과 무거운 범용 릴 사이에서 릴을 찾는 배스 낚시인 / 자료: 내수면·영어 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+배스용 베이트릴을 가벼운 BFS 전용이나 묵직한 범용 중 하나로만 고르는 경우가 있습니다.<br>
+그렇게 정하면 작은 루어와 큰 스윔베이트 가운데 한쪽은 꼭 어색해집니다.<br>
+그 사이 자리를 채우는 릴이 있는지 따져 볼 필요가 있습니다.<br>
+이 글이 기준을 잡아 드립니다.<br><br>
+이 글은 시마노 캘커타 콘퀘스트 SE 30HG(Calcutta Conquest SE 30HG)의<br>
+크기, 무게, 스펙, 캐스팅 범위를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">색은 예상보다 푸른빛이고<br>
+몸체 크기는 BFS 릴과 같습니다</h2>
+
+<br>
+
+<p>
+캘커타 콘퀘스트 SE는 예상보다 푸른빛이 도는 색입니다.<br>
+총기처럼 검고 무광일 거라고 짐작하기 쉽지만 다른 콘퀘스트처럼 윤이 납니다.<br>
+어느 각도에서 봐도 사진과 인상이 조금씩 달라 직접 보면 느낌이 확연히 다릅니다.<br><br>
+BFS 모델과 나란히 놓으면 색 차이가 한눈에 드러납니다.<br>
+핸들 길이는 같고 노브만 조금 달라서 SE 쪽이 살짝 길어 보입니다.<br>
+몸체 크기는 BFS 릴과 똑같습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">스펙은 기어비 7.4에<br>
+드랙 4kg, 무게 220g입니다</h2>
+
+<br>
+
+<p>
+30HG는 기어비 7.4:1에 최대 드랙 4kg, 무게는 220g입니다.<br>
+라인은 8파운드(약 3.6kg) 나일론이 100m 들어갑니다.<br>
+모델은 오른손 감기와 왼손 감기 두 가지로 나옵니다.<br><br>
+BFS 릴은 195g이라 SE가 25g 더 나갑니다.<br>
+220g도 충분히 가벼운 편이고 몸체 크기가 같다는 점이 장점입니다.<br>
+반면 100번대 DC 모델은 SE보다 사이드 플레이트도 훨씬 크고 손에 쥔 폭도 넓습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">가벼운 릴은 부족하고 큰 릴은 무겁다 보니<br>
+그 중간이 비어 있었습니다</h2>
+
+<br>
+
+<p>
+100HG DC 릴은 정말 좋은 릴이었는데<br>
+바다 루어낚시에 쓰는 묵직한 릴로 자리를 잡았고,<br>
+배스 낚시에 쓰기에는 조금 무거웠습니다.<br><br>
+그래서 BFS 릴을 들였더니 이번에는 모든 걸 다 던지기에 조금 가벼웠습니다.<br>
+이 둘 사이의 릴을 찾던 차에 SE가 나왔습니다.<br>
+릴이 가볍다 싶으면 큰 루어에서, 무겁다 싶으면 작은 루어에서 아쉬움이 남기 마련입니다.<br>
+쓰는 루어 범위부터 정해 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">6피트 8인치 로드에 합사 10파운드급,<br>
+설정은 건드리지 않고 던졌습니다</h2>
+
+<br>
+
+<p>
+시험은 6피트 8인치(약 2m) 로드에 합사 10파운드(약 4.5kg)급을 감고 했습니다.<br>
+로드는 8~14파운드(약 3.6~6.4kg)급 스플릿 그립 모델입니다.<br>
+브레이크와 캐스팅 컨트롤은 처음 한 번 맞춘 뒤 건드리지 않았습니다.<br><br>
+감아 보면 콘퀘스트답게 단단하고 버터처럼 매끄럽게 돕니다.<br>
+손에 쥐었을 때 믿음이 가는 느낌은 이 시리즈가 늘 그래 왔습니다.<br>
+11cm 스윔베이트를 던지면 당연하다는 듯이 멀리 날아갑니다.<br>
+이 정도 무게는 잘 던지는 게 당연하고, 승부는 가벼운 루어에서 갈립니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">7g 안팎의 가벼운 루어도 백러쉬 없이 날아갔습니다</h2>
+
+<br>
+
+<p>
+7g쯤 되는 작은 포퍼와 슬로우 싱킹 스윔베이트를 달고 던져 봤습니다.<br>
+정말 시원하게 날아갑니다.<br>
+브레이크를 처음 한 번 만진 뒤 계속 같은 값으로 던졌는데 백러쉬가 한 번도 나지 않았습니다.<br><br>
+포퍼는 거리가 나는 만큼 워킹도 잘 됩니다.<br>
+4g쯤 되는 작은 루어는 이번 시험에 쓰지 않았지만<br>
+이 릴이라면 어렵지 않게 던질 것으로 보입니다.<br>
+BFS 로드가 아니어도 어느 정도 가벼운 루어까지는 버틴다는 점이 눈에 띕니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">무거운 스윔베이트도 로드가 휠 만큼 날려 보냅니다</h2>
+
+<br>
+
+<p>
+로드가 버거워 보이는 무게의 스윔베이트도 하나 던져 봤습니다.<br>
+8~14파운드급 로드가 크게 휘는데도 릴은 문제없이 소화합니다.<br>
+이 정도 무게까지 던져 보고 싶다면 로드 강도부터 맞춰 보세요.<br>
+높이 솟구쳤다가 멀리 떨어지는 캐스팅이었습니다.<br><br>
+작은 루어부터 큰 스윔베이트까지 던지는 폭이 넓다는 건<br>
+릴 한 대로 하루를 보낼 수 있다는 뜻입니다.<br>
+일상적인 던지기 범위에서는 거의 모든 칸이 채워집니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">로드를 바꿔 끼우는 식으로 쓰면<br>
+릴 하나로 두 로드가 됩니다</h2>
+
+<p>
+이 릴은 BFS 릴과 크기도 감촉도 비슷하고 25g 정도는 크게 의식되지 않습니다.<br>
+BFS 로드와 일반 로드를 따로 준비해 두고 릴을 번갈아 끼우면<br>
+릴 한 대로 두 가지 낚시를 하게 됩니다.<br>
+릴을 두 대 사는 대신 한 대를 나눠 쓰는 셈입니다.<br><br>
+로드가 짧아서 카약이나 보트 위처럼 몸을 크게 쓰기 어려운 자리에서도 쓰기 편합니다.<br>
+자리가 달라져도 같은 릴을 그대로 가져가 보세요.<br>
+작은 루어와 큰 스윔베이트를 번갈아 던지는 날에도 릴을 바꿀 필요가 없습니다.<br>
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

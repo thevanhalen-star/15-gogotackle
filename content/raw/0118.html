@@ -1,0 +1,163 @@
+<!--
+DMK 치타 DC릴 브레이크, 큰 점 단위로 내려 보니 사이드 캐스팅만 버텼다
+#DC릴
+#베이트릴브레이크
+#캐스팅테스트
+#사이드캐스팅
+#입문용DC릴
+DC릴 브레이크 다이얼
+큰 점 하나가 가른 거리
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 입문용 DC릴의 브레이크를 어디까지 내려도 되는지 알고 싶은 BFS 배스 낚시인 / 자료: 내수면·영어 / 구조 세트: 2 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+DC릴은 브레이크를 낮출수록 거리가 쭉 늘어난다고 생각하는 분들이 많습니다.<br>
+그런데 브레이크 다이얼을 내려 보면 거리는 생각만큼 늘지 않고<br>
+오버런이 먼저 나오기 시작합니다.<br>
+바람이 부는 물가에서는 이 차이가 더 크게 드러납니다.<br>
+다이얼을 어디까지 내려도 되는지 그 기준을 정리했습니다.<br>
+이 글은 스풀 텐션 맞추기, 브레이크 다이얼 단계별 결과, 맞바람 대처를 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">스풀 텐션은 유격이 없을 때까지<br>
+조였다가 한 칸 풉니다</h2>
+
+<br>
+
+<p>
+브레이크를 만지기 전에 스풀 텐션부터 맞춥니다.<br>
+좌우 유격이 없어질 때까지 조인 다음 한 칸만 풀어 줍니다.<br>
+그러면 스풀이 좌우로 아주 조금 움직일 만큼의 유격이 남습니다.<br>
+텐션 노브는 한 칸마다 딸깍 소리가 나서 위치를 기억하기 쉽습니다.<br><br>
+시험에 쓴 조합은 1.5호 모노 라인에 2m쯤 되는 라이트 로드, 루어 3~15g 범위였습니다.<br>
+루어는 5g 안팎의 BFS 저크베이트 한 종류로 통일했습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">브레이크 다이얼은<br>
+단계 없이 돌아갑니다</h2>
+
+<br>
+
+<p>
+DMK 치타는 브레이크 조절이 바깥쪽 다이얼 하나로 끝나고 모드 전환이 없는 DC릴입니다.<br>
+다이얼은 딸깍거림 없이 연속으로 돌아가는 무단 방식입니다.<br>
+큰 점과 작은 점이 번갈아 새겨져 있어서 위치를 가늠할 때는 큰 점을 기준으로 삼습니다.<br><br>
+디지털 브레이크의 기본기만 갖춘 구조라서 DC릴이 처음인 사람이 부담 없이 시작하기 좋습니다.<br>
+시험은 큰 점에서 큰 점으로만 옮겨 가며 진행했으니, 따라 할 때도 같은 방식으로 해 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">최대 브레이크에서는<br>
+오버런이 없고 감기는 조용합니다</h2>
+
+<br>
+
+<p>
+다이얼을 최대로 올리고 던지면 오버런은 한 번도 없었습니다.<br>
+거리는 아쉬웠지만 브레이크가 충분히 강하다는 점은 확인됩니다.<br>
+루어를 빠르게 감아도 딸깍거리는 소음이 거의 없었습니다.<br>
+DC 특유의 윙 소리는 최대일 때 가장 크다고 하지만 귀에 거슬릴 정도는 아니었습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">맞바람에서는<br>
+캐스팅 끝에서 루어가 멈춥니다</h2>
+
+<br>
+
+<p>
+바람이 옆에서 오는 날 정면으로 던져 보니 거의 끝까지 완벽했습니다.<br>
+그런데 마지막에 루어가 바람을 맞고 멈추면서 줄이 몇 번 겹쳤다가 풀렸습니다.<br>
+오버헤드로 던져도 똑같았습니다.<br>
+맞바람이라면 던지는 중간보다 루어가 물에 닿기 직전에 스풀을 지켜보세요.<br><br>
+같은 5g이라도 몸통이 큰 루어는 바람을 더 받습니다.<br>
+몸통이 작은 송어용 미노우로 바꾸자 같은 맞바람에서도 깨끗하게 날았습니다.<br>
+계단 위에서는 백스윙 때 뒤쪽 배관에 루어가 걸려 라인을 잘라 내고 다시 감아야 했습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">큰 점을 하나씩 내려<br>
+한계를 찾습니다</h2>
+
+<br>
+
+<p>
+최대 브레이크에서는 5g 루어가 23m쯤 나갔습니다.<br>
+다이얼을 큰 점 하나 내려도 거리는 거의 같았고, 두 개를 더 내리자 스풀이 과하게 풀려 오버런이 났습니다.<br>
+그래서 큰 점 하나를 도로 올렸습니다.<br><br>
+이 위치에서 사이드 캐스팅은 깨끗했고 오버헤드는 중간에 오버런이 났습니다.<br>
+오버헤드로 27m쯤, 뒤바람을 받으면 30m를 넘게 나갔지만 브레이크가 막 버티는 선이었습니다.<br>
+사이드만 쓴다면 한 칸 더 내려도 스풀 제어가 유지되었고, 거리는 32m쯤까지 나왔습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">브레이크를 최소로 내리면<br>
+소리는 줄지만 던질 수가 없습니다</h2>
+
+<br>
+
+<p>
+브레이크를 낮추면 DC 소리도 작아진다는 설명이 있어서 최소로 내려 확인했습니다.<br>
+실제로 소리는 거의 나지 않았습니다.<br>
+다만 엄지로 스풀을 계속 눌러 줘야 해서 들리는 소리는 엄지 마찰음뿐이었습니다.<br>
+최소 설정에서는 깨끗한 캐스팅이 되지 않습니다.<br>
+DC 특유의 소리를 싫어하는 사람에게는 오히려 맞지 않는 릴입니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 7 -->
+<div class="section"><h2 class="body-heading">멀리 던져야 하는 이유는<br>
+물가에 서 보면 분명해집니다</h2>
+
+<p>
+물가에서 배스가 베이트피쉬를 쫓는 모습이 보여도 거리가 닿지 않으면 입질을 받을 기회조차 없습니다.<br>
+한 번 걸린 뒤에는 소동이 가라앉으니 닿는 첫 캐스팅이 중요합니다.<br><br>
+입문용 DC릴로 바람 부는 물가에 나간다면 큰 점 하나를 올려서 사이드 캐스팅부터 하세요.<br>
+몸통이 작은 5g 안팎 루어를 쓰면 바람에 덜 밀립니다.<br>
+그 설정에서 오버런이 나는지 확인한 뒤 한 칸씩만 내려 가 보세요.
+</p>
+</div>
+
+<!-- 결론 -->
+
+</div>
+</body>
+</html>

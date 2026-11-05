@@ -1,0 +1,169 @@
+<!--
+하이기어 BFS 릴, 2g 미노우를 맞바람에 던져도 천천히 감기 쉬웠다
+#BFS낚시
+#베이트피네스
+#하이기어릴
+#초경량루어
+#하천루어
+BFS 릴 하이기어
+천천히 감기 쉬웠다
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 관점: 1번 지형 / 타겟: 소형 하천에서 베이트릴로 가벼운 루어를 던져 보려는 낚시인 / 자료: 내수면·영어(장비) / 구조 세트: 1 -->
+    <style>
+:root{--primary:#0A2433;--accent:#C2410C;--border:#D5E2E2;--page:#EDF3F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:#0B2A3C;font-family:'Noto Sans KR','Malgun Gothic',Arial,sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;text-align:left}
+.container{max-width:1104px;margin:32px auto;padding:42px 52px;background:#FFFFFF;border:1px solid var(--border);border-radius:18px;box-shadow:0 14px 30px -22px rgba(10,36,51,.10)}
+h2{width:auto;margin:24px 0 16px;font-family:'Noto Serif KR','Batang',serif;font-size:clamp(22px,3.4vw,27px);color:var(--primary);font-weight:750;line-height:1.4;letter-spacing:-.025em;word-break:keep-all;text-align:left}
+.body-heading{font-size:clamp(19px,3vw,23px);margin:34px 0 22px;border-left:4px solid var(--accent);padding-left:14px}
+.conclusion-heading{margin-top:40px;padding-top:22px;border-top:2px solid var(--border)}
+.section{margin:0 0 40px;padding:0}
+.section>br{display:none}
+p{width:auto!important;margin:0 0 19px!important;font-size:16px!important;line-height:1.9;text-align:left!important;word-break:keep-all}
+@media(max-width:700px){body{background:#FFFFFF}.container{padding:24px 19px;margin:0;max-width:100%;border:0;box-shadow:none;border-radius:0}.section{margin-bottom:28px}p{font-size:15.5px!important;line-height:1.83}.body-heading{margin-top:27px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- 서론 -->
+<div class="section">
+<p>
+BFS 릴에 하이기어가 달렸다고 하면<br>
+천천히 감기 어렵다고 생각하는 분들이 많습니다.<br>
+그런데 기어비 8.2:1 릴도 감는 손만 가볍게 하면<br>
+소형 루어를 느리게 끌 수 있습니다.<br>
+기어비와 라인, 로드를 맞추는 기준을 이 글에서 잡아 둡니다.<br><br>
+이 글은 BFS 릴의 기어비, 1~8g 로드와 합사 조합,<br>
+소형 미노우와 어시스트 훅, 브레이크 조절을 중심으로 정리합니다.
+</p>
+</div>
+
+<!-- 본론 1 -->
+<div class="section"><h2 class="body-heading">1. BFS는 작은 루어를<br>
+베이트릴로 던지는 방식입니다</h2>
+
+<br>
+
+<p>
+BFS는 베이트 피네스 시스템의 줄임말로,<br>
+쉽게 말해 작고 가벼운 루어를 베이트릴로 던져 작은 고기를 노리는 낚시입니다.<br>
+세팅은 6파운드(약 2.7kg) 합사에 8파운드(약 3.6kg, 2호) 리더를 묶고, 초경량 로드를 씁니다.<br><br>
+로드는 길이 6피트(약 1.8m)에 1~8g 루어를 던질 수 있는 초경량 모델입니다.<br>
+탄성이 부드러워서 아주 작은 고기도 힘이 센 놈처럼 느껴집니다.<br>
+그래서 작은 고기를 거는 재미가 큽니다.<br><br>
+물이 줄어든 하천에서는 작은 웅덩이 사이로 가볍게 던져 넣는 낚시가 어울립니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 2 -->
+<div class="section"><h2 class="body-heading">2. 8.2:1 릴은 빠르지만<br>
+천천히 감기도 어렵지 않습니다</h2>
+
+<br>
+
+<p>
+XG 표기는 기어비가 빠르다는 뜻이며, 이 릴은 8.2:1입니다.<br>
+빠른 기어비라서 루어를 감을 때 조심스럽게 손을 놀려야 합니다.<br><br>
+대신 빨리 감아야 할 때는 핸들을 힘껏 돌려 루어에 액션을 줍니다.<br>
+천천히 감는 건 어렵지 않습니다.<br>
+100g쯤 나가는 작은 고기를 감는 데는 큰 감기 힘이 필요하지 않습니다.<br>
+그래서 하이기어 쪽을 고르는 낚시인도 있습니다.<br><br>
+작은 루어에 큰 동작을 주면 오히려 반응이 없습니다.<br>
+작은 루어는 작게 움직이게 두세요.<br>
+큰 동작은 통하지 않습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 3 -->
+<div class="section"><h2 class="body-heading">3. 맞바람에 던져도 2g 미노우는<br>
+이상 없이 나갑니다</h2>
+
+<br>
+
+<p>
+막상 던져 보면 작은 릴로 작은 루어가 놀랄 만큼 멀리 나갑니다.<br>
+무게가 2g 정도 되는 소형 미노우를 맞바람 쪽으로 던져도 문제없이 날아갑니다.<br><br>
+브레이크 다이얼에 딸깍 하고 걸리는 단계가 없어서 숫자 사이를 원하는 대로 맞출 수 있습니다.<br>
+단계가 있으면 손맛이 더 좋을 것 같지만, 단계가 없는 덕분에 세밀한 조절이 됩니다.<br>
+브레이크는 바람이 센 날과 약한 날에 맞춰 다이얼을 한 칸씩 움직여 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 4 -->
+<div class="section"><h2 class="body-heading">4. 금색, 은색, 줄무늬에<br>
+저크 저크 포즈를 겹칩니다</h2>
+
+<br>
+
+<p>
+이 하천의 고기들은 금색과 은색, 줄무늬 색에 반응이 좋은 편입니다.<br>
+저크, 저크, 포즈로 끊어 주면 큰 첨벙 소리 없이 부드럽게 보여 입질을 받기 쉽습니다.<br><br>
+42mm에 1.8g 하는 작은 미노우에는 어시스트 훅과 일반 훅을 같이 달 수 있습니다.<br>
+트레블 대신 어시스트 훅을 달면 입이 아주 작은 고기도 걸 수 있습니다.<br>
+메기류가 물고 간 뒤에는 루어에 점액이 잔뜩 묻으니 닦고 다시 던지세요.<br><br>
+물에 빠진 잠자리를 닮은 탑워터 루어는 액션을 주지 않고 그대로 띄워 둔 채 반응을 봅니다.<br>
+오후에 입이 작은 고기가 따라붙으면 뒤쪽 트레블을 어시스트 훅으로 바꿔 보세요.
+</p>
+<br>
+</div>
+
+<!-- 본론 5 -->
+<div class="section"><h2 class="body-heading">5. 길이 1.2m 짧은 로드는<br>
+좁은 둑길에서 편합니다</h2>
+
+<br>
+
+<p>
+길이 4피트(약 1.2m)의 짧은 로드는 둑 위를 걸을 때 편합니다.<br>
+좁은 지형에서는 긴 로드를 휘두를 공간이 없기 때문입니다.<br>
+이런 로드는 값이 싸고 휨새가 부드러워서 소형 루어에 잘 맞습니다.<br><br>
+가격이 낮은 입문용 BFS 릴은 클릭 드랙이 조금 스펀지처럼 느껴집니다.<br>
+시마노(Shimano) SLX BFS의 클릭 드랙은 딸깍 하는 소리가 또렷합니다.<br>
+소리가 분명하면 드랙을 조일 때 기준이 잡히기 쉽습니다.
+</p>
+<br>
+</div>
+
+<!-- 본론 6 -->
+<div class="section"><h2 class="body-heading">6. 가시가 센 작은 메기류는<br>
+뜰채에서도 조심합니다</h2>
+
+<br>
+
+<p>
+소형 하천에서는 가시가 센 작은 메기류가 올라오기도 합니다.<br>
+가슴지느러미 양쪽과 등지느러미에 한 개씩, 가시가 세 개 있습니다.<br>
+뜰채에 넣으면 가시가 그물에 걸려 망이 망가집니다.<br><br>
+입 쪽을 잡고 가시를 피해 바늘을 빼 주세요.<br>
+초록빛이 도는 녀석일수록 힘이 좋아 더 위험합니다.<br>
+찔리면 큰 사고가 될 수 있습니다.
+</p>
+<br>
+</div>
+
+<!-- 결론 -->
+<div class="section"><h2 class="conclusion-heading">작은 고기일수록 오히려<br>
+장비 균형이 드러납니다</h2>
+
+<p>
+물이 낮은 하천은 웅덩이 사이로 가볍게 던져 넣는 낚시가 어울립니다.<br>
+로드가 짧을수록 좁은 둑길에서 움직이기 쉽습니다.<br><br>
+바람이 센 날에는 카약이나 보트가 시속 10km쯤으로 떠내려갑니다.<br>
+되돌아오는 길을 생각해서 상류 쪽부터 시작하세요.<br>
+천둥소리가 들리면 물속에 서 있지 말고 곧바로 물 밖으로 나오는 게 안전합니다.
+</p>
+</div>
+
+</div>
+</body>
+</html>
