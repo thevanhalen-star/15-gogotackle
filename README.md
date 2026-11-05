@@ -16,3 +16,10 @@
 ## 폰트
 나눔글꼴만 사용 (나눔바른고딕 400/700 + 나눔스퀘어 네오 800/900, 한글·라틴 부분 추출 woff2).
 `src/assets/fonts/` 에 있으며 `theme.css` / `fonts.css` 에서 `GG` 라는 이름으로 등록. 외부 폰트 서비스(Google Fonts 등)는 쓰지 않음.
+
+## AdSense 승인 후 설정
+`tools/build.mjs` 맨 위의 `ADSENSE_PUB = ''` 에 게시자 ID(예: `pub-1234567890123456`)를 넣고 푸시하면
+- 모든 페이지 head 에 AdSense 코드와 `google-adsense-account` 메타가 들어가고
+- `ads.txt` (`google.com, pub-…, DIRECT, f08c47fec0942fa0`)가 자동 생성됩니다.
+- EEA/영국 방문자용 동의 메시지는 AdSense → 개인정보 보호 및 메시지(Google CMP)에서 켭니다.
+- 목록 2페이지 이후와 `/all-posts` 는 `noindex,follow` 이며 sitemap 에서 제외됩니다.
