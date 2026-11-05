@@ -194,7 +194,6 @@ function home() {
   const stat = (href, n, label) => `<a href="${href}" class="g stat"><div class="big">${num(n)}</div><div class="mono">${label}</div></a>`;
   const gcount = (s) => (byGroup[s] || []).length;
   const gname = (s) => GROUPS.find((g) => g.slug === s).name;
-  const steps = [['낚시 장르 정하기', '배스·연안·지깅·라이트게임…'], ['로드·릴·라인 맞추기', '적정 루어 무게와 권사량'], ['규격표로 후보 줄이기', '자중·드랙·기어비'], ['세팅·정비로 오래 쓰기', '브레이크·드랙·관리']];
   const ccard = (c, ratio, cls, label, size) => `<a href="${catUrl(c)}" class="g ccard ${cls}"><div class="cc-b"><div class="mono">${label}</div><div class="big sm">${num(cnt(c))}</div><div class="cc-t" style="font-size:${size}px">${esc(catBy[c].name)}</div></div></a>`;
   const body = `
 <section class="hero">
@@ -202,7 +201,7 @@ function home() {
     <div class="mono">Gear Review &amp; Buying Guide</div>
     <h1>살 때 후회하지 않게,<br><span class="hl">장비 고르는 기준</span>부터</h1>
     <p class="lead">릴·로드·라인·루어를 고르는 기준과 세팅, 비교, 실사용 후기를 ${num(total)}개의 글로 정리했습니다. 규격표 읽는 법과 현장에서 체감되는 차이를 먼저 봅니다.</p>
-    <div class="btns"><a class="btn" href="#howto">고르는 법 보기</a><a class="g btn2" href="/all-posts">전체 글 ${num(total)}개 →</a></div>
+    <div class="btns"><a class="g btn2" href="/all-posts">전체 글 ${num(total)}개 →</a></div>
   </div>
 </section>
 
@@ -210,15 +209,8 @@ function home() {
   ${stat('/all-posts', total, '전체 글')}${['reel', 'rod', 'lure', 'line', 'etc'].map((s) => stat(groupUrl(s), gcount(s), gname(s))).join('')}
 </section>
 
-<section id="howto" class="sec">
-  ${sechead('01', 'How to pick', '장비 고르는 네 단계')}
-  <div class="how">
-    <div class="steps">${steps.map(([t, d], i) => `<div class="g hv step"><div class="sn">0${i + 1}</div><h3>${t}</h3><p>${d}</p></div>`).join('')}</div>
-  </div>
-</section>
-
 <section id="combos" class="sec">
-  <div class="sech"><div><div class="mono">02 // Categories</div><h2>카테고리</h2></div><div class="chips">${GROUPS[0].cats.map((c) => chip(catUrl(c), c === 'reel2' ? '기타 릴' : catBy[c].name, cnt(c))).join('')}</div></div>
+  <div class="sech"><div><div class="mono">01 // Categories</div><h2>카테고리</h2></div><div class="chips">${GROUPS[0].cats.map((c) => chip(catUrl(c), c === 'reel2' ? '기타 릴' : catBy[c].name, cnt(c))).join('')}</div></div>
   <div class="cgrid1">${ccard('rod', '16/10', 'wide', 'Rods', 20)}${ccard('bait', '4/3', '', 'Bait', 20)}</div>
   <div class="cgrid2">${ccard('spin', '4/3', '', 'Spinning', 18)}${ccard('bfs', '4/3', '', 'BFS', 18)}<a href="${groupUrl('etc')}" class="g ccard"><div class="cc-b"><div class="mono">Field</div><div class="big sm">${num(gcount('etc'))}</div><div class="cc-t" style="font-size:18px">장비·현장</div></div></a></div>
 </section>
@@ -228,17 +220,17 @@ function home() {
 </section>
 
 <section class="sec">
-  ${sechead('03', 'Latest', '최신 글', '<a class="more" href="/all-posts">더 보기 →</a>')}
+  ${sechead('02', 'Latest', '최신 글', '<a class="more" href="/all-posts">더 보기 →</a>')}
   <div class="rows">${posts.slice(0, 6).map((p) => row(p, false)).join('')}</div>
 </section>
 
 <section class="sec">
-  ${sechead('04', 'Browse by topic', '주제로 찾기')}
+  ${sechead('03', 'Browse by topic', '주제로 찾기')}
   <div class="tiles">${TOPICS.map((t) => `<a href="${topicUrl(t.slug)}" class="g tile"><div class="mono lav">${num((byTopic[t.slug] || []).length)}</div><div class="tt">${esc(t.name)}</div></a>`).join('')}</div>
 </section>
 
 <section class="sec">
-  ${sechead('05', 'Browse by genre', '낚시 장르로 찾기')}
+  ${sechead('04', 'Browse by genre', '낚시 장르로 찾기')}
   <div class="tiles">${GENRES.map((t) => `<a href="${genreUrl(t.slug)}" class="g tile"><div class="mono lav">${num((byGenre[t.slug] || []).length)}</div><div class="tt">${esc(t.name)}</div></a>`).join('')}</div>
 </section>`;
   write('index.html', layout({
