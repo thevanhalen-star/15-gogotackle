@@ -125,8 +125,7 @@ function layout({ title, desc, path: p, body, nav = '', type = 'website', ld = [
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <meta property="og:type" content="${type}"><meta property="og:site_name" content="${NAME}"><meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="preload" href="/assets/fonts/NanumBarunGothic-400.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/NanumBarunGothic-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/theme.css?v=${V.css}">
 ${ldJson}
 </head>

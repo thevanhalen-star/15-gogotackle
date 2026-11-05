@@ -12,3 +12,7 @@
 - `functions/` : Pages Functions — `/api/ads`(공개), `/api/admin/*`(Cloudflare Access 로그인 필요)
 - 관리자: https://gogotackle.com/admin/  (광고 자리·광고 on/off 관리)
   - Pages 변수 `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD`, KV 바인딩 `ADS_KV` 필요
+
+## 폰트
+나눔글꼴만 사용 (나눔바른고딕 400/700 + 나눔스퀘어 네오 800/900, 한글·라틴 부분 추출 woff2).
+`src/assets/fonts/` 에 있으며 `theme.css` / `fonts.css` 에서 `GG` 라는 이름으로 등록. 외부 폰트 서비스(Google Fonts 등)는 쓰지 않음.

@@ -1,0 +1,5 @@
+/* 나눔글꼴 전용 — 본문: 나눔바른고딕(400/700), 제목·강조: 나눔스퀘어 네오(800/900) */
+@font-face{font-family:'GG';font-weight:400 600;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumBarunGothic-400.woff2) format('woff2')}
+@font-face{font-family:'GG';font-weight:700;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumBarunGothic-700.woff2) format('woff2')}
+@font-face{font-family:'GG';font-weight:800;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumSquareNeo-800.woff2) format('woff2')}
+@font-face{font-family:'GG';font-weight:900;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumSquareNeo-900.woff2) format('woff2')}

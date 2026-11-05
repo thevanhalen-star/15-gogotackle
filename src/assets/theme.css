@@ -1,9 +1,14 @@
+/* 나눔글꼴 전용 — 본문: 나눔바른고딕(400/700), 제목·강조: 나눔스퀘어 네오(800/900) */
+@font-face{font-family:'GG';font-weight:400 600;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumBarunGothic-400.woff2) format('woff2')}
+@font-face{font-family:'GG';font-weight:700;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumBarunGothic-700.woff2) format('woff2')}
+@font-face{font-family:'GG';font-weight:800;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumSquareNeo-800.woff2) format('woff2')}
+@font-face{font-family:'GG';font-weight:900;font-style:normal;font-display:swap;src:url(/assets/fonts/NanumSquareNeo-900.woff2) format('woff2')}
 /* 고고태클 — 타클박스(공구함) 컨셉: 종이 질감 배경 + 파인 그린 + 시그널 옐로 */
 :root{
   --paper:#F5F2EA; --card:#FFFFFF; --ink:#1A211C; --muted:#5B655E; --line:#DDD7C7;
   --pine:#12332A; --pine2:#1D4A3D; --yellow:#F4B400; --yellow-d:#8A6200; --rust:#B4441A; --mint:#E5EFE8;
-  --mono:'JetBrains Mono','D2Coding',Consolas,monospace;
-  --sans:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif;
+  --mono:'GG',sans-serif;
+  --sans:'GG',sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
