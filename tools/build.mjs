@@ -103,10 +103,6 @@ const byCatTopic = by((p) => p.cat + '|' + p.topic);
 const catUrl = (s) => `/archive/c-${s}-1`, groupUrl = (s) => `/archive/g-${s}-1`, topicUrl = (s) => `/archive/t-${s}-1`, genreUrl = (s) => `/archive/f-${s}-1`;
 
 // ---------- 공통 조각 ----------
-const IMGS = { hero: 'hero-combo.jpg', step: 'step-balance-reels-row.jpg', rod: 'cat-rod-combo.jpg', bait: 'cat-bait-dark.jpg', spin: 'cat-spinning-lineup.jpg', bfs: 'cat-bfs-sunrise.jpg', field: 'cat-field-boat.jpg', banner: 'banner-rocks.jpg', shore: 'thumb-shore.jpg', lure: 'thumb-lure.jpg' };
-const img = (k) => `/assets/img/${IMGS[k]}`;
-const POOL = ['step', 'rod', 'bait', 'spin', 'bfs', 'field', 'shore', 'lure']; // 글 썸네일용 (hero·banner 제외)
-const thumbOf = (p) => img(POOL[p.n % POOL.length]);
 const mins = (p) => Math.max(2, Math.round(p.chars / 500));
 const num = (n) => n.toLocaleString('ko-KR');
 const cnt = (c) => (byCat[c] || []).length;
@@ -130,7 +126,7 @@ function layout({ title, desc, path: p, body, nav = '', type = 'website', ld = [
 <link rel="alternate" type="application/rss+xml" title="${NAME} RSS" href="/rss.xml">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <meta property="og:type" content="${type}"><meta property="og:site_name" content="${NAME}"><meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}"><meta property="og:image" content="${SITE}${img('hero')}">
+<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}">
 <link rel="preload" href="/assets/fonts/NanumBarunGothic-400.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/NanumBarunGothic-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/theme.css?v=${V.css}">
 ${ldJson}
@@ -162,7 +158,7 @@ ${body}
 }
 
 const chip = (href, name, n, on) => `<a class="g chip${on ? ' on' : ''}" href="${href}">${esc(name)}${n !== undefined ? ` ${num(n)}` : ''}</a>`;
-const row = (p, ex) => `<a href="${url(p)}" class="g row"><img src="${thumbOf(p)}" alt="" width="200" height="120" loading="lazy"><div class="row-b"><div class="mono">${esc(catBy[p.cat].name)} · ${mins(p)}분</div><h3>${esc(p.title)}</h3>${ex ? `<p>${esc(p.excerpt)}</p>` : ''}</div><span class="arr" aria-hidden="true">→</span></a>`;
+const row = (p, ex) => `<a href="${url(p)}" class="g row"><div class="row-b"><div class="mono">${esc(catBy[p.cat].name)} · ${mins(p)}분</div><h3>${esc(p.title)}</h3>${ex ? `<p>${esc(p.excerpt)}</p>` : ''}</div><span class="arr" aria-hidden="true">→</span></a>`;
 const sechead = (n, label, title, right = '') => `<div class="sech"><div><div class="mono">${n ? n + ' // ' : ''}${label}</div><h2>${title}</h2></div>${right}</div>`;
 
 function pager(base, n, total) {
@@ -200,7 +196,7 @@ function home() {
   const gcount = (s) => (byGroup[s] || []).length;
   const gname = (s) => GROUPS.find((g) => g.slug === s).name;
   const steps = [['낚시 장르 정하기', '배스·연안·지깅·라이트게임…'], ['로드·릴·라인 맞추기', '적정 루어 무게와 권사량'], ['규격표로 후보 줄이기', '자중·드랙·기어비'], ['세팅·정비로 오래 쓰기', '브레이크·드랙·관리']];
-  const ccard = (c, ratio, cls, label, size) => `<a href="${catUrl(c)}" class="g ccard ${cls}"><img src="${img(c)}" alt="" loading="lazy" style="aspect-ratio:${ratio}"><div class="cc-b"><div class="mono">${label} · ${num(cnt(c))}</div><div class="cc-t" style="font-size:${size}px">${esc(catBy[c].name)}</div></div></a>`;
+  const ccard = (c, ratio, cls, label, size) => `<a href="${catUrl(c)}" class="g ccard ${cls}"><div class="cc-b"><div class="mono">${label}</div><div class="big sm">${num(cnt(c))}</div><div class="cc-t" style="font-size:${size}px">${esc(catBy[c].name)}</div></div></a>`;
   const body = `
 <section class="hero">
   <div class="hero-t">
@@ -209,7 +205,6 @@ function home() {
     <p class="lead">릴·로드·라인·루어를 고르는 기준과 세팅, 비교, 실사용 후기를 ${num(total)}개의 글로 정리했습니다. 규격표 읽는 법과 현장에서 체감되는 차이를 먼저 봅니다.</p>
     <div class="btns"><a class="btn" href="#howto">고르는 법 보기</a><a class="g btn2" href="/all-posts">전체 글 ${num(total)}개 →</a></div>
   </div>
-  <figure class="hero-f"><div class="g hero-i"><img src="${img('hero')}" alt="나란히 놓인 로드와 베이트릴 콤보" width="1600" height="1200"></div><div class="g cover"><div class="mono">Cover</div><div>로드 + 릴 콤보</div></div></figure>
 </section>
 
 <section class="stats" aria-label="글 수">
@@ -220,18 +215,17 @@ function home() {
   ${sechead('01', 'How to pick', '장비 고르는 네 단계')}
   <div class="how">
     <div class="steps">${steps.map(([t, d], i) => `<div class="g hv step"><div class="sn">0${i + 1}</div><h3>${t}</h3><p>${d}</p></div>`).join('')}</div>
-    <div class="g how-i"><img src="${img('step')}" alt="줄지어 놓인 로드와 베이트릴" loading="lazy"><div class="mono tag">Step 02 — Balance</div></div>
   </div>
 </section>
 
 <section id="combos" class="sec">
   <div class="sech"><div><div class="mono">02 // Categories</div><h2>카테고리</h2></div><div class="chips">${GROUPS[0].cats.map((c) => chip(catUrl(c), c === 'reel2' ? '기타 릴' : catBy[c].name, cnt(c))).join('')}</div></div>
   <div class="cgrid1">${ccard('rod', '16/10', 'wide', 'Rods', 20)}${ccard('bait', '4/3', '', 'Bait', 20)}</div>
-  <div class="cgrid2">${ccard('spin', '4/3', '', 'Spinning', 18)}${ccard('bfs', '4/3', '', 'BFS', 18)}<a href="${groupUrl('etc')}" class="g ccard"><img src="${img('field')}" alt="" loading="lazy" style="aspect-ratio:4/3"><div class="cc-b"><div class="mono">Field · ${num(gcount('etc'))}</div><div class="cc-t" style="font-size:18px">장비·현장</div></div></a></div>
+  <div class="cgrid2">${ccard('spin', '4/3', '', 'Spinning', 18)}${ccard('bfs', '4/3', '', 'BFS', 18)}<a href="${groupUrl('etc')}" class="g ccard"><div class="cc-b"><div class="mono">Field</div><div class="big sm">${num(gcount('etc'))}</div><div class="cc-t" style="font-size:18px">장비·현장</div></div></a></div>
 </section>
 
 <section class="sec note">
-  <div class="g note-i"><img src="${img('banner')}" alt="바위 사이에 기대 세운 낚싯대들" loading="lazy"><div class="note-t"><div class="mono">Editor's note</div><blockquote>장비는 스펙이 아니라<br>쓰임새로 고릅니다.</blockquote><p>규격표 읽는 법과 현장에서 체감되는 차이를 먼저 봅니다.</p></div></div>
+  <div class="g note-i"><div class="note-t"><div class="mono">Editor's note</div><blockquote>장비는 스펙이 아니라<br>쓰임새로 고릅니다.</blockquote><p>규격표 읽는 법과 현장에서 체감되는 차이를 먼저 봅니다.</p></div></div>
 </section>
 
 <section class="sec">
@@ -290,7 +284,6 @@ function postPage(p, i) {
   <div class="mono crumb"><a href="/">Home</a> / <a href="${groupUrl(p.group.slug)}">${esc(p.group.name)}</a> / <a href="${catUrl(p.cat)}">${esc(catBy[p.cat].name)}</a></div>
   <h1>${esc(p.title)}</h1>
   <div class="byline"><a class="g" href="${topicUrl(p.topic)}">${esc(topicBy[p.topic].name)}</a><a class="g" href="${genreUrl(p.genre)}">${esc(genreBy[p.genre].name)}</a><span class="mono">읽기 ${mins(p)}분</span></div>
-  <img class="art-i" src="${thumbOf(p)}" alt="" width="1600" height="686">
   <p class="disc">이 페이지에는 <b>광고</b>(제휴 링크 포함)가 있을 수 있으며, 광고 링크를 통해 구매하면 운영자가 수수료를 받을 수 있습니다.</p>
   ${AD('detail-top')}
   ${bodyHtml}
