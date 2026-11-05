@@ -245,7 +245,7 @@ function archives() {
 }
 
 // ---------- 글 상세 ----------
-const AD = (id) => `<div class="ad-slot" data-ad-slot="${id}" style="display:none"></div>`;
+const AD = (id) => `<div class="ad-photo ad-slot" data-ad-slot="${id}" style="margin:${id === 'detail-top' ? '0 0 32px 0' : '32px 0'};text-align:center;display:none"></div>`;
 function postPage(p, i) {
   const bucket = byCatTopic[p.cat + '|' + p.topic];
   const pos = bucket.indexOf(p);

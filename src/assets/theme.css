@@ -178,6 +178,9 @@ img{max-width:100%}
 .ph .cnt{font-family:var(--mono);font-size:12.5px;margin-left:6px;color:var(--rust)}
 .ph .chips{margin-top:14px}
 .pager .gap{border:0;background:none;min-width:24px}
-.ad-slot{margin:8px 0 28px;text-align:center}
-.ad-slot a{display:block;position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none}
+/* 광고 크기: wikilure 와 동일 (400px 정사각, 모바일 70%) */
+.ad-photo a{position:relative;display:inline-block;width:400px;max-width:100%;line-height:0;vertical-align:top;border-radius:10px;overflow:hidden;border:1px solid var(--line);text-decoration:none}
+.ad-photo img{aspect-ratio:1/1;object-fit:cover}
+.ad-slot:empty{display:none}
+@media(max-width:700px){.ad-photo a{width:70%}}
 .ad-label{position:absolute;left:8px;top:8px;z-index:1;background:rgba(18,51,42,.85);color:#fff;font-size:11px;font-weight:700;padding:1px 8px;border-radius:4px}
