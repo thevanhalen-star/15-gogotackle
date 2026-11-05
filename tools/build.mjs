@@ -4,6 +4,7 @@
 // 사용: node tools/build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -15,6 +16,8 @@ const TAGLINE = '낚시 장비 리뷰 & 선택 가이드';
 const EMAIL = 'contact@gogotackle.com';
 const PER = 24;
 const UPDATED = '2026-11-06';
+const ver = (f) => crypto.createHash('md5').update(fs.readFileSync(path.join(SRC, 'assets', f))).digest('hex').slice(0, 8);
+const V = { css: ver('theme.css'), js: ver('site.js'), ads: ver('ads.js') };
 
 // 상단 메뉴 묶음 (categories.json 의 카테고리 slug 를 묶어서 보여 줌)
 const GROUPS = [
@@ -124,7 +127,7 @@ function layout({ title, desc, path: p, body, nav = '', type = 'website', ld = [
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
-<link rel="stylesheet" href="/assets/theme.css">
+<link rel="stylesheet" href="/assets/theme.css?v=${V.css}">
 ${ldJson}
 </head>
 <body>
@@ -143,7 +146,7 @@ ${body}
   <div class="copy">© 2026 ${NAME} · ${TAGLINE} · gogotackle.com</div>
 </div></footer>
 <button class="up" id="up" type="button" aria-label="맨 위로">↑</button>
-<script src="/assets/site.js" defer></script>${scripts}
+<script src="/assets/site.js?v=${V.js}" defer></script>${scripts}
 </body>
 </html>
 `;
@@ -272,7 +275,7 @@ function postPage(p, i) {
 </div>
 <section class="rel"><h2>같은 주제의 다른 글</h2><div class="grid">${related.map(card).join('')}</div></section></div>`;
   write(`posts/${p.id}/001.html`, layout({
-    title: `${p.title} - ${NAME}`, desc: p.desc, path: url(p), body, nav: p.group.name, type: 'article', scripts: '\n<script src="/assets/ads.js" defer></script>',
+    title: `${p.title} - ${NAME}`, desc: p.desc, path: url(p), body, nav: p.group.name, type: 'article', scripts: '\n<script src="/assets/ads.js?v=${V.ads}" defer></script>',
     ld: [
       { '@context': 'https://schema.org', '@type': 'Article', headline: p.title, description: p.desc, inLanguage: 'ko-KR', articleSection: `${p.group.name} › ${catBy[p.cat].name}`, keywords: p.tags.join(', '), mainEntityOfPage: SITE + url(p), isAccessibleForFree: true, author: { '@type': 'Organization', name: NAME, url: SITE + '/' }, publisher: { '@type': 'Organization', name: NAME, url: SITE + '/' } },
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [[NAME, '/'], [p.group.name, groupUrl(p.group.slug)], [catBy[p.cat].name, catUrl(p.cat)], [p.title, url(p)]].map(([name, u], k) => ({ '@type': 'ListItem', position: k + 1, name, item: SITE + u })) },
